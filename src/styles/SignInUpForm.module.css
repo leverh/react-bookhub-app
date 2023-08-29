@@ -1,0 +1,44 @@
+.Row {
+  height: calc(100vh - 81px);
+  background-color: #f4f1ea; 
+}
+
+.Input {
+  background: #ffffff;
+  border: 1px solid #dcd8d0; 
+  color: #5d5b53; 
+  text-align: center;
+  padding: 1rem;
+}
+
+.Header {
+  font-style: italic; 
+  font-weight: bold;
+  font-size: 2.4rem; 
+  text-align: center;
+  color: #825343; 
+}
+
+.Link {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.Link span {
+  color: #ff9254;
+}
+
+.Container {
+  padding: 3rem 10rem;
+}
+
+.SignInCol {
+  height: 32rem;
+}
+
+.SignUpCol {
+  height: 37.5rem;
+  /* background-image: url('https://res.cloudinary.com/dybqzflbo/image/upload/v1693341591/clay-banks-w_qTfiPbjbg-unsplash_iqsnpw.jpg'); */
+}

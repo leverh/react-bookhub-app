@@ -8,9 +8,52 @@
     font-size: 62.5% !important;
     font-family: 'Montserrat', sans-serif;
     min-height: 100vh;
-    background-color: #f5f5f5;
+    background-color: #f4f1ea;
 }
 
 .Main {
-    padding-top: 3rem;
+    padding-top: 5rem;
+}
+
+.Content {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #dcd8d0;
+  }
+  
+  .FillerImage {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .Image {
+    max-height: 40vh;
+    max-width: 100%;
+    object-fit: contain;
+  }
+  
+  input[type="file"] {
+    display: none;
+  }
+  
+  
+  figure {
+    text-align: center;
+    display: inline-block;
+  }
+  
+  /* scrollbar */
+*::-webkit-scrollbar {
+  width: 10px; 
+}
+*::-webkit-scrollbar-track {
+  background: #f4f1ea; 
+}
+*::-webkit-scrollbar-thumb {
+  background: #825343; 
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #5d5b53; 
 }
