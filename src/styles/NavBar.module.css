@@ -22,3 +22,7 @@
 .NavBar i:hover {
     color: #16a6b6;
 }
+
+.Active i {
+    color: #16a6b6;  
+}
