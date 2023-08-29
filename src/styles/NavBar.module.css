@@ -1,0 +1,24 @@
+.NavBar {
+    font-size: 1rem;
+}
+
+.NavBar a {
+    color: #333333;
+    text-decoration: none; 
+    transition: color 0.3s ease;
+}
+
+.NavBar a:hover {
+    color: #16a6b6;
+}
+
+.NavBar i {
+    color: #333333;
+    font-size: 1rem;
+    padding: .5rem;
+    vertical-align: middle;
+}
+
+.NavBar i:hover {
+    color: #16a6b6;
+}
