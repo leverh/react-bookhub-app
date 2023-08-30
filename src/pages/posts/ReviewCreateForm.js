@@ -46,11 +46,11 @@ const ReviewCreateForm = () => {
         event.preventDefault();
         const formData = new FormData();
     
-        formData.append("book_title", book_title);
+        formData.append("title", book_title);
         formData.append("author_name", author_name);
         formData.append("isbn", isbn);
-        formData.append("review_text", review_text);
-        formData.append("book_cover", imageInput.current.files[0]);
+        formData.append("content", review_text);
+        formData.append("image", imageInput.current.files[0]);
     
         try {
             const { data } = await axiosReq.post("/posts/", formData);
@@ -62,7 +62,7 @@ const ReviewCreateForm = () => {
             }
         }
     };
-
+    
     return (
         <Container className={`${appStyles.Content} ${styles.Container}`}>
             <h1 className={styles.Header}>Add a Book Review</h1>
