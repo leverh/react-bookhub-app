@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { Form, Button, Container, Alert, Image } from "react-bootstrap";
 import styles from "../../styles/ReviewCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
-import axios from "axios";
 import defaultBookCover from "../../assets/defaultBookCover.jpg";
 import Upload from "../../assets/upload.jpg";
 import Asset from "../../componenets/Asset";
+import { axiosReq } from "../../api/axiosDefaults";
 
 const ReviewCreateForm = () => {
     const [reviewData, setReviewData] = useState({
@@ -18,6 +18,8 @@ const ReviewCreateForm = () => {
         book_cover: defaultBookCover,
     });
     const { book_title, author_name, isbn, review_text, book_cover } = reviewData;
+
+    const imageInput = useRef(null);
 
     const [errors, setErrors] = useState({});
 
@@ -43,20 +45,21 @@ const ReviewCreateForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
+    
         formData.append("book_title", book_title);
         formData.append("author_name", author_name);
         formData.append("isbn", isbn);
         formData.append("review_text", review_text);
-        formData.append(
-            "book_cover",
-            book_cover ? book_cover : defaultBookCover
-        );
-
+        formData.append("book_cover", imageInput.current.files[0]);
+    
         try {
-            await axios.post("/reviews/create/", formData);
-            history.push("/reviews");
+            const { data } = await axiosReq.post("/posts/", formData);
+            history.push(`/reviews/${data.id}`);
         } catch (err) {
-            setErrors(err.response?.data);
+            console.log(err);
+            if (err.response?.status !== 401) {
+                setErrors(err.response?.data);
+            }
         }
     };
 
@@ -164,6 +167,7 @@ const ReviewCreateForm = () => {
                         id="image-upload"
                         accept="image/*"
                         onChange={handleImageChange}
+                        ref={imageInput}
                     />
                                 </Form.Group>
 
