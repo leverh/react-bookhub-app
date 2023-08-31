@@ -53,7 +53,7 @@ const Review = (props) => {
           {is_owner ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't like your own review!</Tooltip>}
+              overlay={<Tooltip>You can only like other persons' reviews!</Tooltip>}
             >
               <i className="far fa-heart" />
             </OverlayTrigger>

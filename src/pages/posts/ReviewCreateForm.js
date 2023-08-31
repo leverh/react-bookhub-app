@@ -6,7 +6,7 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import defaultBookCover from "../../assets/defaultBookCover.jpg";
 import Upload from "../../assets/upload.jpg";
-import Asset from "../../componenets/Asset";
+import Asset from "../../components/Asset";
 import { axiosReq } from "../../api/axiosDefaults";
 
 const ReviewCreateForm = () => {
