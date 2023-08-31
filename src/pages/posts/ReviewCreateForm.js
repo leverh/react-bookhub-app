@@ -170,13 +170,20 @@ const ReviewCreateForm = () => {
                         ref={imageInput}
                     />
                                 </Form.Group>
-
+<div className="d-flex justify-content-center">
 <Button
-    className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
+    className={`${btnStyles.Button} ${btnStyles.Bright}`}
     type="submit"
 >
     Submit Review
 </Button>
+<Button
+    className={`${btnStyles.Button} ${btnStyles.Blue}`}
+    onClick={() => history.goBack()}
+>
+    Cancel
+</Button>
+</div>
 {errors.non_field_errors?.map((message, idx) => (
     <Alert key={idx} variant="warning" className="mt-3">
         {message}
