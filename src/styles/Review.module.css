@@ -1,0 +1,22 @@
+.Review {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ReviewBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Heart, .HeartOutline {
+    color: #e0245e;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.HeartOutline:hover {
+    color: #ff4b6e;
+}
