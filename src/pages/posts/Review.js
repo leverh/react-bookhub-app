@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/Review.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
@@ -7,14 +7,15 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
 const Review = (props) => {
+  console.log(props);
   const {
     id,
     owner,
     profile_id,
     profile_image,
     comments_count,
-    likes_count,
-    like_id,
+    likes_count: initialLikesCount,
+    like_id: initialLikeId,
     title,
     author_name,
     isbn,
@@ -22,43 +23,52 @@ const Review = (props) => {
     image,
     updated_at,
     reviewPage,
-    setReviews,
+    setReview,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
+  const [likesCount, setLikesCount] = useState(initialLikesCount);
+  const [likeId, setLikeId] = useState(initialLikeId);
+
   const handleLike = async () => {
     try {
-      const { data } = await axiosRes.post("/likes/", { review: id });
-      setReviews((prevReviews) => ({
-        ...prevReviews,
-        results: prevReviews.results.map((review) => {
-          return review.id === id
-            ? { ...review, likes_count: review.likes_count + 1, like_id: data.id }
-            : review;
-        }),
-      }));
+      if (props.like_id) {
+        await axiosRes.delete(`/likes/${props.like_id}/`);
+        setReview((prevReview) => ({
+          ...prevReview,
+          likes_count: prevReview.likes_count - 1,
+          like_id: null,
+        }));
+      } else {
+        const { data } = await axiosRes.post("/likes/", { post: props.id });
+        setReview((prevReview) => ({
+          ...prevReview,
+          likes_count: prevReview.likes_count + 1,
+          like_id: data.id,
+        }));
+      }
     } catch (err) {
       console.log(err);
     }
   };
 
+  
   const handleUnlike = async () => {
     try {
-      await axiosRes.delete(`/likes/${like_id}/`);
-      setReviews((prevReviews) => ({
-        ...prevReviews,
-        results: prevReviews.results.map((review) => {
-          return review.id === id
-            ? { ...review, likes_count: review.likes_count - 1, like_id: null }
-            : review;
-        }),
+      await axiosRes.delete(`/likes/${likeId}/`);
+      setReview((prevReview) => ({
+        ...prevReview,
+        likes_count: prevReview.likes_count - 1,
       }));
+      setLikeId(null);
     } catch (err) {
       console.log(err);
     }
   };
+
+  
 
   return (
     <Card className={styles.Review}>
@@ -90,12 +100,12 @@ const Review = (props) => {
             >
               <i className="far fa-heart" />
             </OverlayTrigger>
-          ) : like_id ? (
-            <span onClick={handleUnlike}>
+          ) : likeId ? (
+            <span onClick={e => handleUnlike(e)}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={handleLike}>
+            <span onClick={e => handleLike(e)}>
               <i className={`far fa-heart ${styles.HeartOutline}`} />
             </span>
           ) : (
@@ -106,7 +116,7 @@ const Review = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           )}
-          {likes_count}
+          {likesCount}
           <Link to={`/reviews/${id}`}>
             <i className="far fa-comments" />
           </Link>
