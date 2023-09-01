@@ -34,40 +34,30 @@ const Review = (props) => {
 
   const handleLike = async () => {
     try {
-      if (props.like_id) {
-        await axiosRes.delete(`/likes/${props.like_id}/`);
-        setReview((prevReview) => ({
-          ...prevReview,
-          likes_count: prevReview.likes_count - 1,
-          like_id: null,
-        }));
+      if (likeId) {
+        await axiosRes.delete(`/likes/${likeId}/`);
+        setLikesCount((prev) => prev - 1);
+        setLikeId(null);
       } else {
-        const { data } = await axiosRes.post("/likes/", { post: props.id });
-        setReview((prevReview) => ({
-          ...prevReview,
-          likes_count: prevReview.likes_count + 1,
-          like_id: data.id,
-        }));
+        const { data } = await axiosRes.post("/likes/", { post: id });
+        setLikesCount((prev) => prev + 1);
+        setLikeId(data.id);
       }
     } catch (err) {
       console.log(err);
     }
   };
-
   
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${likeId}/`);
-      setReview((prevReview) => ({
-        ...prevReview,
-        likes_count: prevReview.likes_count - 1,
-      }));
+      setLikesCount((prev) => prev - 1);
       setLikeId(null);
     } catch (err) {
       console.log(err);
     }
   };
-
+  
   
 
   return (
@@ -93,29 +83,30 @@ const Review = (props) => {
         {isbn && <Card.Text>{isbn}</Card.Text>}
         {content && <Card.Text>{content}</Card.Text>}
         <div className={styles.ReviewBar}>
-          {is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>You can't like your own review!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
-          ) : likeId ? (
-            <span onClick={e => handleUnlike(e)}>
-              <i className={`fas fa-heart ${styles.Heart}`} />
-            </span>
-          ) : currentUser ? (
-            <span onClick={e => handleLike(e)}>
-              <i className={`far fa-heart ${styles.HeartOutline}`} />
-            </span>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to like reviews!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
-          )}
+        {is_owner ? (
+  <OverlayTrigger
+    placement="top"
+    overlay={<Tooltip>You can't like your own review!</Tooltip>}
+  >
+    <i className="far fa-heart" />
+  </OverlayTrigger>
+) : likeId ? (
+  <span onClick={handleUnlike}>
+    <i className={`fas fa-heart ${styles.Heart}`} />
+  </span>
+) : currentUser ? (
+  <span onClick={handleLike}>
+    <i className={`far fa-heart ${styles.HeartOutline}`} />
+  </span>
+) : (
+  <OverlayTrigger
+    placement="top"
+    overlay={<Tooltip>Log in to like reviews!</Tooltip>}
+  >
+    <i className="far fa-heart" />
+  </OverlayTrigger>
+)}
+
           {likesCount}
           <Link to={`/reviews/${id}`}>
             <i className="far fa-comments" />
