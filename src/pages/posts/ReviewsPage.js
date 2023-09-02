@@ -10,9 +10,11 @@ import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.png";
 import Form from "react-bootstrap/Form";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function ReviewsPage({ message, filter = "" }) {
-  const [reviews, setReviews] = useState({ results: [] });
+  const [reviews, setReviews] = useState({ results: [], next: null });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const [query, setQuery] = useState("");
@@ -60,9 +62,16 @@ function ReviewsPage({ message, filter = "" }) {
         {hasLoaded ? (
           <>
             {reviews.results.length ? (
-              reviews.results.map((review) => (
-                <Review key={review.id} {...review} setReviews={setReviews} />
-              ))
+              <InfiniteScroll
+              dataLength={reviews.results.length}
+              next={() => fetchMoreData(reviews, setReviews)}
+              hasMore={!!reviews.next}
+              loader={<Asset spinner />}
+          >
+                {reviews.results.map((review) => (
+                  <Review key={review.id} {...review} setReviews={setReviews} />
+                ))}
+              </InfiniteScroll>
             ) : (
               <Container className={`${appStyles.Content} ${styles.container}`}>
                 <Asset src={NoResults} message={message} />
