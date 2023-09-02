@@ -9,16 +9,18 @@ import styles from "../../styles/ReviewsPage.module.css";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.png";
+import Form from "react-bootstrap/Form";
 
 function ReviewsPage({ message, filter = "" }) {
   const [reviews, setReviews] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const { data } = await axiosReq.get(`/posts/?${filter}`);
+        const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
         console.log('Fetched Data:', data);
         setReviews(data);
         setHasLoaded(true);
@@ -26,15 +28,35 @@ function ReviewsPage({ message, filter = "" }) {
         console.error('Error fetching data:', err);
       }
     };
-  
+
     setHasLoaded(false);
-    fetchReviews();
-  }, [filter, pathname]);
+    const timer = setTimeout(() => {
+      fetchReviews();
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [filter, query, pathname]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles mobile</p>
+        <i className={`fas fa-search ${styles.SearchIcon}`} />
+        <Form
+          className={styles.SearchBar}
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <Form.Control
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            type="text"
+            className="mr-sm-2"
+            placeholder="Search posts"
+          />
+        </Form>
+
         {hasLoaded ? (
           <>
             {reviews.results.length ? (
