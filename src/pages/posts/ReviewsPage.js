@@ -18,15 +18,15 @@ function ReviewsPage({ message, filter = "" }) {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const { data } = await axiosReq.get(`/reviews/?${filter}`);
+        const { data } = await axiosReq.get(`/posts/?${filter}`);
+        console.log('Fetched Data:', data);
         setReviews(data);
         setHasLoaded(true);
-        console.log("Data has been fetched and hasLoaded is set to true");
       } catch (err) {
-        console.log(err);
+        console.error('Error fetching data:', err);
       }
     };
-
+  
     setHasLoaded(false);
     fetchReviews();
   }, [filter, pathname]);
@@ -42,13 +42,13 @@ function ReviewsPage({ message, filter = "" }) {
                 <Review key={review.id} {...review} setReviews={setReviews} />
               ))
             ) : (
-              <Container className={appStyles.Content}>
+              <Container className={`${appStyles.Content} ${styles.container}`}>
                 <Asset src={NoResults} message={message} />
               </Container>
             )}
           </>
         ) : (
-          <Container className={appStyles.Content}>
+          <Container className={`${appStyles.Content} ${styles.container}`}>
             <Asset spinner />
           </Container>
         )}

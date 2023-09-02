@@ -23,7 +23,7 @@ const Review = (props) => {
     image,
     updated_at,
     reviewPage,
-    setReview,
+    // setReview,
   } = props;
 
   const currentUser = useCurrentUser();
