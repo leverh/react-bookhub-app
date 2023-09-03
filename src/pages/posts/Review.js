@@ -36,7 +36,7 @@ const Review = (props) => {
   const [likeId, setLikeId] = useState(initialLikeId);
 
   const handleEdit = () => {
-    history.push(`/posts/${id}/edit`);
+    history.push(`/reviews/edit/${id}`);
   };
 
   const handleDelete = async () => {

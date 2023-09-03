@@ -9,6 +9,7 @@ import ReviewCreateForm from "./pages/posts/ReviewCreateForm";
 import ReviewPage from "./pages/posts/ReviewPage";
 import ReviewsPage from "./pages/posts/ReviewsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import ReviewEditForm from "./pages/posts/ReviewEditForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -50,6 +51,7 @@ function App() {
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/reviews/create" render={() => <ReviewCreateForm />} />
           <Route exact path="/reviews/:id" render={() => <ReviewPage />} />
+          <Route exact path="/reviews/edit/:id" render={() => <ReviewEditForm />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
