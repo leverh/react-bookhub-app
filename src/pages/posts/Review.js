@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import styles from "../../styles/Review.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
+import { axiosReq } from "../../api/axiosDefaults";
 
 const Review = (props) => {
   console.log(props);
@@ -23,14 +25,28 @@ const Review = (props) => {
     image,
     updated_at,
     reviewPage,
-    // setReview,
+    setReviews,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
 
   const [likesCount, setLikesCount] = useState(initialLikesCount);
   const [likeId, setLikeId] = useState(initialLikeId);
+
+  const handleEdit = () => {
+    history.push(`/posts/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosReq.delete(`/posts/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleLike = async () => {
     try {
@@ -47,18 +63,6 @@ const Review = (props) => {
       console.log(err);
     }
   };
-  
-  const handleUnlike = async () => {
-    try {
-      await axiosRes.delete(`/likes/${likeId}/`);
-      setLikesCount((prev) => prev - 1);
-      setLikeId(null);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  
-  
 
   return (
     <Card className={styles.Review}>
@@ -70,7 +74,12 @@ const Review = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && reviewPage && "..."}
+            {is_owner && reviewPage && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
           </div>
         </Media>
       </Card.Body>
@@ -83,29 +92,29 @@ const Review = (props) => {
         {isbn && <Card.Text>{isbn}</Card.Text>}
         {content && <Card.Text>{content}</Card.Text>}
         <div className={styles.ReviewBar}>
-        {is_owner ? (
-  <OverlayTrigger
-    placement="top"
-    overlay={<Tooltip>You can't like your own review!</Tooltip>}
-  >
-    <i className="far fa-heart" />
-  </OverlayTrigger>
-) : likeId ? (
-  <span onClick={handleUnlike}>
-    <i className={`fas fa-heart ${styles.Heart}`} />
-  </span>
-) : currentUser ? (
-  <span onClick={handleLike}>
-    <i className={`far fa-heart ${styles.HeartOutline}`} />
-  </span>
-) : (
-  <OverlayTrigger
-    placement="top"
-    overlay={<Tooltip>Log in to like reviews!</Tooltip>}
-  >
-    <i className="far fa-heart" />
-  </OverlayTrigger>
-)}
+          {is_owner ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>You can't like your own review!</Tooltip>}
+            >
+              <i className="far fa-heart" />
+            </OverlayTrigger>
+          ) : likeId ? (
+            <span onClick={handleLike}>
+              <i className={`fas fa-heart ${styles.Heart}`} />
+            </span>
+          ) : currentUser ? (
+            <span onClick={handleLike}>
+              <i className={`far fa-heart ${styles.HeartOutline}`} />
+            </span>
+          ) : (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to like reviews!</Tooltip>}
+            >
+              <i className="far fa-heart" />
+            </OverlayTrigger>
+          )}
 
           {likesCount}
           <Link to={`/reviews/${id}`}>
