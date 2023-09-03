@@ -1,0 +1,35 @@
+.ProfileContainer {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+  }
+  
+  .WordBreak {
+    word-break: break-all;
+  }
+  
+  .AvatarContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .UserName {
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .FollowButton {
+    margin-left: auto;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .FollowButton:hover {
+    background-color: #0056b3;
+  }
+  
