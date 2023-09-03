@@ -6,10 +6,15 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 import Review from "./Review";
+import CommentCreateForm from "../comments/CommentCreateForm";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ReviewPage() {
     const { id } = useParams();
     const [review, setReview] = useState(null);
+    const currentUser = useCurrentUser();
+    const profile_image = currentUser?.profile_image;
+    const [comments, setComments] = useState({ results: [] });
 
     useEffect(() => {
         const fetchReview = async () => {
@@ -30,7 +35,19 @@ function ReviewPage() {
             <Col className="py-2 p-0 p-lg-2" lg={8}>
                 <p>Popular profiles for mobile</p>
                 <Review {...review} setReview={setReview} reviewPage />
-                <Container className={appStyles.Content}>Comments</Container>
+                <Container className={appStyles.Content}>
+                    {currentUser ? (
+                        <CommentCreateForm
+                            profile_id={currentUser.profile_id}
+                            profileImage={profile_image}
+                            post={id}
+                            setPost={setReview}
+                            setComments={setComments}
+                        />
+                    ) : comments.results.length ? (
+                        "Comments"
+                    ) : null}
+                </Container>
             </Col>
             <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
                 Popular profiles for desktop
