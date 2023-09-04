@@ -8,8 +8,10 @@ import defaultBookCover from "../../assets/defaultBookCover.jpg";
 import Upload from "../../assets/upload.jpg";
 import Asset from "../../components/Asset";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const ReviewCreateForm = () => {
+    useRedirect('loggedOut');
     const [reviewData, setReviewData] = useState({
         book_title: "",
         author_name: "",
