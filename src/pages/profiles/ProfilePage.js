@@ -15,6 +15,11 @@ import Review from "../posts/Review";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import { Link } from "react-router-dom";
+import ReadingList from "../readingList/ReadingList";
+
+
+
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -134,6 +139,9 @@ function ProfilePage() {
           {hasLoaded ? (
             <>
               {mainProfile}
+              <div className="text-center mt-3">
+              <Link to="/reading-list" className="btn btn-primary">View Reading List</Link>
+              </div>
               {mainProfileReviews}
             </>
           ) : (
