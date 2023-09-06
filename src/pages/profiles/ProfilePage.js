@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
 import { Button, Image } from "react-bootstrap";
@@ -15,13 +15,12 @@ import Review from "../posts/Review";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
-import { Link } from "react-router-dom";
-import ReadingList from "../readingList/ReadingList";
-
-
+import ReadingList from "./ReadingList";
 
 
 function ProfilePage() {
+    const history = useHistory();
+
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profileReviews, setProfileReviews] = useState({ results: [] });
 
@@ -139,9 +138,6 @@ function ProfilePage() {
           {hasLoaded ? (
             <>
               {mainProfile}
-              <div className="text-center mt-3">
-              <Link to="/reading-list" className="btn btn-primary">View Reading List</Link>
-              </div>
               {mainProfileReviews}
             </>
           ) : (
@@ -151,6 +147,8 @@ function ProfilePage() {
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
+<Button onClick={() => history.push("/reading-list")}>View Reading List</Button>
+
       </Col>
     </Row>
   );

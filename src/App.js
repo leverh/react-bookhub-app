@@ -14,7 +14,7 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
-import ReadingList from "./pages/readingList/ReadingList";
+import ReadingList from "./pages/profiles/ReadingList";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -25,14 +25,8 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-        <Route path="/reading-list" component={ReadingList} />
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <ReviewsPage message="No results found. Adjust the search keyword." />
-            )}
-          />
+<Route path="/reading-list" exact component={ReadingList} />
+
           <Route
             exact
             path="/"
