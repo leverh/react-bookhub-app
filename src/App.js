@@ -14,7 +14,9 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
-import ReadingList from "./pages/profiles/ReadingList";
+import ReadingListPage from "./pages/ReadingListPage";
+import ReadingListForm from "./pages/ReadingListForm";
+
 
 function App() {
   const currentUser = useCurrentUser();
@@ -25,7 +27,9 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-<Route path="/reading-list" exact component={ReadingList} />
+<Route path="/reading-list" exact component={ReadingListPage} />
+<Route path="/reading-list/add" exact component={ReadingListForm} />
+
 
           <Route
             exact
