@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './BookOfTheWeek.module.css'; // You can create a CSS module for styling
+import styles from '../styles/BookOfTheWeek.module.css'; 
 
 function BookOfTheWeek({ book }) {
   if (!book) return null;
@@ -7,7 +7,7 @@ function BookOfTheWeek({ book }) {
   return (
     <div className={styles.bookOfTheWeekContainer}>
       <h2>Book of the Week</h2>
-      <img src={book.image_url} alt="Book cover" className={styles.bookCover} />
+      <img src={book.image} alt="Book cover" className={styles.bookCover} />
       <h3>{book.title}</h3>
       <p>By: {book.author_name}</p>
       <p>{book.content}</p>
