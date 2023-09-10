@@ -107,6 +107,13 @@ const NavBar = () => {
             >
               <i className="fas fa-home"></i>Home
             </NavLink>
+            <NavLink //
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+              to="/openlibrary-search"
+            >
+              <i className="fas fa-search"></i>OpenLibrary Search
+            </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>

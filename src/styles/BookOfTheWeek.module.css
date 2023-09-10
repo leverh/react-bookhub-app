@@ -1,28 +1,3 @@
-.book-of-the-week-container {
-    background-color: #f9f9f9; /* Light grey background */
-    border-radius: 10px; /* Rounded corners */
-    padding: 20px; /* Padding around the content */
-    margin-bottom: 20px; /* Space below the container */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-  }
-  
-  /* Title of the Book of the Week section */
-  .book-of-the-week-title {
-    font-size: 24px; /* Large font size */
-    font-weight: bold; /* Bold text */
-    margin-bottom: 10px; /* Space below the title */
-  }
-  
-  /* Details of the book */
-  .book-of-the-week-details {
-    font-size: 18px; /* Standard font size for details */
-    margin-bottom: 10px; /* Space between each detail */
-  }
-  
-  /* Image of the book, if available */
-  .book-of-the-week-image {
-    max-width: 100%; /* Ensure the image doesn't overflow the container */
-    border-radius: 10px; /* Rounded corners for the image */
-    margin-top: 10px; /* Space above the image */
-  }
+
+
   

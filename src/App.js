@@ -14,6 +14,8 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import OpenLibrarySearch from './pages/OpenLibrarySearch';
+
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
@@ -61,7 +63,7 @@ function App() {
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />}/>
           <Route exact path="/test-logged-out" render={() => <p>Test: Logged Out</p>} />
           <Route exact path="/test-logged-in" render={() => <p>Test: Logged In</p>} />
-
+          <Route exact path="/openlibrary-search" component={OpenLibrarySearch} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
