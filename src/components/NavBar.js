@@ -113,8 +113,16 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/nyt-reviews"
             >
-    <i className="fas fa-newspaper"></i>NYT Reviews
-</NavLink>
+            <i className="fas fa-newspaper"></i>NYT Reviews
+            </NavLink>
+
+            <NavLink
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+              to="/about-us"
+            >
+              <i className="fas fa-info-circle"></i>About Us
+            </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>

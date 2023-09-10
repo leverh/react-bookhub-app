@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import styles from "./App.module.css";
 import NavBar from "./components/NavBar";
 import Container from "react-bootstrap/Container";
@@ -16,10 +17,19 @@ import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import OpenLibrarySearch from './pages/OpenLibrarySearch';
 import NYTReviews from './pages/NYTReviews';
+import FloatingFooterButton from "./components/FloatingFooterButton"
+import FooterModal from './components/FooterModal';
+import AboutUs from './pages/AboutUs';
 
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
+
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {  // <-- Function to toggle modal visibility
+    setShowModal(!showModal);
+  };
 
   return (
     <div className={styles.App}>
@@ -66,9 +76,13 @@ function App() {
           <Route exact path="/test-logged-in" render={() => <p>Test: Logged In</p>} />
           <Route exact path="/openlibrary-search" component={OpenLibrarySearch} />
           <Route exact path="/nyt-reviews" component={NYTReviews} />
+          <Route exact path="/about-us" component={AboutUs} />
+
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
+      <FloatingFooterButton onClick={toggleModal} /> 
+      <FooterModal show={showModal} handleClose={toggleModal} />
     </div>
   );
 }
