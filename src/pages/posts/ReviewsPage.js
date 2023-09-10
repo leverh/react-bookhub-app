@@ -15,6 +15,8 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import BookOfTheWeek from "../../components/BookOfTheWeek";
 import { fetchBookOfTheWeek } from "../../api/bookAPI";
+import LiteraryQuote from '../../pages/LiteraryQuote';
+
 
 function ReviewsPage({ message, filter = "" }) {
   const [reviews, setReviews] = useState({ results: [], next: null });
@@ -74,6 +76,8 @@ function ReviewsPage({ message, filter = "" }) {
         </Form>
 
         <BookOfTheWeek book={bookOfTheWeek} />
+
+        <LiteraryQuote />
 
         {hasLoaded ? (
           <>

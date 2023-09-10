@@ -4,8 +4,13 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 70%;
+    width: 65%;
 }
+
+.Media a {
+    font-size: 4rem;
+  }
+
 
 .card-img {
     max-width: 20rem;
