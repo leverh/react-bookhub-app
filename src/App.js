@@ -15,6 +15,7 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import OpenLibrarySearch from './pages/OpenLibrarySearch';
+import NYTReviews from './pages/NYTReviews';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -64,6 +65,7 @@ function App() {
           <Route exact path="/test-logged-out" render={() => <p>Test: Logged Out</p>} />
           <Route exact path="/test-logged-in" render={() => <p>Test: Logged In</p>} />
           <Route exact path="/openlibrary-search" component={OpenLibrarySearch} />
+          <Route exact path="/nyt-reviews" component={NYTReviews} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>

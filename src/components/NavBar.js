@@ -107,6 +107,15 @@ const NavBar = () => {
             >
               <i className="fas fa-search"></i>OpenLibrary Search
             </NavLink>
+
+            <NavLink
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+              to="/nyt-reviews"
+            >
+    <i className="fas fa-newspaper"></i>NYT Reviews
+</NavLink>
+
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
