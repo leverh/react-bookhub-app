@@ -29,29 +29,30 @@ const NavBar = () => {
       activeClassName={styles.Active}
       to="/reviews/create"
     >
-      <i className="far fa-plus-square"></i>Add review
+      <span className={styles.NavLinkContent}>
+        <i className="far fa-plus-square"></i>Add review
+      </span>
     </NavLink>
   );
+
   const loggedInIcons = (
     <>
-      <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/profile"
-      >
-        <i className="fas fa-user"></i>My Profile
-      </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt"></i>Sign out
+        <span className={styles.NavLinkContent}>
+          <i className="fas fa-sign-out-alt"></i>Sign out
+        </span>
       </NavLink>
       <NavLink
-        className={styles.NavLink}
+        className={`${styles.NavLink} ${styles.ProfileLink}`}
         to={`/profiles/${currentUser?.profile_id}`}
       >
-        <Avatar className={styles.Avatar} src={currentUser?.profile_image} text="Profile" height={40} />
+        <span className={`{styles.NavLinkContent} ${styles.ProfileLink}`}>
+          <Avatar className={styles.Avatar} src={currentUser?.profile_image} text="Profile" height={40} />
+        </span>
       </NavLink>
     </>
   );
+
   const loggedOutIcons = (
     <>
       <NavLink
@@ -59,14 +60,18 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/signin"
       >
-        <i className="fas fa-sign-in-alt"></i>Sign in
+        <span className={styles.NavLinkContent}>
+          <i className="fas fa-sign-in-alt"></i>Sign in
+        </span>
       </NavLink>
       <NavLink
         to="/signup"
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i className="fas fa-user-plus"></i>Sign up
+        <span className={styles.NavLinkContent}>
+          <i className="fas fa-user-plus"></i>Sign up
+        </span>
       </NavLink>
     </>
   );
@@ -75,13 +80,12 @@ const NavBar = () => {
     <Navbar
       expanded={expanded}
       className={styles.NavBar}
-      expand="md"
-      fixed="top"
+      expand="md" 
     >
       <Container>
         <NavLink to="/" className="nav-link">
           <Navbar.Brand>
-            <img src={logo} alt="BookHub logo" height="40" />
+            <img src={logo} alt="BookHub logo" className="log-img" height="35" />
           </Navbar.Brand>
         </NavLink>
         {currentUser && addReviewIcon}
@@ -98,14 +102,18 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/"
             >
-              <i className="fas fa-home"></i>Home
+              <span className={styles.NavLinkContent}>
+                <i className="fas fa-home"></i>Home
+              </span>
             </NavLink>
             <NavLink
               className={styles.NavLink}
               activeClassName={styles.Active}
               to="/openlibrary-search"
             >
-              <i className="fas fa-search"></i>OpenLibrary Search
+              <span className={styles.NavLinkContent}>
+                <i className="fas fa-search"></i>OpenLibrary Search
+              </span>
             </NavLink>
 
             <NavLink
@@ -113,7 +121,9 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/nyt-reviews"
             >
-            <i className="fas fa-newspaper"></i>NYT Reviews
+              <span className={styles.NavLinkContent}>
+                <i className="fas fa-newspaper"></i>NYT Reviews
+              </span>
             </NavLink>
 
             <NavLink
@@ -121,7 +131,9 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/about-us"
             >
-              <i className="fas fa-info-circle"></i>About Us
+              <span className={styles.NavLinkContent}>
+                <i className="fas fa-info-circle"></i>About Us
+              </span>
             </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}

@@ -1,8 +1,8 @@
 /* colors: 
-Background: #F3F3F4 or #F5F5F5
-Text: #372E32 or #333333
+Background: #F2E6D3
+Text: #333333
 Buttons: #C28E4E or #FFC107
-Hover:           or   #4CAF50
+Hover:  underline: #DACBBB color:#444444
 
  */
 
@@ -18,7 +18,7 @@ Hover:           or   #4CAF50
     font-size: 62.5% !important;
     font-family: 'Montserrat', sans-serif;
     min-height: 100vh;
-    background-color: #F5F5F5;
+    background-color: #F2E6D3;
     color: #333333;
 }
 

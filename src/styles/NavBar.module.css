@@ -1,37 +1,53 @@
 .Nav {
     line-height: 1.5;
     vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
-
-.NavBar {
+  .NavBar {
     font-size: 1rem;
     padding: .5rem;
     vertical-align: middle;
-}
-
-.NavBar a {
+  }
+  
+  .NavBar a {
     color: #333333;
-    text-decoration: none; 
+    text-decoration: none;
+    vertical-align: middle;
     transition: color 0.3s ease;
-    vertical-align: middle;
-}
-
-.NavBar a:hover {
-    color: #16a6b6;
-}
-
-.NavBar i {
+  }
+  
+  .NavBar a:hover {
+    color: #444444;
+  }
+  
+  .NavBar i {
     color: #333333;
     font-size: 1rem;
     padding: .5rem;
     vertical-align: middle;
-}
+  }
+  
+  .NavBar i:hover {
+    color: #FFA500;
+  }
+  
+  .NavBar .NavLinkContent:hover {
+    border-bottom: 2px solid #FFA500;
+  }
+  
+  .Active i {
+    color: #FFA500;
+  }
 
-.NavBar i:hover {
-    color: #16a6b6;
-}
+  .NavBar .ProfileLink:hover {
+    border-bottom: none !important;
+    color: #FFA500;
+  }
 
-.Active i {
-    color: #16a6b6;  
-}
+  .navbar-brand .log-img {
+    border-radius: 20px !important;
+    height: 5rem !important;
+  }
