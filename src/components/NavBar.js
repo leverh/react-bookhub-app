@@ -37,13 +37,6 @@ const NavBar = () => {
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/reviews"
-      >
-        <i className="fas fa-book"></i>Reviews
-      </NavLink>
-      <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
         to="/profile"
       >
         <i className="fas fa-user"></i>My Profile
@@ -107,14 +100,13 @@ const NavBar = () => {
             >
               <i className="fas fa-home"></i>Home
             </NavLink>
-            <NavLink //
+            <NavLink
               className={styles.NavLink}
               activeClassName={styles.Active}
               to="/openlibrary-search"
             >
               <i className="fas fa-search"></i>OpenLibrary Search
             </NavLink>
-
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
