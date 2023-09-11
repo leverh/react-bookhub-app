@@ -30,7 +30,15 @@ const AboutUs = () => {
         </ul>
         <div className={`${styles['arrow-divider']}`}></div>
         <h4>Become a part of our growing community and embark on a literary journey like no other. Dive deep into the world of books and let your voice be heard.</h4>
+        <h5>Our community supports, believes, and strives to make the world a better place! </h5>
+        <div className={styles['belief-statement']}>
 
+          
+          <img src='https://res.cloudinary.com/dybqzflbo/image/upload/v1694433173/GoodNightWhitePride_bldkoj_hucnfi.gif' alt='Good night white pride banner'></img>
+          <img src='https://res.cloudinary.com/dybqzflbo/image/upload/v1694433142/Refugees_welcome.svg_jjyot2_ryxgdr.png' alt='Refugees welcome banner'></img>
+          <img src='https://res.cloudinary.com/dybqzflbo/image/upload/v1694433142/Intersex-inclusive_pride_flag.svg_cpvqhu_d5hk3q.png' alt='Intersex inclusive pride flag'></img>
+          <img src='https://res.cloudinary.com/dybqzflbo/image/upload/v1694433142/Antifa_logo.svg_egzlhj_dwtuwx.png' alt='Anti-fascist action flag'></img>
+        </div>
       
     </div>
   );

@@ -33,6 +33,16 @@ h2 {
 h4 {
     margin-top: 2rem;
     margin-bottom: 3rem;
+    max-width: 60%;
+    text-align: center;
+}
+
+h5 {
+    font-size: 2rem;
+    text-align: center;
+    max-width: 60%;
+    line-height: 3rem;
+    font-weight: 600;
 }
 
 p {
@@ -50,5 +60,24 @@ ul li {
 }
 
 ul li a {
-    color: #15DBDB;
+    color: #B07d28;
+}
+
+ul li a:hover {
+    color: #444444;
+}
+
+.belief-statement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+.belief-statement img {
+    width: 15rem;
+    height: auto;
+    object-fit: cover;
 }

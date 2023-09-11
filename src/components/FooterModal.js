@@ -2,7 +2,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import styles from '../styles/FooterModal.module.css'
 
-
+const currentYear = new Date().getFullYear();
 const FooterModal = ({ show, handleClose }) => {
   return (
     <div className={styles.FooterModal}>
@@ -10,7 +10,7 @@ const FooterModal = ({ show, handleClose }) => {
       <Modal.Header closeButton>
         <Modal.Title>More Information</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className={styles.modalBodyContent}>
         <section>
           <h4>About Us</h4>
           <p>Welcome to BookHub, the premier destination for book enthusiasts and readers alike! 
@@ -36,7 +36,7 @@ const FooterModal = ({ show, handleClose }) => {
 
         <section>
     <h4>Stay Connected</h4>
-    <div>
+    <div className={styles.socialLinks}>
         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
             <i className="fa fa-facebook-official" aria-hidden="true"></i>
         </a>
@@ -50,6 +50,9 @@ const FooterModal = ({ show, handleClose }) => {
 </section>
       </Modal.Body>
       <Modal.Footer>
+      <div className={styles.copyright}>
+              &copy; {currentYear} BookHub. All rights reserved.
+          </div>
         <Button variant="secondary" onClick={handleClose}>Close</Button>
       </Modal.Footer>
     </Modal>
