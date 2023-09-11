@@ -67,7 +67,7 @@ const Review = (props) => {
   return (
     <Card className={styles.Review}>
       <Card.Body>
-        <Media className="align-items-center justify-content-between d-flex align-items-center">
+        <Media className="align-items-center justify-content-between d-flex align-items-center cardy-top">
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
             {owner}

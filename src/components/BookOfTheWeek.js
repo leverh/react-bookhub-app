@@ -18,10 +18,13 @@ function BookOfTheWeek({ book }) {
 
   return (
     <div className={styles.bookOfTheWeekContainer}>
+      <div className={`${styles['arrow-divider']}`}></div>
       <h2>Book of the Week</h2>
       <h3>{displayBook.title}</h3>
       <p>By: {displayBook.author_name}</p>
+      <div className={`${styles['arrow-divider']}`}></div>
     </div>
+    
   );
 }
 
