@@ -14,25 +14,27 @@ const Profile = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
-  // Destructure both handleFollow and handleUnfollow
   const { handleFollow, handleUnfollow } = useSetProfileData();
 
   return (
     <div className="my-3 d-flex align-items-center">
+      {/* Avatar */}
       <div>
         <Link className="align-self-center" to={`/profiles/${id}`}>
           <Avatar src={image} height={imageSize} />
         </Link>
       </div>
-      <div className={`mx-2 ${styles.WordBreak}`}>
-        <strong>{owner}</strong>
+      
+      <div className={`mx-2 ${styles.WordBreak} flex-grow-1`}>
+        <strong className={styles.username}>{owner}</strong>
       </div>
-      <div className="text-right ml-auto">
+      
+      <div>
         {currentUser && !is_owner && (
           <Button
-            className={`${btnStyles.Button} ${
-              following_id ? btnStyles.BlackOutline : btnStyles.Black
-            }`}
+          className={`${btnStyles.Button} ${
+            following_id ? btnStyles.BlackOutline : btnStyles.Black
+        } ${styles.fixedWidthButton} ${styles.stretchedTextButton}`}
             onClick={() => {
               console.log("Current profile data:", profile);
               if (following_id) {
@@ -48,6 +50,7 @@ const Profile = (props) => {
       </div>
     </div>
   );
+
 };
 
 export default Profile;

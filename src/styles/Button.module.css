@@ -3,18 +3,18 @@
   font-weight: bold; 
   align-self: center;
   border-radius: 10px; 
-  border-color: #825343; 
+  border-color: #B07D28; 
   padding: 10px 20px; 
   margin-left: 2px;
   margin-right: 2px;
   min-width: 75px;
-  background-color: #825343; 
+  background-color: #B07D28; 
   color: #ffffff; 
 }
 
 .Button:hover {
   opacity: 0.8;
-  border-color: #5d5b53; 
+  border-color: #444444; 
   cursor: pointer;
 }
   
