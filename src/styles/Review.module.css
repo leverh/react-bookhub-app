@@ -5,15 +5,34 @@
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 65%;
+    background-color:#F5F5F5;
 }
 
 .Media a {
-    font-size: 4rem;
+    font-size: 4rem !important;
   }
 
 
-.card-img {
-    max-width: 20rem;
+.ReviewImage {
+    max-width: 100%;
+}
+
+.Review .review-title.card-title.h5 {
+    font-weight: 600 !important;
+    font-size: 4rem !;
+}
+
+
+.AuthorName {
+    font-weight: 600;
+}
+
+.ISBN {
+    font-size: 1rem !important;
+}
+
+.Content {
+    font-size: 1rem !important;
 }
 
 .ReviewBar {
@@ -30,5 +49,13 @@
 
 .HeartOutline:hover {
     color: #ff4b6e;
+}
+
+.ReviewBar .fa-heart {
+    font-size: 4rem !important;
+}
+
+.ReviewBar .fa-comments {
+    font-size: 4rem;
 }
 

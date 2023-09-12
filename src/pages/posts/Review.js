@@ -69,7 +69,7 @@ const Review = (props) => {
       <Card.Body>
         <Media className="align-items-center justify-content-between d-flex align-items-center cardy-top">
           <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} height={55} />
+            <Avatar src={profile_image} height={65} />
             {owner}
           </Link>
           <div className="d-flex align-items-center">
@@ -84,13 +84,13 @@ const Review = (props) => {
         </Media>
       </Card.Body>
       <Link to={`/reviews/${id}`}>
-        <Card.Img src={image} alt={title} />
+        <Card.Img src={image} alt={title} className={styles.ReviewImage}/>
       </Link>
       <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {author_name && <Card.Text>{author_name}</Card.Text>}
-        {isbn && <Card.Text>{isbn}</Card.Text>}
-        {content && <Card.Text>{content}</Card.Text>}
+        {title && <Card.Title className="text-center review-title">{title}</Card.Title>}
+        {author_name && <Card.Text className={styles.AuthorName}>{author_name}</Card.Text>}
+        {isbn && <Card.Text className={styles.ISBN}>ISBN: {isbn}</Card.Text>}
+        {content && <Card.Text className={styles.Content}>{content}</Card.Text>}
         <div className={styles.ReviewBar}>
           {is_owner ? (
             <OverlayTrigger
