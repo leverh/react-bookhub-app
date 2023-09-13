@@ -10,6 +10,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import profileStyles from '../../styles/ProfileEditForm.module.css';
 
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
@@ -45,7 +46,7 @@ const UsernameForm = () => {
         <Container className={appStyles.Content}>
           <Form onSubmit={handleSubmit} className="my-2">
             <Form.Group>
-              <Form.Label>Change username</Form.Label>
+              <Form.Label className={profileStyles.username}>Change username</Form.Label>
               <Form.Control
                 placeholder="username"
                 type="text"
@@ -59,13 +60,13 @@ const UsernameForm = () => {
               </Alert>
             ))}
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${profileStyles.customButtonClass1}`}
               onClick={() => history.goBack()}
             >
               cancel
             </Button>
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${profileStyles.customButtonClass1}`}
               type="submit"
             >
               save

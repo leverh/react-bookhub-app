@@ -10,6 +10,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import profileStyles from '../../styles/ProfileEditForm.module.css';
 
 const UserPasswordForm = () => {
   const history = useHistory();
@@ -55,7 +56,7 @@ const UserPasswordForm = () => {
         <Container className={appStyles.Content}>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
-              <Form.Label>New password</Form.Label>
+              <Form.Label className={profileStyles.newPassword}>New password</Form.Label>
               <Form.Control
                 placeholder="new password"
                 type="password"
@@ -70,7 +71,7 @@ const UserPasswordForm = () => {
               </Alert>
             ))}
             <Form.Group>
-              <Form.Label>Confirm password</Form.Label>
+              <Form.Label className={profileStyles.newPassword}>Confirm password</Form.Label>
               <Form.Control
                 placeholder="confirm new password"
                 type="password"
@@ -85,14 +86,14 @@ const UserPasswordForm = () => {
               </Alert>
             ))}
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${profileStyles.customButtonClass1}`}
               onClick={() => history.goBack()}
             >
               cancel
             </Button>
             <Button
               type="submit"
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${profileStyles.customButtonClass1}`}
             >
               save
             </Button>

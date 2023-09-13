@@ -11,7 +11,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
-import profileStyles from '../../styles/ProfilePage.module.css';
+import profileStyles from '../../styles/ProfileEditForm.module.css';
+
 
 
 const ProfileEditForm = () => {
@@ -82,7 +83,7 @@ const ProfileEditForm = () => {
   const textFields = (
     <>
       <Form.Group>
-        <Form.Label>Bio</Form.Label>
+        <Form.Label className={profileStyles.bioLabel}>My Story</Form.Label>
         <Form.Control
           as="textarea"
           value={content}
