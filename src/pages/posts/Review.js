@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styles from "../../styles/Review.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
@@ -7,6 +6,7 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { axiosReq } from "../../api/axiosDefaults";
+import styles from "../../styles/Review.module.css";
 
 const Review = (props) => {
   console.log(props);
@@ -70,12 +70,13 @@ const Review = (props) => {
         <Media className="align-items-center justify-content-between d-flex align-items-center cardy-top">
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={65} />
-            {owner}
+            <span className={styles.ownerStyle}>{owner}</span>
           </Link>
-          <div className="d-flex align-items-center">
-            <span>{updated_at}</span>
+          <div className={styles.flexContainer}>
+            <span className={styles.dateStyle}>{updated_at}</span>
             {is_owner && reviewPage && (
               <MoreDropdown
+                className={styles.dropdownStyle}
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
               />

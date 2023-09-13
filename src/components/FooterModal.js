@@ -51,7 +51,7 @@ const FooterModal = ({ show, handleClose }) => {
       </Modal.Body>
       <Modal.Footer>
       <div className={styles.copyright}>
-              &copy; {currentYear} BookHub. All rights reserved.
+              &copy; {currentYear} Error Codes. All rights reserved.
           </div>
         <Button variant="secondary" onClick={handleClose}>Close</Button>
       </Modal.Footer>

@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { Form, Button, Container, Alert, Image } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom";
 import styles from "../../styles/ReviewCreateEditForm.module.css";
-import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import Upload from "../../assets/upload.jpg";
+import btnStyles from "../../styles/Button.module.css";
 
 const ReviewEditForm = () => {
     const [reviewData, setReviewData] = useState({
@@ -95,7 +95,7 @@ const ReviewEditForm = () => {
     
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="book_title">
-                    <Form.Label>Book Title</Form.Label>
+                    <Form.Label className={styles.editLabel}>Book Title</Form.Label>
                     <Form.Control
                         className={styles.Input}
                         type="text"
@@ -112,7 +112,7 @@ const ReviewEditForm = () => {
                 ))}
     
                 <Form.Group controlId="author_name">
-                    <Form.Label>Author Name</Form.Label>
+                    <Form.Label className={styles.editLabel}>Author Name</Form.Label>
                     <Form.Control
                         className={styles.Input}
                         type="text"
@@ -129,7 +129,7 @@ const ReviewEditForm = () => {
                 ))}
     
                 <Form.Group controlId="isbn">
-                    <Form.Label>ISBN</Form.Label>
+                    <Form.Label className={styles.editLabel}>ISBN</Form.Label>
                     <Form.Control
                         className={styles.Input}
                         type="text"
@@ -146,7 +146,7 @@ const ReviewEditForm = () => {
                 ))}
     
                 <Form.Group controlId="review_text">
-                    <Form.Label>Review</Form.Label>
+                    <Form.Label className={styles.editLabel}>Review</Form.Label>
                     <Form.Control
                         className={styles.Input}
                         as="textarea"
@@ -171,7 +171,7 @@ const ReviewEditForm = () => {
                             </figure>
                             <div>
                                 <Form.Label
-                                    className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                                    className={`${btnStyles.Button} btn`}
                                     htmlFor="image-upload"
                                 >
                                     Change the image
@@ -198,13 +198,13 @@ const ReviewEditForm = () => {
                 </Form.Group>
                 <div className="d-flex justify-content-center">
                     <Button
-                        className={`${btnStyles.Button} ${btnStyles.Bright}`}
+                        className={`${btnStyles.Button}`}
                         type="submit"
                     >
                         Save Changes
                     </Button>
                     <Button
-                        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+                        className={`${btnStyles.Button}`}
                         onClick={() => history.goBack()}
                     >
                         Cancel

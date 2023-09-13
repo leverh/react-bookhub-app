@@ -20,7 +20,7 @@
     border-radius: 5px;
 }
 
-.Button {
+/* .Button {
     width: 100%;
     padding: 1rem;
     border: none;
@@ -28,4 +28,9 @@
     background: #007BFF;
     color: white;
     font-size: 1.6rem;
+} */
+
+.editLabel {
+    font-size: 1rem;
+    font-weight: bold;
 }

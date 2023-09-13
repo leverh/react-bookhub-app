@@ -71,7 +71,7 @@ const ReviewCreateForm = () => {
 
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="book_title">
-                    <Form.Label>Book Title</Form.Label>
+                    <Form.Label className={styles.editLabel}>Book Title</Form.Label>
                     <Form.Control
                         className={styles.Input}
                         type="text"
@@ -88,7 +88,7 @@ const ReviewCreateForm = () => {
                 ))}
 
                 <Form.Group controlId="author_name">
-                    <Form.Label>Author Name</Form.Label>
+                    <Form.Label className={styles.editLabel}>Author Name</Form.Label>
                     <Form.Control
                         className={styles.Input}
                         type="text"
@@ -105,7 +105,7 @@ const ReviewCreateForm = () => {
                 ))}
 
                 <Form.Group controlId="isbn">
-                    <Form.Label>ISBN</Form.Label>
+                    <Form.Label className={styles.editLabel}>ISBN</Form.Label>
                     <Form.Control
                         className={styles.Input}
                         type="text"
@@ -122,7 +122,7 @@ const ReviewCreateForm = () => {
                 ))}
 
                 <Form.Group controlId="review_text">
-                    <Form.Label>Review</Form.Label>
+                    <Form.Label className={styles.editLabel}>Review</Form.Label>
                     <Form.Control
                         className={styles.Input}
                         as="textarea"

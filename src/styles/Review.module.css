@@ -59,3 +59,17 @@
     font-size: 4rem;
 }
 
+.flexContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.dateStyle {
+    font-size: 1rem;
+}
+
+.ownerStyle {
+    font-size: 1rem;
+}
