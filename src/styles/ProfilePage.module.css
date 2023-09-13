@@ -12,3 +12,30 @@
       height: 250px;
     }
   }
+
+  .postsCount, .followersCount, .followingCount {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .postsLabel, .followersLabel, .followingLabel {
+    font-size: 1rem;
+  }
+
+  .counterContainer {
+    gap: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .content {
+    font-size: 1rem !important;
+  }
+
+  .flexContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }

@@ -69,18 +69,22 @@ function ProfilePage() {
     <h3 className="m-2">{profile?.owner}</h3>
     {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
   </div>
-          <Row className="justify-content-center no-gutters">
+            <Row className={`justify-content-center no-gutters ${profileStyles.counterContainer}`}>
+
             <Col xs={3} className="my-2">
-              <div>{profile?.posts_count}</div>
-              <div>reviews</div>
+              <div className={profileStyles.postsCount}>
+              {profile?.posts_count}</div>
+              <div className={profileStyles.postsLabel}>reviews</div>
             </Col>
             <Col xs={3} className="my-2">
-              <div>{profile?.followers_count}</div>
-              <div>followers</div>
+              <div className={profileStyles.followersCount}>
+                {profile?.followers_count}</div>
+              <div className={profileStyles.followersLabel}>followers</div>
             </Col>
             <Col xs={3} className="my-2">
-              <div>{profile?.following_count}</div>
-              <div>following</div>
+              <div className={profileStyles.followingCount}>
+                {profile?.following_count}</div>
+              <div className={profileStyles.followingLabel}>following</div>
             </Col>
           </Row>
         </Col>
@@ -103,7 +107,8 @@ function ProfilePage() {
               </Button>
             ))}
         </Col>
-        {profile?.content && <Col className="p-3">{profile.content}</Col>}
+        {profile?.content && <Col className={`${profileStyles.content} p-3`}>{profile.content}</Col>}
+
       </Row>
     </>
   );
@@ -140,7 +145,9 @@ function ProfilePage() {
           {hasLoaded ? (
             <>
               {mainProfile}
+              <div className={profileStyles.flexContainer}>
               {mainProfileReviews}
+              </div>
             </>
           ) : (
             <Asset spinner />
