@@ -11,7 +11,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
-import profileEditStyles from "../../styles/ProfileEditForm.module.css";
+import profileStyles from '../../styles/ProfilePage.module.css';
 
 
 const ProfileEditForm = () => {
@@ -97,14 +97,17 @@ const ProfileEditForm = () => {
         </Alert>
       ))}
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        className={`${btnStyles.Button} ${profileStyles.customButtonClass1}`}
         onClick={() => history.goBack()}
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        save
-      </Button>
+      <Button 
+    className={`${btnStyles.Button} ${profileStyles.customButtonClass2}`}
+    type="submit"
+>
+    save
+</Button>
     </>
   );
 
