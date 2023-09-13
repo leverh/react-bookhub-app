@@ -3,3 +3,10 @@
     padding: 0px;
   }
   
+  .dropdownIcon {
+    margin-right: 1rem; 
+}
+
+.clickableIcon {
+  cursor: pointer;
+}
