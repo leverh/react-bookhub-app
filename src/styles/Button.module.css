@@ -12,10 +12,10 @@
   color: #ffffff; 
 }
 
-.Button:hover {
-  opacity: 0.8;
-  border-color: #444444; 
-  cursor: pointer;
+button.Button:hover, button.btn-primary:hover {
+  background-color: #444444 !important;
+  border-color: #444444 !important;
+  color: #ffffff !important;
 }
   
 .Button:hover:active {

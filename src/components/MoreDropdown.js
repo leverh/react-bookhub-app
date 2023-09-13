@@ -49,7 +49,7 @@ import { useHistory } from "react-router";
 
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
-    className="fas fa-ellipsis-v"
+    className="fas fa-ellipsis-v fa-2x"
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
