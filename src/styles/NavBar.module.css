@@ -7,7 +7,7 @@
   }
   
   .NavBar {
-    font-size: 1rem;
+    font-size: 1.5rem;
     padding: .5rem;
     vertical-align: middle;
   }
@@ -25,7 +25,7 @@
   
   .NavBar i {
     color: #333333;
-    font-size: 1rem;
+    font-size: 1.5rem;
     padding: .5rem;
     vertical-align: middle;
   }

@@ -88,7 +88,8 @@ const Review = (props) => {
         <Card.Img src={image} alt={title} className={styles.ReviewImage}/>
       </Link>
       <Card.Body>
-        {title && <Card.Title className="text-center review-title">{title}</Card.Title>}
+      {title && <Card.Title className={styles.cardTitle}>{title}</Card.Title>}
+
         {author_name && <Card.Text className={styles.AuthorName}>{author_name}</Card.Text>}
         {isbn && <Card.Text className={styles.ISBN}>ISBN: {isbn}</Card.Text>}
         {content && <Card.Text className={styles.Content}>{content}</Card.Text>}

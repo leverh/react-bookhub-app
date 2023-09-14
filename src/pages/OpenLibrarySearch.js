@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import InfiniteScroll from "react-infinite-scroll-component";
+import appStyles from '../App.module.css';
+import btnStyles from "../styles/Button.module.css";
+import styles from '../styles/OpenLibrarySearch.module.css'
+
 
 const OpenLibrarySearch = () => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -34,16 +38,24 @@ const OpenLibrarySearch = () => {
             });
     };
 
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        handleSearch(true);
+    };
+
     return (
-        <div>
-            <h2>Search Books on OpenLibrary</h2>
-            <input 
-                type="text" 
-                placeholder="Search for books..." 
-                value={searchTerm}
-                onChange={e => setSearchTerm(e.target.value)}
-            />
-            <button onClick={() => handleSearch(true)}>Search</button>
+        <div className={`${styles.searchContainer} ${appStyles.containerClass}`}>
+            <h2 className={styles.searchHeader}>Search Books on OpenLibrary</h2>
+            <form onSubmit={handleFormSubmit}>  {/* Wrap the input and button within this form */}
+                <input 
+                    type="text" 
+                    className={styles.searchInput}
+                    placeholder="Search for books..." 
+                    value={searchTerm}
+                    onChange={e => setSearchTerm(e.target.value)}
+                />
+                <button className={`${btnStyles.Button} ${styles.searchButton}`} type="submit">Search</button>
+            </form>
             {error && <p>{error}</p>}
             {searchInitiated && (
                 <InfiniteScroll
@@ -52,11 +64,13 @@ const OpenLibrarySearch = () => {
                     hasMore={hasMore}
                     loader={<h4>Loading...</h4>}
                 >
-                    <ul>
+                    <ul className={styles.searchResults}>
                         {results.map(book => (
                             <li key={book.key}>
-                                <img src={book.cover_i ? `http://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg` : ''} alt={book.title} />
-                                <h3>{book.title}</h3>
+                                <a href={`https://openlibrary.org${book.key}`} target="_blank" rel="noopener noreferrer">
+                                    <img src={book.cover_i ? `http://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg` : ''} alt={book.title} />
+                                    <h3>{book.title}</h3>
+                                </a>
                                 <p>Author: {book.author_name && book.author_name.join(', ')}</p>
                                 <p>First Published: {book.first_publish_year}</p>
                             </li>

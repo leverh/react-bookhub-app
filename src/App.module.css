@@ -15,8 +15,11 @@ Accents: #15DBDB
     margin: 0;
 }
 
+html {
+  font-size: 62.5% !important;
+}
+
 .App {
-    font-size: 62.5% !important;
     font-family: 'Montserrat', sans-serif;
     min-height: 100vh;
     background-color: #F2E6D3;
