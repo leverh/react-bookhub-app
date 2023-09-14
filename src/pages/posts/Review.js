@@ -118,11 +118,11 @@ const Review = (props) => {
             </OverlayTrigger>
           )}
 
-          {likesCount}
+          <span className={styles.iconCount}>{likesCount}</span>
           <Link to={`/reviews/${id}`}>
             <i className="far fa-comments" />
           </Link>
-          {comments_count}
+          <span className={styles.iconCount}>{comments_count}</span>
         </div>
       </Card.Body>
     </Card>
