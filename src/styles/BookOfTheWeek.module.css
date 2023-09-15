@@ -15,6 +15,11 @@
   
 }
 
+.bookOfTheWeekContainer {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
 .bookOfTheWeekContainer h2 {
   margin-top: 4rem;
   font-size: 3.5rem;

@@ -1,6 +1,8 @@
 .quoteContainer {
-    margin-top: 5rem;
+    margin: 5rem auto 0 auto;
     text-align: center;
+    max-width: 80%;
+    
 }
 
 .quoteContainer p {
@@ -17,6 +19,7 @@
 .quoteContainer p:nth-child(2) {
     font-size: 1.5rem;
     font-style: italic;
+    max-width: 70%;
 }
 
 .quoteContainer p:nth-child(3) {

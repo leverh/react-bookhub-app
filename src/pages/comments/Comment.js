@@ -36,28 +36,33 @@ const Comment = (props) => {
           <Avatar src={profile_image} />
         </Link>
         <Media.Body className="align-self-center ml-2">
-          <span className={styles.Owner}>{owner}</span>
-          <span className={styles.Date}>{updated_at}</span>
-          {showEditForm ? (
-            <CommentEditForm
-              id={id}
-              content={content}
-              setComments={setComments}
-              setShowEditForm={setShowEditForm}
-            />
-          ) : (
-            <p>{content}</p>
-          )}
+            <div className={styles.commentContainer}>
+                <div>
+                    <span className={styles.Owner}>{owner}</span>
+                    <span className={styles.Date}>{updated_at}</span>
+                    {showEditForm ? (
+                        <CommentEditForm
+                            id={id}
+                            content={content}
+                            setComments={setComments}
+                            setShowEditForm={setShowEditForm}
+                        />
+                    ) : (
+                        <p>{content}</p>
+                    )}
+                </div>
+                {is_owner && !showEditForm && (
+                    <MoreDropdown
+                        className={styles.moreDropdown}
+                        handleEdit={() => setShowEditForm(true)}
+                        handleDelete={handleDelete}
+                    />
+                )}
+            </div>
         </Media.Body>
-        {is_owner && !showEditForm && (
-          <MoreDropdown
-            handleEdit={() => setShowEditForm(true)}
-            handleDelete={handleDelete}
-          />
-        )}
       </Media>
     </>
-  );
-};
+);
+}
 
 export default Comment;

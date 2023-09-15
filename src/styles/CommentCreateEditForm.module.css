@@ -2,20 +2,12 @@
     border: none;
     border-bottom: 2px #00d1ff solid;
   }
-  
-  .Button {
-    border: none;
-    background-color: #242a3d;
-    color: aliceblue;
-    border-radius: 10rem;
-    padding: .4rem 1rem;
-    min-width: 7.5rem;
-    margin: .5rem;
+
+  .postButton {
+    margin-top: 1rem;
   }
-  
-  .Button:hover {
-    cursor: pointer;
-    background-color: aliceblue;
-    color: #242a3d;
+
+  .editCancelButton, .editSaveButton {
+    font-size: 1.5rem;
+    margin-top: 1rem;
   }
-  

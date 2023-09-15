@@ -77,6 +77,16 @@
 
 .ownerStyle {
     font-size: 1.5rem;
+    color: #333333;
+}
+
+.ownerStyle:hover {
+    color: #FFA500;
+}
+
+.linkStyle{
+    text-decoration-color: #FFA500;
+    text-decoration-thickness: .17rem;
 }
 
 .iconCount {
