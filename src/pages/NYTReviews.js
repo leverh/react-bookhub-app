@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { fetchNYTReviews, fetchNYTTop10 } from '../api/nytAPI';
-import appStyles from '../App.module.css';
 import btnStyles from "../styles/Button.module.css";
 import styles from '../styles/NYTReviews.module.css'
 
@@ -39,9 +38,9 @@ const NYTReviews = () => {
     };
 
     return (
-        <div>
+        <div className={styles.container}>
             <h2 className={styles.header}>New York Times Book Reviews</h2>
-            
+            <div className={styles.searchBox}>
             <input 
                 type="text" 
                 value={searchTerm} 
@@ -50,7 +49,7 @@ const NYTReviews = () => {
                 className={styles.searchInput}
             />
             <button onClick={() => getReviews(searchTerm)} className={`${btnStyles.Button} ${styles.searchButton}`}>Search</button>
-    
+            </div>
             {loading && <p>Loading reviews...</p>}
             {error && <p>Error: {error}</p>}
             
@@ -69,18 +68,18 @@ const NYTReviews = () => {
     
             {/* Display top 10 books */}
             <h3 className={styles.itemHeader}>Top 10 NYT Best Sellers</h3>
-            <ul className={styles.list}>
-                {top10.map((book, index) => (
-                    <li key={index} className={styles.listItem}>
-                        <img src={book.book_image} alt={book.title} className={styles.bookImage} />
-                        <h4 className={styles.itemHeader}>{book.title}</h4>
-                        <p>By: {book.author}</p>
-                        <p>Description: {book.description}</p>
-                        <p>Weeks on List: {book.weeks_on_list}</p>
-                        <p>ISBN: {book.primary_isbn13}</p>
-                    </li>
-                ))}
-            </ul>
+            <ul className={styles.top10List}>
+    {top10.map((book, index) => (
+        <li key={index} className={styles.top10Item}>
+            <img src={book.book_image} alt={book.title} className={styles.bookImage} />
+            <h4 className={styles.top10Header}>{book.title}</h4>
+            <p className={styles.author}>By: {book.author}</p>
+            <p className={styles.description}>Plot: {book.description}</p>
+            <p className={styles.weeksOnList}>Weeks on List: {book.weeks_on_list}</p>
+            <p className={styles.isbn}>ISBN: {book.primary_isbn13}</p>
+        </li>
+    ))}
+</ul>
         </div>
     );
 }
