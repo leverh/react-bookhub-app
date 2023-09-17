@@ -82,7 +82,20 @@ ul li a:hover {
 }
 
 .belief-statement img {
-    width: 15rem;
+    max-width: 15rem;
     height: auto;
     object-fit: cover;
 }
+
+@media (max-width: 660px) {
+    .belief-statement img {
+        max-width: 10rem;
+    }
+}
+
+@media (max-width: 460px) {
+    .belief-statement {
+        flex-direction: column;
+    }
+}
+

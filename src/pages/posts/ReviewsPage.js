@@ -59,7 +59,7 @@ function ReviewsPage({ message, filter = "" }) {
 
   return (
     <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
+      <Col className="py-2 p-0 p-lg-2" lg={7}>
         <PopularProfiles mobile />
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
@@ -78,7 +78,7 @@ function ReviewsPage({ message, filter = "" }) {
         <BookOfTheWeek book={bookOfTheWeek} />
 
         <LiteraryQuote />
-
+        <Container className={styles.reviewsContainer}>
         {hasLoaded ? (
           <>
             {reviews.results.length ? (
@@ -103,8 +103,9 @@ function ReviewsPage({ message, filter = "" }) {
             <Asset spinner />
           </Container>
         )}
+        </Container>
       </Col>
-      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+      <Col md={5} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
       </Col>
     </Row>

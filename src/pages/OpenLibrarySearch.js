@@ -82,7 +82,8 @@ const OpenLibrarySearch = () => {
                     <ul className={styles.searchResults}>
                         {results.map(book => (
                             <li key={book.key}>
-                                <a href={`https://openlibrary.org${book.key}`} target="_blank" rel="noopener noreferrer">
+                                <a className={styles.flexLinkContainer} href={`https://openlibrary.org${book.key}`} target="_blank" rel="noopener noreferrer">
+
                                     <img src={book.cover_i ? `http://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg` : ''} alt={book.title} />
                                     <h3>{book.title}</h3>
                                 </a>
