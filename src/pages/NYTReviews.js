@@ -49,7 +49,7 @@ const NYTReviews = () => {
                 placeholder="Search for a book..."
                 className={styles.searchInput}
             />
-            <button onClick={() => getReviews(searchTerm)}className={`${btnStyles.Button} ${styles.searchButton}`}>Search</button>
+            <button onClick={() => getReviews(searchTerm)} className={`${btnStyles.Button} ${styles.searchButton}`}>Search</button>
     
             {loading && <p>Loading reviews...</p>}
             {error && <p>Error: {error}</p>}
@@ -59,26 +59,30 @@ const NYTReviews = () => {
             <ul className={styles.list}>
                 {reviews.map((review, index) => (
                     <li key={index} className={styles.listItem}>
-                    <h3 className={styles.itemHeader}>{review.book_title}</h3>
-                    <p>By: {review.byline.slice(3)}</p>
-                    <p>{review.summary}</p>
-                    <a href={review.url} target="_blank" rel="noopener noreferrer">Read full review</a>
-                </li>
+                        <h3 className={styles.itemHeader}>{review.book_title}</h3>
+                        <p>By: {review.byline.slice(3)}</p>
+                        <p>{review.summary}</p>
+                        <a href={review.url} target="_blank" rel="noopener noreferrer">Read full review</a>
+                    </li>
                 ))}
             </ul>
     
             {/* Display top 10 books */}
             <h3 className={styles.itemHeader}>Top 10 NYT Best Sellers</h3>
-            <ul>
+            <ul className={styles.list}>
                 {top10.map((book, index) => (
                     <li key={index} className={styles.listItem}>
+                        <img src={book.book_image} alt={book.title} className={styles.bookImage} />
                         <h4 className={styles.itemHeader}>{book.title}</h4>
                         <p>By: {book.author}</p>
+                        <p>Description: {book.description}</p>
+                        <p>Weeks on List: {book.weeks_on_list}</p>
+                        <p>ISBN: {book.primary_isbn13}</p>
                     </li>
                 ))}
             </ul>
         </div>
     );
-    
 }
+
 export default NYTReviews;
