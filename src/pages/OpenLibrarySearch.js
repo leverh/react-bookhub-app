@@ -46,7 +46,22 @@ const OpenLibrarySearch = () => {
     return (
         <div className={`${styles.searchContainer} ${appStyles.containerClass}`}>
             <h2 className={styles.searchHeader}>Search Books on OpenLibrary</h2>
-            <form onSubmit={handleFormSubmit}>  {/* Wrap the input and button within this form */}
+            <p className={styles.descriptionText}><a href="https://openlibrary.org/" target='_blank'>OpenLibrary.org </a> 
+            is a comprehensive online platform dedicated to promoting global literacy and access to knowledge. 
+            It provides users with a vast digital library of millions of books, 
+            including classics, contemporary works, and rare manuscripts, 
+            all available for free.</p> 
+            
+            <p className={styles.descriptionText}><a href="https://openlibrary.org/" target='_blank'>OpenLibrary.org </a> not only offers the 
+            opportunity to read and borrow books but also encourages collaborative 
+            contributions from users to create an open and ever-expanding 
+            repository of human knowledge. It's a valuable resource for readers, 
+            researchers, and educators alike, fostering a culture of learning and 
+            sharing in the digital age. </p>
+
+            <p className={styles.descriptionText}>Feel free to use the search function below to explore new books, ideas, 
+            as well as fellow bookwors on the <a href="https://openlibrary.org/" target='_blank'>OpenLibrary.org </a></p>
+            <form onSubmit={handleFormSubmit}> 
                 <input 
                     type="text" 
                     className={styles.searchInput}
