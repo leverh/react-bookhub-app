@@ -26,7 +26,7 @@ const AboutUs = () => {
             <li><span>Book Reviews:</span> Share your thoughts on the books you've read and discover reviews from other members.</li>
             <li><span>NYT Best Sellers:</span> Stay updated with the latest top 10 books from the New York Times Best Sellers list.</li>
             <li><span>User Profiles:</span> Create your own profile, follow other users, and build your reading community.</li>
-            <li><span>Open Library Search:</span> Dive deep into the vast collections <a href='https://openlibrary.org/'>OpenLibrary</a> and find any book you're looking for.</li>
+            <li><span>Open Library Search:</span> Dive deep into the vast collections <a href='https://openlibrary.org/' target='_blank' rel="noopener noreferrer">OpenLibrary</a> and find any book you're looking for.</li>
         </ul>
         <div className={`${styles['arrow-divider']}`}></div>
         <h4>Become a part of our growing community and embark on a literary journey like no other. Dive deep into the world of books and let your voice be heard.</h4>
