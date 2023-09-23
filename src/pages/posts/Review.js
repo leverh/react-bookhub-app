@@ -9,7 +9,6 @@ import { axiosReq } from "../../api/axiosDefaults";
 import styles from "../../styles/Review.module.css";
 
 const Review = (props) => {
-  console.log(props);
   const {
     id,
     owner,
@@ -44,7 +43,7 @@ const Review = (props) => {
       await axiosReq.delete(`/posts/${id}/`);
       history.goBack();
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -60,7 +59,7 @@ const Review = (props) => {
         setLikeId(data.id);
       }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

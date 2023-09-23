@@ -31,7 +31,7 @@ function ReviewPage() {
         setReview({ results: [review] });
         setComments(comments);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

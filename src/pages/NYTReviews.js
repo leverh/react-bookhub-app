@@ -27,7 +27,6 @@ const NYTReviews = () => {
         try {
             setLoading(true);
             const reviewsData = await fetchNYTReviews(title);
-            console.log(reviewsData);
 
             setReviews(reviewsData);
             setLoading(false);

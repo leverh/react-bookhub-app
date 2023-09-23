@@ -36,7 +36,6 @@ const Profile = (props) => {
             following_id ? btnStyles.BlackOutline : btnStyles.Black
         } ${styles.fixedWidthButton} ${styles.stretchedTextButton}`}
             onClick={() => {
-              console.log("Current profile data:", profile);
               if (following_id) {
                 handleUnfollow(profile);
               } else {

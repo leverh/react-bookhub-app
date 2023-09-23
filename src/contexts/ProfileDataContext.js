@@ -20,8 +20,6 @@ export const ProfileDataProvider = ({ children }) => {
   const handleFollow = async (clickedProfile) => {
     try {
       const dataToSend = { followed: clickedProfile.id };
-
-      console.log("Sending data:", dataToSend);
       const { data } = await axiosReq.post('/followers/', dataToSend, {
         headers: {
             'Content-Type': 'application/json'
@@ -43,7 +41,7 @@ export const ProfileDataProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -70,7 +68,7 @@ export const ProfileDataProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -85,7 +83,7 @@ export const ProfileDataProvider = ({ children }) => {
           popularProfiles: data,
         }));
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

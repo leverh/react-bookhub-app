@@ -41,7 +41,7 @@ const ReviewEditForm = () => {
                       })
                     : history.push("/");
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         };
 
@@ -82,7 +82,7 @@ const ReviewEditForm = () => {
             await axiosReq.put(`/posts/${id}/`, formData);
             history.push(`/reviews/${id}`);
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }
