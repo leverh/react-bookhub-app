@@ -20,6 +20,7 @@ import NYTReviews from './pages/NYTReviews';
 import FloatingFooterButton from "./components/FloatingFooterButton"
 import FooterModal from './components/FooterModal';
 import AboutUs from './pages/AboutUs';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -78,7 +79,7 @@ function App() {
           <Route exact path="/nyt-reviews" component={NYTReviews} />
           <Route exact path="/about-us" component={AboutUs} />
 
-          <Route render={() => <p>Page not found!</p>} />
+          <Route component={NotFoundPage} />
         </Switch>
       </Container>
       <FloatingFooterButton onClick={toggleModal} /> 
