@@ -1,63 +1,62 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { CurrentUserProvider } from '../../contexts/CurrentUserContext';
-import NavBar from '../NavBar'
-import axios from 'axios';
+import { render, screen, fireEvent } from "@testing-library/react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { CurrentUserProvider } from "../../contexts/CurrentUserContext";
+import NavBar from "../NavBar";
 
-jest.mock('axios');
+test("Should render NavBar with Sign in link when user is not logged in", () => {
+  render(
+    <Router>
+      <CurrentUserProvider>
+        <NavBar />
+      </CurrentUserProvider>
+    </Router>
+  );
 
-describe('NavBar Component', () => {
-  test('renders NavBar component', () => {
-    render(
-      <Router>
-        <CurrentUserProvider>
-          <NavBar />
-        </CurrentUserProvider>
-      </Router>
-    );
+  const signInLink = screen.getByText(/Sign in/i);
+  expect(signInLink).toBeInTheDocument();
+});
 
-    expect(screen.getByAltText('BookHub logo')).toBeInTheDocument();
-  });
+test("Should render NavBar with Sign up link when user is not logged in", () => {
+  render(
+    <Router>
+      <CurrentUserProvider>
+        <NavBar />
+      </CurrentUserProvider>
+    </Router>
+  );
 
-  test('renders Sign in and Sign up links when user is logged out', () => {
-    render(
-      <Router>
-        <CurrentUserProvider>
-          <NavBar />
-        </CurrentUserProvider>
-      </Router>
-    );
+  const signUpLink = screen.getByText(/Sign up/i);
+  expect(signUpLink).toBeInTheDocument();
+});
 
-    expect(screen.getByText('Sign in')).toBeInTheDocument();
-    expect(screen.getByText('Sign up')).toBeInTheDocument();
-  });
+test("Should render Profile link when user is logged in", async () => {
+  render(
+    <Router>
+      <CurrentUserProvider>
+        <NavBar />
+      </CurrentUserProvider>
+    </Router>
+  );
 
-  test('renders Sign out and Profile links when user is logged in', () => {
-    render(
-      <Router>
-        <CurrentUserProvider value={{ currentUser: { profile_id: 1 } }}>
-          <NavBar />
-        </CurrentUserProvider>
-      </Router>
-    );
+  const profileLink = await screen.findByText("Profile");
+  expect(profileLink).toBeInTheDocument();
+});
 
-    expect(screen.getByText('Sign out')).toBeInTheDocument();
-    expect(screen.getByText('Profile')).toBeInTheDocument();
-  });
+test("Should render Sign in and Sign up links after user logs out", async () => {
+  render(
+    <Router>
+      <CurrentUserProvider>
+        <NavBar />
+      </CurrentUserProvider>
+    </Router>
+  );
 
-  test('calls handleSignOut on Sign out click', () => {
-    axios.post.mockResolvedValue({});
-    const { getByText } = render(
-      <Router>
-        <CurrentUserProvider value={{ currentUser: { profile_id: 1 }, setCurrentUser: jest.fn() }}>
-          <NavBar />
-        </CurrentUserProvider>
-      </Router>
-    );
+  const signOutLink = await screen.findByText(/Sign out/i);
+  fireEvent.click(signOutLink);
 
-    fireEvent.click(getByText('Sign out'));
+  const signInLink = await screen.findByText(/Sign in/i);
+  expect(signInLink).toBeInTheDocument();
 
-    expect(axios.post).toHaveBeenCalledWith('dj-rest-auth/logout/');
-  });
+  const signUpLink = await screen.findByText(/Sign up/i);
+  expect(signUpLink).toBeInTheDocument();
 });
