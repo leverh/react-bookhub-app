@@ -477,3 +477,208 @@ User stories provide a simple, informal explanation of a software feature from t
 8. **react-scroll-up-button:** 
 * **Usage:** Provides a customizable "Scroll to Top" button for the application.
 * **Justification:** Enhancing user experience is crucial, especially in applications with lengthy content. A "Scroll to Top" button provides users with a quick and convenient way to navigate back to the top of the page, eliminating the need for manual scrolling. The react-scroll-up-button library offers an out-of-the-box solution for this with customization options to ensure the button fits seamlessly into the application's design.
+
+## Front-End Testing
+
+### Manual Testing Procedures and Results
+
+To ensure the reliability of the **BookHub** application, extensive manual testing was conducted. The following outlines the procedures undertaken and the results:
+
+### 1. **User Registration and Login:**
+- **Procedure:**
+  - Navigate to the registration page.
+  - Fill out the registration form with various data sets, including:
+    - Valid data.
+    - Missing mandatory fields.
+    - Incorrectly formatted email addresses.
+  - Attempt to log in with the newly created user credentials.
+  - Attempt to log in with incorrect credentials.
+- **Results:**
+  - Registration was successful with valid data.
+  - Appropriate error messages were displayed for missing or incorrect data.
+  - Login was successful with correct credentials and failed with incorrect ones.
+
+### 2. **Review Posting and Editing:**
+- **Procedure:**
+  - Navigate to the review creation page.
+  - Try posting a review without filling in any details.
+  - Post a review with all details filled.
+  - Edit the posted review.
+- **Results:**
+  - The application prevented posting an empty review and displayed an appropriate error message.
+  - Reviews were successfully posted and displayed on the platform.
+  - Edits to reviews were reflected immediately.
+
+### 3. **Search Functionality:**
+- **Procedure:**
+  - Use the search bar to look for specific book titles or authors.
+  - Try searches with misspellings.
+- **Results:**
+  - Searches returned relevant results.
+  - The search was forgiving of minor misspellings.
+
+### 4. **Responsive Design:**
+- **Procedure:**
+  - Open the application on various devices, including desktop, tablet, and mobile.
+  - Resize the browser window to various sizes.
+- **Results:**
+  - The application's design was fluid and adapted to various screen sizes.
+  - No major design breaks or unresponsive elements were observed.
+
+### 5. **External Libraries Integration:**
+- **Procedure:**
+  - Search for a book using the integrated OpenLibrary search.
+  - Check the results for relevancy.
+- **Results:**
+  - The search returned relevant results from OpenLibrary.
+  - Book details from external libraries were displayed correctly.
+
+### 6. **User Profile and Interactions:**
+- **Procedure:**
+  - Visit a user's profile.
+  - Try following and unfollowing the user.
+  - Navigate to your profile and check the follower count.
+- **Results:**
+  - The follow/unfollow functionality worked as expected.
+  - Follower counts updated in real-time.
+
+### 7. **Scroll to Top Button:**
+- **Procedure:**
+  - Scroll down on a long page.
+  - Click the "Scroll to Top" button.
+- **Results:**
+  - The page smoothly scrolled back to the top upon button click.
+
+### 8. **Commenting on Reviews:**
+- **Procedure:**
+  - Navigate to a book review.
+  - Attempt to post an empty comment.
+  - Post a valid comment.
+  - Edit your comment.
+  - Delete your comment.
+- **Results:**
+  - The application prevented posting an empty comment with an appropriate error message.
+  - Comments were successfully posted below the review.
+  - Edits to comments were reflected immediately.
+  - Deleted comments were removed from the review's comment section.
+
+### 9. **Navigation and Page Loading:**
+- **Procedure:**
+  - Use the main navigation bar to switch between different sections of the application.
+  - Observe the page loading times and any potential errors.
+- **Results:**
+  - Navigation between different sections was smooth.
+  - Pages loaded quickly without any noticeable lag or errors.
+
+### 10. **Profile Picture Upload:**
+- **Procedure:**
+  - Navigate to your user profile.
+  - Attempt to upload different file types as profile pictures, including non-image files.
+  - Upload a valid image file.
+- **Results:**
+  - Non-image files were rejected with an appropriate error message.
+  - Valid image files were successfully uploaded and displayed as the profile picture.
+
+### 11. **Following and Followers List:**
+- **Procedure:**
+  - Follow several users.
+  - Navigate to your profile and click on "Following" to see the list of users you're following.
+  - Unfollow a user and check the list again.
+  - Click on "Followers" to see the list of users following you.
+- **Results:**
+  - The "Following" list correctly displayed the users being followed.
+  - Upon unfollowing, users were removed from the "Following" list.
+  - The "Followers" list correctly displayed users following you.
+
+### 12. **Notification System:**
+- **Procedure:**
+  - Perform actions that trigger notifications, such as receiving a comment on your review or being followed by another user.
+  - Navigate to the notifications section.
+- **Results:**
+  - Notifications were received in real-time.
+  - The notifications section displayed all recent notifications with appropriate messages.
+
+### 13. **Book Recommendations:**
+- **Procedure:**
+  - Navigate to the recommendations section.
+  - Observe the books recommended based on your previous reviews and ratings.
+- **Results:**
+  - The recommendations seemed relevant and based on user preferences.
+
+### 14. **Error Handling and Messages:**
+- **Procedure:**
+  - Intentionally trigger errors, such as trying to access a non-existent page or trying to post invalid data.
+  - Observe the error messages and how the application handles them.
+- **Results:**
+  - User-friendly error messages were displayed.
+  - The application did not crash and gracefully handled errors, redirecting users or providing solutions when possible.
+
+### 15. **Logout and Session Handling:**
+- **Procedure:**
+  - Log out of the application.
+  - Try to access user-specific sections without logging in.
+- **Results:**
+  - Successfully logged out and sessions were terminated.
+  - Without being logged in, user-specific sections were inaccessible, ensuring user data privacy.
+
+Each testing procedure was meticulously executed, and any issues identified were addressed immediately to improve the application's reliability and user experience. This hands-on approach to testing ensured that **BookHub** offers a seamless and enjoyable experience for its users.
+
+### Automatic Testing
+
+#### **1. Mock API Responses:**
+
+In the development environment, I use mock handlers to simulate API responses. This aids in testing how the application handles these responses, ensuring the components render the expected data and can gracefully handle potential API changes.
+
+**File:** `handlers.js` in the `mocks` directory.
+
+```javascript
+import { rest } from "msw";
+
+const baseURL = "https://bookhub-rdf-api-9aad7672239c.herokuapp.com/";
+
+export const handlers = [
+  // ... (code that simulates responses from the API)
+];
+```
+#### **2. Component Rendering Tests:**
+
+**NavBar.test.js**
+Tests the rendering and functionality of the navigation bar: 
+* **Sign in & Sign up links:** Confirms their presence when a user is not logged in.
+* **Profile link:** Ensures it is present when a user is logged in.
+* **Logout behavior:** Tests the behavior of links upon user logout.
+
+**RenderTest.test.js**
+Specifically tests the rendering of the **AboutUs page**, ensuring key elements like particular headings are correctly displayed.
+
+**UserInteraction.test.js**
+This file contains tests that validate the behavior of interactive UI elements. For instance, it checks if a button correctly triggers its associated function upon being clicked.
+
+#### **3. User Interaction Tests:**
+**UserInteraction.test.js**
+This set of tests examines the behavior of the components upon user interactions:
+* **Button interaction:** Validates that a button triggers the expected function when clicked.
+
+Through these automatic tests, I verify the expected behavior of the user interface and ensure that the logic and rendering processes within the application are functioning correctly.
+
+## Version Control and GitHub Usage
+
+Throughout the development of the **BookHub** application, version control was instrumental in ensuring a seamless and organized workflow. I employed Git, coupled with the collaboration platform GitHub, to maintain the project's codebase efficiently. Here's a breakdown of my version control practices:
+
+### **1. Descriptive Commits**:
+Commit messages serve as a brief log or description of changes, making them invaluable for project tracking. I aimed for clarity and precision with each commit, ensuring that the message succinctly conveyed the change's essence. This approach aids in quickly understanding the commit's purpose without diving too deep into the code changes.
+
+### **2. Utilizing Hard Resets**:
+There were instances during development when I needed to revert to a previous stable state due to unforeseen issues or changes in direction. In such cases, I used the `git reset` command. This command allowed me to undo changes and revert to a previously known stable state, ensuring the project's integrity.
+
+### **3. Branching & Merging**:
+To maintain a stable main branch while simultaneously exploring new features, fixes, or optimizations, I made extensive use of Git's branching feature. For each significant change or feature addition:
+- I created a new branch using `git checkout -b branch-name`.
+- After completing the feature or fix in this branch, I tested it thoroughly.
+
+This branching strategy allowed me to work on multiple features simultaneously without affecting the main codebase's stability.
+
+### **4. Testing Branch**:
+Before introducing a new feature to the main branch, I created a dedicated testing branch. This branch served as a sandbox for rigorous testing, ensuring that new additions wouldn't introduce regressions or break existing functionality. Once tests were successful, changes were merged back into the branch.
+
+By adhering to these version control practices, I was able to maintain a clean, organized, and efficient development workflow. It ensured that **BookHub** evolved in a structured manner, with each change meticulously documented and reviewed.
