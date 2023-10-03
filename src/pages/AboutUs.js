@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../styles/AboutUs.module.css'; 
+import ScrollToTopButton from '../components/ScrollToTopButton';
 
 const AboutUs = () => {
   return (
@@ -39,7 +40,8 @@ const AboutUs = () => {
           <img src='https://res.cloudinary.com/dybqzflbo/image/upload/v1694433142/Intersex-inclusive_pride_flag.svg_cpvqhu_d5hk3q.png' alt='Intersex inclusive pride flag'></img>
           <img src='https://res.cloudinary.com/dybqzflbo/image/upload/v1694433142/Antifa_logo.svg_egzlhj_dwtuwx.png' alt='Anti-fascist action flag'></img>
         </div>
-      
+        <ScrollToTopButton />
+
     </div>
   );
 }

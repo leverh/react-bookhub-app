@@ -16,6 +16,7 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import BookOfTheWeek from "../../components/BookOfTheWeek";
 import { fetchBookOfTheWeek } from "../../api/bookAPI";
 import LiteraryQuote from '../../pages/LiteraryQuote';
+import ScrollToTopButton from '../../components/ScrollToTopButton'
 
 
 function ReviewsPage({ message, filter = "" }) {
@@ -107,7 +108,9 @@ function ReviewsPage({ message, filter = "" }) {
       <Col md={5} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
       </Col>
+      <ScrollToTopButton />
     </Row>
+    
   );
 }
 

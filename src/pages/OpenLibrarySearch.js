@@ -3,7 +3,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import appStyles from '../App.module.css';
 import btnStyles from "../styles/Button.module.css";
 import styles from '../styles/OpenLibrarySearch.module.css'
-
+import ScrollToTopButton from '../components/ScrollToTopButton'
 
 const OpenLibrarySearch = () => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -94,6 +94,7 @@ const OpenLibrarySearch = () => {
                     </ul>
                 </InfiniteScroll>
             )}
+            <ScrollToTopButton />
         </div>
     );
 }

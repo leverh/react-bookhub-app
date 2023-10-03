@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchNYTReviews, fetchNYTTop10 } from '../api/nytAPI';
 import btnStyles from "../styles/Button.module.css";
 import styles from '../styles/NYTReviews.module.css'
+import ScrollToTopButton from '../components/ScrollToTopButton'
 
 const NYTReviews = () => {
     const [reviews, setReviews] = useState([]);
@@ -79,6 +80,7 @@ const NYTReviews = () => {
         </li>
     ))}
 </ul>
+<ScrollToTopButton />
         </div>
     );
 }
