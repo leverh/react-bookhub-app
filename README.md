@@ -357,3 +357,123 @@ Following the initial design; feedback was sought to refine and optimize the use
 **7.  Follow-Through to Implementation:**
 
 The design blueprints, as outlined in the wireframes and component designs, were closely followed during the development phase. Any deviations were carefully considered to ensure they enhanced, rather than detracted from, the user experience.
+
+### User Experience Flowchart
+
+In the development of the BookHub application, I prioritized clarity and user-centric design. To ensure that every interaction was intuitive and meaningful, I laid out a User Experience (UX) flowchart. This visual representation helped me map out the user's journey through the **ReviewsPage** of the application.
+
+#### Purpose of the Flowchart:
+
+1. **Visualization:** Before diving into the code, the flowchart provided a clear picture of how the different components and functionalities of the **ReviewsPage** interact with each other.
+
+2. **User-Centered Design:** It assisted in ensuring that user interactions were smooth, logical, and minimized unnecessary steps.
+
+3. **Workflow:** The flowchart served as a reference point for the development, ensuring I was aligned with the intended user experience.
+
+4. **Refinement:** As the development progressed, referring back to the flowchart helped in identifying areas of improvement or simplification.
+
+#### Flowchart Key Features
+
+* **Data Fetching:**  The flowchart showcases how the application fetches reviews and the 'Book of the Week' upon loading the **ReviewsPage**.
+
+* **User Interaction:** It highlights the user's ability to search for specific reviews and how the system responds to these queries.
+
+* **Visual Feedback:** The flowchart represents different states of the application, such as loading states and the display of results or lack thereof.
+
+![Flowchart of the UX for main page](./src/assets/bookhub.png)
+
+## User Stories
+
+### Introduction
+
+User stories provide a simple, informal explanation of a software feature from the perspective of an end user. They help to ensure that the development remains user-centric. Each user story in this project is aligned with the the project goals.
+
+#### Project Goals
+
+1. **Build a Community**: Create a platform where book enthusiasts can connect, share their thoughts, and get recommendations.
+
+2. **Enhance User Engagement:** Provide features that keep users engaged, like reviews, book of the week, and literary quotes.
+
+3. **Ensure Intuitive User Experience:** Offer a simple, clean, and intuitive user interface that users can navigate effortlessly.
+
+#### User Stories
+
+1. **Review Sharing and Exploration**
+
+* As a user, I want to view the latest book reviews so that I can discover new books and get insights about them.
+* As a user, I want to search for specific reviews to find thoughts on books I'm interested in.
+
+2. **Community Building**
+* As a user, I want to view popular profiles so that I can follow active members and enhance my community experience.
+* As a user, I want to follow/unfollow other members to personalize my feed and interactions.
+* As a user, I want to be able to comment and engage with other users regarding book reviews.
+
+3. **Engagement Features**
+* As a user, I want to view the 'Book of the Week' to discover popular and recommended reads.
+* As a user, I want to see a literary quote for daily inspiration and reflection.
+
+4. **Profile Management and Interaction**
+* As a user, I want the application to be visually appealing and functional regardless of the device I'm using, ensuring consistent user experience.
+* As a user, I want fast load times and smooth transitions, especially when I'm accessing the platform on mobile devices.
+* As a user, I want to see the number of reviews I've written, the followers I have, and the profiles I follow.
+
+5. **Error Handling and User Feedback**
+* As a user, I want to be informed when something goes wrong or when there's no data to display, ensuring I'm not left in the dark about what's happening.
+
+6. **Inclusivity and Diversity**
+* As a user, I want to explore literature from various cultures and perspectives to broaden my understanding and appreciation of global narratives.
+* As a user, I want to be part of a platform that promotes inclusivity, where I can express my views without prejudice.
+
+7. **Ease of Access and Navigation**
+* As a user, I want an intuitive layout that makes it easy for me to find what I'm looking for, ensuring a smooth user experience.
+* As a user, I want to easily navigate between different sections of the app, like reviews, profiles, and external libraries.
+
+8. **Integration with External Libraries**
+* As a user, I want to search for books not just within the community but also from external sources like OpenLibrary or the New York Times to have a comprehensive list of options.
+* As a user, I want direct links to sources where I can access, read, or purchase the book, making the journey from discovery to reading seamless.
+
+
+#### Mapping User Stories to Project Goals
+* **Build a Community of Book Lovers:** The ability to view reviews, follow users, and explore popular profiles directly contributes to community building.
+* **Promote Knowledge Sharing:** User reviews, comments, and the integration with external libraries like OpenLibrary facilitate knowledge sharing.
+* **Enhance User Engagement:** Features like 'Book of the Week', literary quotes, and the search functionality keep users engaged and encourage regular visits.
+* **Ensure Intuitive User Experience:** The clear layout of reviews, profiles, and the seamless interaction between different components ensures a user-friendly experience.
+* **Ease of Access:** The user-friendly interface, intuitive layout, and easy navigation cater to this goal.
+* **Integration with External Libraries:** The search functionality, which extends to sources like OpenLibrary, NYT Reviews, ensure this goal is met.
+* **Inclusive and Diverse:**  By allowing literature exploration from various cultures and promoting a prejudice-free platform, this goal is addressed.
+* **User Interaction and Engagement:** Features like user profiles, the ability to add reviews, comment, and interact ensure high user engagement.
+* **Responsive and Scalable:** The design of the application, which ensures optimal performance across devices, and its architecture that allows for future enhancements, align with this goal.
+
+## Front-End Libraries and Their Justifications
+
+1. **React:**
+* **Usage:** React is the primary library used to build the user interface of the application.
+* **Justification:** React's component-based architecture promotes reusability and scalability. Its virtual DOM ensures efficient updates and rendering, making it a solid choice for dynamic applications like BookHub.
+
+2. **react-bootstrap:**
+* **Usage:** This library provides responsive design components like **Col**, **Row**, **Container**, **Button**, and **Image**.
+* **Justification:** React-bootstrap allows for rapid development with a consistent design. It's based on Bootstrap, a widely recognized and adaptable front-end framework, ensuring a responsive and modern UI.Though personally, I prefer using 'vanilla' CSS as I find its flexibility exciting and creative.
+
+3. **react-router:**
+* **Usage:** Used for client-side routing in the application, as seen with **useLocation** and **useParams**.
+* **Justification:** React Router provides seamless navigation between components without refreshing the page, enhancing user experience and performance.
+
+4. **react-infinite-scroll-component:**
+* **Usage:** Implemented for loading more data as the user scrolls.
+* **Justification:** Infinite scrolling improves user experience by eliminating the need for pagination and loading content seamlessly, providing a more fluid browsing experience.
+
+5. **axios:**
+* **Usage:** For making HTTP requests, as observed in the **axiosReq** utility.
+* **Justification:** Axios is a popular promise-based HTTP client for JavaScript, allowing for easier error handling, request and response interception, and overall cleaner asynchronous code compared to the traditional XMLHttpRequest.
+
+6. **OpenLibrary API:**
+* **Usage:** Integrated to search and explore books from an external library.
+* **Justification:** OpenLibrary provides a vast database of books. By integrating this API, BookHub can offer users an expansive range of literature to explore beyond community reviews.
+
+7. **New York Times API:**
+* **Usage:** Integrated to search and explore books from a renowned external library.
+* **Justification:** The NYT API provides a vast database of books and book reviews, as well as the current 10 best selling books list. 
+
+8. **react-scroll-up-button:** 
+* **Usage:** Provides a customizable "Scroll to Top" button for the application.
+* **Justification:** Enhancing user experience is crucial, especially in applications with lengthy content. A "Scroll to Top" button provides users with a quick and convenient way to navigate back to the top of the page, eliminating the need for manual scrolling. The react-scroll-up-button library offers an out-of-the-box solution for this with customization options to ensure the button fits seamlessly into the application's design.
