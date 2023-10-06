@@ -304,7 +304,7 @@ This component is rendered when a user navigates to a non-existent route within 
 ```
 
 ### There are several other components in this app...
-The application is architected around the React framework, leveraging the power of reusable components to build a coherent, maintainable, and scalable codebase. Components such as **SignInForm**, **SignUpForm**, **Comment**, and **CommentCreateForm**, etc.,  are modular building blocks of the application that encapsulate specific functionalities. These components are reused across different parts of the application, ensuring consistency and reducing redundancy. Each component maintains its own state and lifecycle while possibly receiving data via props, allowing for data flow and clear separation of concerns. By structuring the application in this way, it’s easier to manage, develop, and debug, making the codebase more maintainable and scalable as the application evolves.
+The application is architected around the React framework, leveraging the power of reusable components to build a coherent, maintainable, and scalable codebase. Components such as **SignInForm**, **SignUpForm**, **Comment**, and **CommentCreateForm**, **ScrollToTopButton**, etc.,  are modular building blocks of the application that encapsulate specific functionalities. These components are reused across different parts of the application, ensuring consistency and reducing redundancy. Each component maintains its own state and lifecycle while possibly receiving data via props, allowing for data flow and clear separation of concerns. By structuring the application in this way, it’s easier to manage, develop, and debug, making the codebase more maintainable and scalable as the application evolves.
 
 ## UX Design Process for BookHub
 
@@ -432,13 +432,16 @@ User stories provide a simple, informal explanation of a software feature from t
 * As a user, I want to search for books not just within the community but also from external sources like OpenLibrary or the New York Times to have a comprehensive list of options.
 * As a user, I want direct links to sources where I can access, read, or purchase the book, making the journey from discovery to reading seamless.
 
+9. **Accessibility Features**
+* As a user, I want the platform to be accessible, catering to users with disabilities with features like a screen reader or high contrast mode.
+* As a user, I want to adjust the text size or choose between different themes to customize my reading experience.
 
 #### Mapping User Stories to Project Goals
 * **Build a Community of Book Lovers:** The ability to view reviews, follow users, and explore popular profiles directly contributes to community building.
 * **Promote Knowledge Sharing:** User reviews, comments, and the integration with external libraries like OpenLibrary facilitate knowledge sharing.
 * **Enhance User Engagement:** Features like 'Book of the Week', literary quotes, and the search functionality keep users engaged and encourage regular visits.
 * **Ensure Intuitive User Experience:** The clear layout of reviews, profiles, and the seamless interaction between different components ensures a user-friendly experience.
-* **Ease of Access:** The user-friendly interface, intuitive layout, and easy navigation cater to this goal.
+* **Ease of Access:** The addition of accessibility features ensures a wider range of users can navigate and utilize the platform with ease.
 * **Integration with External Libraries:** The search functionality, which extends to sources like OpenLibrary, NYT Reviews, ensure this goal is met.
 * **Inclusive and Diverse:**  By allowing literature exploration from various cultures and promoting a prejudice-free platform, this goal is addressed.
 * **User Interaction and Engagement:** Features like user profiles, the ability to add reviews, comment, and interact ensure high user engagement.
@@ -682,3 +685,32 @@ This branching strategy allowed me to work on multiple features simultaneously w
 Before introducing a new feature to the main branch, I created a dedicated testing branch. This branch served as a sandbox for rigorous testing, ensuring that new additions wouldn't introduce regressions or break existing functionality. Once tests were successful, changes were merged back into the branch.
 
 By adhering to these version control practices, I was able to maintain a clean, organized, and efficient development workflow. It ensured that **BookHub** evolved in a structured manner, with each change meticulously documented and reviewed.
+
+
+## Technology
+
+The following technologies were used in this project:
+
+### Languages
+
+- **Python**: The primary backend language.
+- **JSX**: Used as a syntax extension for JavaScript, enabling the construction of React components.
+- **HTML**: Fundamental structure for the web application.
+- **CSS**: Styling and layout for the web application's visual presentation.
+- **JavaScript**: Core programming language.
+
+### Frameworks
+
+- **Django REST Framework**: Used for building Web APIs in the Django environment.
+- **React**: A JavaScript library for building user interfaces, allowing for the creation of reusable UI components.
+- **React Bootstrap**: An integration of Bootstrap with React, offering responsive design and styled components.
+
+### Other Software and Dependencies
+
+- **MSW (Mock Service Worker)**: Assists in front-end development by mocking API calls.
+- **Axios**: A promise-based HTTP client for making asynchronous requests.
+- **React Testing Library**: A lightweight solution for testing React components, prioritizing user interactions.
+- **npm (Node Package Manager)**: Handles package installation and dependency management.
+- **jwt-decode**: A utility for decoding JSON Web Tokens (JWT) to retrieve payload data.
+- **React Lazy Load Image Component**: Optimizes image loading by lazily loading images that are currently in view.
+- **React Router**: Enables navigation between different components, changing the browser URL, and keeping the UI in sync.
