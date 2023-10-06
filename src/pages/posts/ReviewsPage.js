@@ -58,6 +58,7 @@ function ReviewsPage({ message, filter = "" }) {
   }, [filter, query, pathname]);
 
   return (
+    <Container className="position-relative">
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={7}>
         <PopularProfiles mobile />
@@ -108,9 +109,10 @@ function ReviewsPage({ message, filter = "" }) {
       <Col md={5} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
       </Col>
-      <ScrollToTopButton />
+      
     </Row>
-    
+    <ScrollToTopButton />
+    </Container>
   );
 }
 

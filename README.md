@@ -51,7 +51,7 @@ In this application, I have embraced React's philosophy of building small, reusa
 
 **Purpose:** 
 
-The **BookOfTheWeek** component is designed to showcase the last book review that has been uploaded. It’s a dynamic component that fetches the book of the week from the backend and displays its title and author. If a book prop is provided, it will display the provided book instead of fetching it from the backend.
+The **BookOfTheWeek** component is designed to showcase recommended book review that have been uploaded. It’s a dynamic component that fetches the book of the week from the backend and displays its title and author. If a book prop is provided, it will display the provided book instead of fetching it from the backend.
 
 **Props:**
 
@@ -61,7 +61,7 @@ The **BookOfTheWeek** component is designed to showcase the last book review tha
 
 **Usage:**
 
-This component is used in a prominent location in the application: the homepage to highlight the most recently reviewed book to the users.
+This component is used in a prominent location in the application's with the purpose of acquainting the users with reviews posted a while back (if the reviews database grows substantially...).
 
 **State and Effects:**
 
@@ -91,7 +91,7 @@ This component can be used wherever a button with floating footer style is requi
 
 **Example:**
 
-```javascript
+```html
 <FloatingFooterButton onClick={() => { console.log('Button Clicked!'); }} />
 ```
 
@@ -287,7 +287,25 @@ It's important to note that:
 * If there is an error during the data fetching process, the component informs users accordingly.
 * The styling for this component is defined in the **OpenLibrarySearch.module.css** file, maintaining a consistent and appealing look.
 
-### 11. NotFoundPage.js
+
+### 11. ScrollToTopButton.js
+
+**Purpose:**
+The **ScrollToTopButton** component provides an easily accessible button for users to navigate back to the top of the page. It's particularly useful on longer pages where scrolling manually would be tedious. The button is designed to be visually appealing and intuitive, and it only appears once the user has scrolled down, ensuring that it doesn't clutter the interface when not needed.
+
+**Usage:**
+The **ScrollToTopButton** is used globally across the application. It is particularly helpful on pages with lengthy content like the reviews page, NYT reviews and top 10 page, The OpenLibrary page, etc.
+
+**Example:**
+```html
+<ScrollToTopButton />
+```
+
+It's important to note that:
+
+Initially, I used the React library component for the "scroll to top" functionality. However, after encountering some compatibility and styling limitations, I decided to build a custom "scroll to top" button. This not only allowed for greater flexibility in terms of design and positioning but also ensured that the component would seamlessly integrate with the rest of the application's architecture and styling. The custom solution also provided an opportunity to tailor the user experience more closely to the app's unique requirements and aesthetics.
+
+### 12. NotFoundPage.js
 
 **Purpose:**
 
@@ -302,6 +320,8 @@ This component is rendered when a user navigates to a non-existent route within 
 ```html
 <NotFoundPage />
 ```
+
+
 
 ### There are several other components in this app...
 The application is architected around the React framework, leveraging the power of reusable components to build a coherent, maintainable, and scalable codebase. Components such as **SignInForm**, **SignUpForm**, **Comment**, and **CommentCreateForm**, **ScrollToTopButton**, etc.,  are modular building blocks of the application that encapsulate specific functionalities. These components are reused across different parts of the application, ensuring consistency and reducing redundancy. Each component maintains its own state and lifecycle while possibly receiving data via props, allowing for data flow and clear separation of concerns. By structuring the application in this way, it’s easier to manage, develop, and debug, making the codebase more maintainable and scalable as the application evolves.
@@ -477,9 +497,9 @@ User stories provide a simple, informal explanation of a software feature from t
 * **Usage:** Integrated to search and explore books from a renowned external library.
 * **Justification:** The NYT API provides a vast database of books and book reviews, as well as the current 10 best selling books list. 
 
-8. **react-scroll-up-button:** 
+8. **Self-made-scroll-up-button:** 
 * **Usage:** Provides a customizable "Scroll to Top" button for the application.
-* **Justification:** Enhancing user experience is crucial, especially in applications with lengthy content. A "Scroll to Top" button provides users with a quick and convenient way to navigate back to the top of the page, eliminating the need for manual scrolling. The react-scroll-up-button library offers an out-of-the-box solution for this with customization options to ensure the button fits seamlessly into the application's design.
+* **Justification:** Enhancing user experience is crucial, especially in applications with lengthy content. A "Scroll to Top" button provides users with a quick and convenient way to navigate back to the top of the page, eliminating the need for manual scrolling. The custom-made-scroll-up-button offers an out-of-the-box solution for this with customization options to ensure the button fits seamlessly into the application's design.
 
 ## Front-End Testing
 
@@ -663,6 +683,228 @@ This set of tests examines the behavior of the components upon user interactions
 * **Button interaction:** Validates that a button triggers the expected function when clicked.
 
 Through these automatic tests, I verify the expected behavior of the user interface and ensure that the logic and rendering processes within the application are functioning correctly.
+
+## Back-end Manual Testing:
+
+### Manual Testing for the `posts` App
+
+#### List All Posts
+* **Test Case Description:** Ensure that all posts are listed correctly.
+* **URL:** `/posts/`
+* **Method:** `GET`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/posts/` URL.
+  2. Verify that the response lists all the posts available in the database.
+
+#### Create a New Post
+* **Test Case Description:** Ensure that a new post can be created.
+* **URL:** `/posts/`
+* **Method:** `POST`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/posts/` URL.
+  2. Submit a `POST` request with the required input data.
+  3. Verify that the response includes the details of the newly created post.
+
+#### Retrieve a Specific Post
+* **Test Case Description:** Ensure that a specific post can be retrieved using its ID.
+* **URL:** `/posts/<int:pk>/` 
+* **Method:** `GET`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/posts/<int:pk>/` URL with a valid post ID.
+  2. Verify that the response displays the details of the specified post.
+
+#### Update a Specific Post
+* **Test Case Description:** Ensure that a specific post can be updated.
+* **URL:** `/posts/<int:pk>/`
+* **Method:** `PUT`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/posts/<int:pk>/` URL with a valid post ID.
+  2. Submit a `PUT` request with the updated data.
+  3. Verify that the response includes the updated details of the post.
+
+#### Delete a Specific Post
+* **Test Case Description:** Ensure that a specific post can be deleted.
+* **URL:** `/posts/<int:pk>/`
+* **Method:** `DELETE`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/posts/<int:pk>/` URL with a valid post ID.
+  2. Submit a `DELETE` request.
+  3. Verify that the response confirms the deletion of the post.
+
+#### Retrieve the Book of the Week
+* **Test Case Description:** Ensure that the "Book of the Week" is correctly retrieved.
+* **URL:** `/book-of-the-week/`
+* **Method:** `GET`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/book-of-the-week/` URL.
+  2. Verify that the response displays the details of the "Book of the Week".
+
+### Manual Testing for the `comments` App
+
+#### List All Comments
+* **Test Case Description:** Ensure that all comments are listed correctly.
+* **URL:** `/comments/`
+* **Method:** `GET`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/comments/` URL.
+  2. Verify that the response lists all the comments available in the database.
+
+#### Create a New Comment
+* **Test Case Description:** Ensure that a new comment can be created.
+* **URL:** `/comments/`
+* **Method:** `POST`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/comments/` URL.
+  2. Submit a `POST` request with the required input data.
+  3. Verify that the response includes the details of the newly created comment.
+
+#### Retrieve a Specific Comment
+* **Test Case Description:** Ensure that a specific comment can be retrieved using its ID.
+* **URL:** `/comments/<int:pk>/`
+* **Method:** `GET`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/comments/<int:pk>/` URL with a valid comment ID.
+  2. Verify that the response displays the details of the specified comment.
+
+#### Update a Specific Comment
+* **Test Case Description:** Ensure that a specific comment can be updated.
+* **URL:** `/comments/<int:pk>/`
+* **Method:** `PUT`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/comments/<int:pk>/` URL with a valid comment ID.
+  2. Submit a `PUT` request with the updated data.
+  3. Verify that the response includes the updated details of the comment.
+
+#### Delete a Specific Comment
+* **Test Case Description:** Ensure that a specific comment can be deleted.
+* **URL:** `/comments/<int:pk>/`
+* **Method:** `DELETE`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/comments/<int:pk>/` URL with a valid comment ID.
+  2. Submit a `DELETE` request.
+  3. Verify that the response confirms the deletion of the comment.
+
+### Manual Testing for the `likes` App
+
+#### Create a New Like
+* **Test Case Description:** Ensure that a new like can be created for a post.
+* **URL:** `/likes/`
+* **Method:** `POST`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/likes/` URL.
+  2. Submit a `POST` request with the required input data (the ID of the post to be liked).
+  3. Verify that the response includes the details of the newly created like.
+
+
+#### Delete a Specific Like
+* **Test Case Description:** Ensure that a specific like can be deleted.
+* **URL:** `/likes/<int:pk>/`
+* **Method:** `DELETE`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/likes/<int:pk>/` URL with a valid like ID.
+  2. Submit a `DELETE` request.
+  3. Verify that the response confirms the deletion of the like.
+
+### Manual Testing for the `followers` App
+
+#### List All Follow Relationships
+* **Test Case Description:** Ensure that all follow relationships are listed correctly.
+* **URL:** `/followers/`
+* **Method:** `GET`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/followers/` URL.
+  2. Verify that the response lists all the follow relationships available in the database.
+
+#### Create a New Follow Relationship
+* **Test Case Description:** Ensure that a new follow relationship can be established.
+* **URL:** `/followers/`
+* **Method:** `POST`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/followers/` URL.
+  2. Submit a `POST` request with the required input data (the ID of the user to be followed).
+  3. Verify that the response includes the details of the newly established follow relationship.
+
+#### Retrieve a Specific Follow Relationship
+* **Test Case Description:** Ensure that a specific follow relationship can be retrieved using its ID.
+* **URL:** `/followers/<int:pk>/` 
+* **Method:** `GET`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/followers/<int:pk>/` URL with a valid follow relationship ID.
+  2. Verify that the response displays the details of the specified follow relationship.
+
+#### Delete a Specific Follow Relationship
+* **Test Case Description:** Ensure that a specific follow relationship can be deleted.
+* **URL:** `/followers/<int:pk>/`
+* **Method:** `DELETE`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/followers/<int:pk
+
+### Manual Testing for the `bookhub` Configurations
+
+#### Access Admin Panel
+* **Test Case Description:** Ensure that the Django admin panel is accessible.
+* **URL:** `/admin/`
+* **Method:** `GET`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/admin/` URL.
+  2. Verify that the Django admin login page is displayed.
+
+#### API Authentication
+* **Test Case Description:** Ensure that the API authentication page is accessible.
+* **URL:** `/api-auth/`
+* **Method:** `GET`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/api-auth/` URL.
+  2. Verify that the authentication page for the API is displayed.
+
+#### Logout Route
+* **Test Case Description:** Ensure that the custom logout route is functioning.
+* **URL:** `/dj-rest-auth/logout/`
+* **Method:** `POST`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/dj-rest-auth/logout/` URL after being authenticated.
+  2. Submit a `POST` request to logout.
+  3. Verify that the response confirms the successful logout.
+
+#### Authentication and Registration Routes
+* **Test Case Description:** Ensure that the authentication and registration routes are accessible.
+* **URLs:** `/dj-rest-auth/` and `/dj-rest-auth/registration/`
+* **Method:** `GET`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the `/dj-rest-auth/` and `/dj-rest-auth/registration/` URLs.
+  2. Verify that the authentication and registration pages are displayed respectively.
+
+#### Root Route
+* **Test Case Description:** Ensure that the root route is accessible and functioning correctly.
+* **URL:** `/`
+* **Method:** `GET`
+* **Status:** Passed
+* **Steps:**
+  1. Navigate to the root URL `/`.
+  2. Verify that the response is as expected (e.g., a welcome page or redirect to another endpoint).
+
+
 
 ## Version Control and GitHub Usage
 
