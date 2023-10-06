@@ -956,3 +956,23 @@ The following technologies were used in this project:
 - **jwt-decode**: A utility for decoding JSON Web Tokens (JWT) to retrieve payload data.
 - **React Lazy Load Image Component**: Optimizes image loading by lazily loading images that are currently in view.
 - **React Router**: Enables navigation between different components, changing the browser URL, and keeping the UI in sync.
+
+## Credits
+
+* **Code Institute's Advanced front-end Moments Walkthrough** - Both as inspiration, template, and foundation for this project.
+
+* **[React.dev](https://react.dev/blog/2023/03/16/introducing-react-dev)** - Documentation and random problem solutions.
+
+* **[React Tutorial for Beginners - Programming with Mosh](https://www.youtube.com/watch?v=SqcY0GlETPk)** - Inspiration, ideas, and basics.
+
+* **[w3schools](https://www.w3schools.com/REACT/DEFAULT.ASP)** - Random code snippets here and there.
+
+* **Book cover images** - All from [Amazon](www.amazon.com) or [Wikipedia](www.wikipedia.com). 
+
+* **[Google Fonts](https://fonts.google.com/)** - For the fonts.
+
+* **[Lucidcharts](https://www.lucidchart.com/pages/)** - for the flowcharts.
+
+* **[Balsamiq](https://balsamiq.com)** - For the wireframes.
+
+
