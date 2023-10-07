@@ -644,6 +644,79 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
   - Successfully logged out and sessions were terminated.
   - Without being logged in, user-specific sections were inaccessible, ensuring user data privacy.
 
+### 16. **Navigation Bar Interactivity:**
+- **Procedure:**
+  - Hover over different elements in the navigation bar.
+  - Check for any dropdowns or tooltips that should appear.
+  - Verify if the active section is highlighted differently.
+- **Results:**
+  - Hovering effects (like dropdowns or tooltips) appeared as expected.
+  -  Active section was distinguishable from other navigation links.
+
+### 17. **Pagination and Infinite Scrolling:**
+- **Procedure:**
+  - Navigate to a section of the application that has multiple pages or uses infinite scrolling.
+  - Scroll through the items and observe the loading of additional content.
+  - If pagination is used, click through different page numbers.
+- **Results:**
+  -  New content loaded seamlessly as the user scrolled down.
+  -  Pagination worked correctly, displaying a different set of items for each page.
+### 18. **Form Validations**:
+- **Procedure**:
+  - Go to any form within the application.
+  - Enter data that doesn't meet the validation criteria (e.g., a password that's too short).
+  - Submit the form.
+- **Results**:
+  - The form displayed clear validation error messages.
+  - The form prevented submission until valid data was entered.
+
+### 19. **Favorites and Bookmarks**:
+- **Procedure**:
+  - Try adding an item (like a book or a review) to your favorites or bookmarks.
+  - Navigate to your profile or a dedicated section where you can view your favorites/bookmarks.
+  - Remove an item from your favorites/bookmarks.
+- **Results**:
+  - The item was successfully added and reflected in the user's favorites/bookmarks list.
+  - Removing the item from favorites/bookmarks also worked seamlessly.
+
+### 20. **Dynamic Data Loading**:
+- **Procedure**:
+  - Navigate to a section where data is fetched dynamically (e.g., a live search or a dynamic chart).
+  - Interact with the section and observe the data changes.
+- **Results**:
+  - Data was fetched and displayed in real-time based on user interactions.
+
+### 21. **User Feedback on Actions**:
+- **Procedure**:
+  - Perform various actions like posting a comment, liking a review, or adding a book.
+  - Observe if there's any feedback provided to the user (like a success message or a loading spinner- or a re-direct).
+- **Results**:
+  - User received immediate feedback on their actions, ensuring clarity and a good user experience.
+
+### 22. **Accessibility Features**:
+- **Procedure**:
+  - Navigate the website using only a keyboard.
+  - Use screen reading tools, if available, to check how the website is read out.
+- **Results**:
+  - The website was navigable using just the keyboard.
+  - Screen reading tools provided an accurate and user-friendly reading of the website.
+
+### 23. **Pop-up Modals and Dialogs**:
+- **Procedure**:
+  - Trigger any pop-up modals or dialog boxes in the application (e.g., by clicking on a "More Info" button).
+  - Interact with the modal (close it, fill it out, etc.).
+- **Results**:
+  - Modals and dialogs appeared as expected and were interactive.
+  - Closing or submitting the modal/dialog worked correctly.
+
+### 24. **Interactivity of Visual Elements**:
+- **Procedure**:
+  - Hover over, click on, or interact with various visual elements like buttons, icons, sliders, etc.
+  - Observe any animations, color changes, or other visual feedback.
+- **Results**:
+  - Visual elements provided feedback upon interaction, enhancing the user experience.
+
+
 Each testing procedure was meticulously executed, and any issues identified were addressed immediately to improve the application's reliability and user experience. This hands-on approach to testing ensured that **BookHub** offers a seamless and enjoyable experience for its users.
 
 ### Automatic Testing
@@ -927,35 +1000,6 @@ This branching strategy allowed me to work on multiple features simultaneously w
 Before introducing a new feature to the main branch, I created a dedicated testing branch. This branch served as a sandbox for rigorous testing, ensuring that new additions wouldn't introduce regressions or break existing functionality. Once tests were successful, changes were merged back into the branch.
 
 By adhering to these version control practices, I was able to maintain a clean, organized, and efficient development workflow. It ensured that **BookHub** evolved in a structured manner, with each change meticulously documented and reviewed.
-
-
-## Technology
-
-The following technologies were used in this project:
-
-### Languages
-
-- **Python**: The primary backend language.
-- **JSX**: Used as a syntax extension for JavaScript, enabling the construction of React components.
-- **HTML**: Fundamental structure for the web application.
-- **CSS**: Styling and layout for the web application's visual presentation.
-- **JavaScript**: Core programming language.
-
-### Frameworks
-
-- **Django REST Framework**: Used for building Web APIs in the Django environment.
-- **React**: A JavaScript library for building user interfaces, allowing for the creation of reusable UI components.
-- **React Bootstrap**: An integration of Bootstrap with React, offering responsive design and styled components.
-
-### Other Software and Dependencies
-
-- **MSW (Mock Service Worker)**: Assists in front-end development by mocking API calls.
-- **Axios**: A promise-based HTTP client for making asynchronous requests.
-- **React Testing Library**: A lightweight solution for testing React components, prioritizing user interactions.
-- **npm (Node Package Manager)**: Handles package installation and dependency management.
-- **jwt-decode**: A utility for decoding JSON Web Tokens (JWT) to retrieve payload data.
-- **React Lazy Load Image Component**: Optimizes image loading by lazily loading images that are currently in view.
-- **React Router**: Enables navigation between different components, changing the browser URL, and keeping the UI in sync.
 
 ## Deployment Process
 
@@ -1360,6 +1404,39 @@ Before migration can take please, I needed to ensure the project is set up corre
 
 **With these complex proccesses complete, the React app should be running successfuly!**
 
+## Technology
+
+The following technologies were used in this project:
+
+### Languages
+
+- **Python**: The primary backend language.
+- **JSX**: Used as a syntax extension for JavaScript, enabling the construction of React components.
+- **HTML**: Fundamental structure for the web application.
+- **CSS**: Styling and layout for the web application's visual presentation.
+- **JavaScript**: Core programming language.
+
+### Frameworks
+
+- **Back-End**:
+  - **[Django](https://www.djangoproject.com/)**
+  - **[Django Rest Framework](https://www.django-rest-framework.org/)**: Used for building Web APIs in the Django environment.
+- **Front-End**:
+  - **[React](https://reactjs.org/)**: A JavaScript library for building user interfaces, allowing for the creation of reusable UI components.
+
+- **Design and Media**:
+  - **[Bootstrap](https://react-bootstrap.netlify.app/)**: An integration of Bootstrap with React, offering responsive design and styled components.
+  - **[FontAwesome](https://fontawesome.com/)**
+  
+### Other Software and Dependencies
+
+- **MSW (Mock Service Worker)**: Assists in front-end development by mocking API calls.
+- **Axios**: A promise-based HTTP client for making asynchronous requests.
+- **React Testing Library**: A lightweight solution for testing React components, prioritizing user interactions.
+- **npm (Node Package Manager)**: Handles package installation and dependency management.
+- **jwt-decode**: A utility for decoding JSON Web Tokens (JWT) to retrieve payload data.
+- **React Lazy Load Image Component**: Optimizes image loading by lazily loading images that are currently in view.
+- **React Router**: Enables navigation between different components, changing the browser URL, and keeping the UI in sync.
 
 ## Credits
 
