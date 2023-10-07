@@ -11,9 +11,16 @@ In the digital age, while there are myriad platforms to discuss movies, music, a
 - **Engaging Reviews:** Dive deep into comprehensive reviews and ratings from fellow readers.
 - **Vibrant Community:** Engage in enriching discussions, join book clubs, or even start your own.
 
-
 > "For words alone are certain good: Sing, then." - **W.B. Yeats**
 
+## Connect to the App:
+
+**BookHub** can be found [here.](https://bookhub-react-app-e2e5d4f08f69.herokuapp.com/)
+
+**GitHub**:
+- Front-End code link can be found [here.](https://github.com/leverh/react-bookhub-app/tree/secondary)
+
+- Back-End code link is [here.](https://github.com/leverh/drf_api/tree/secondary)
 
 ## Project Goals:
 
