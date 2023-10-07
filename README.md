@@ -957,9 +957,415 @@ The following technologies were used in this project:
 - **React Lazy Load Image Component**: Optimizes image loading by lazily loading images that are currently in view.
 - **React Router**: Enables navigation between different components, changing the browser URL, and keeping the UI in sync.
 
+## Deployment Process
+
+### Front-End
+
+### Initial Setup
+
+1. In the new workspace, Run the command `npx create-react-app . --use-npm`.
+2. Once the setup concludes, fire up the app to confirm its smooth functioning.
+3. Add an H1 element tag with some unique text for testing.
+3. Push to GitHub. 
+
+### Deploying on Heroku
+
+With the code on GitHub, it's time to transition to Heroku:
+
+1. Create a new app on Heroku. While naming the app, ensuring its name is distinct and representative of the project.
+2. Depending on the geographical location, selecting the appropriate region and then finalize the app creation.
+3. To link the Heroku app with the GitHub repository, navigate to the "Deploy" section on Heroku, choose "GitHub" as the deployment method, search for the recently created repository, and establish the connection.
+4. Initiate the deployment by selecting "deploy branch". This process might take a moment, but it is possible to monitor the progress via the "View build log".
+5. Upon successful deployment, an acknowledgment will appear. Click "open app" to view the live application and, if everything went as planned, the unique H1 tag added in the previous stage should appear. 
+
+#### Benefits of Early Deployment in Application Development
+
+Embarking on the journey of application development often involves numerous steps, from ideation to final deployment. However, deploying early, even before the app reaches its full potential, can have several advantages. Here are some key benefits of this approach:
+
+### 1. Immediate Feedback Loop
+
+- **Description:** By deploying early, I could get immediate feedback from users. This real-world feedback is invaluable and can influence the direction of development.
+- **Advantage:** Helps in catching user experience issues, bugs, or other unforeseen problems at an early stage.
+
+### 2. Easier Deployment Process
+
+- **Description:** Early deployment allowed me to set up and test my deployment pipelines when the codebase is still relatively simple.
+- **Advantage:** Easier to troubleshoot deployment issues early on than later when the application is more complex.
+
+### 3. Real-world Environment Testing
+
+- **Description:** Local environments often differ from production. Early deployment ensures the app runs smoothly in the production environment.
+- **Advantage:** Reduces environment-specific bugs and issues that might not appear in a local or staging environment.
+
+### 4. Agile Approach Encouragement
+
+- **Description:** Deploying early aligns well with the agile methodology, promoting iterative development and continuous improvement.
+- **Advantage:** Facilitates quicker iterations based on real-world feedback, leading to better built end result.
+
+### 5. Risk Mitigation
+
+- **Description:** By deploying and testing early, I could identify and address critical issues  before they became more deeply integrated or harder to fix.
+- **Advantage:** Reduces long-term development risks and potential rework.
+
+### Back-End
+
+After App was coded, the first step in the deployment process is to set up a PostgreSQL database instance using ElephantSQL:
+
+### Setting Up a Database on ElephantSQL
+
+1. **Accessing ElephantSQL Dashboard**:
+    - Visit [ElephantSQL.com](https://www.elephantsql.com/) and log in to view the dashboard.
+
+2. **Creating a New Database Instance**:
+    - Click on the “Create New Instance” button.
+
+3. **Configuring the Plan**:
+    - Assign a name to the plan. 
+    - Opt for the "Tiny Turtle" plan, which is free.
+
+4. **Selecting a Data Center**:
+    - Click on “Select Region” and choose the geographical area closest.
+
+5. **Reviewing the Setup**:
+    - Press “Review”.
+    - Ensure all details are accurate.
+    - Finalize the setup by clicking “Create instance”.
+
+6. **Accessing Database Details**:
+    - Head back to the ElephantSQL dashboard.
+    - Click on the specific database instance name related to this project.
+    - To obtain the database URL, click on the copy icon in the URL section.
+
+With this, PostgreSQL database instance is successfully set up a the project, ready to be integrated with Heroku for deployment.
+
+The next step is:
+
+### Initiating a New App on Heroku
+
+1. **Accessing Heroku Dashboard**:
+    - Sign in to the Heroku account and navigate to the Dashboard.
+
+2. **Creating a New App**:
+    - Click on the “New” button.
+    - From the dropdown, choose “Create new app”.
+
+3. **Configuring App Details**:
+    - Assign a unique name to the app.
+    - Choose a region that's geographically close to the developer or the target audience.
+    - Once done, hit the “Create app” button to finalize.
+
+4. **Setting Up Database Configuration**:
+    - Navigate to the "Settings" tab of the app.
+    - Add a new Config Var named `DATABASE_URL`.
+    - For its value, paste the database URL from ElephantSQL.
+
+Before migration can take please, I needed to ensure the project is set up correctly to communicate with the ElephantSQL database. This process includes migrating data, setting environment variables, and validating the setup. Here's a detailed guide:
+
+### 1. Installing Required Packages:
+
+  In the IDE terminal, install **dj_database_url** and **psycopg2**:
+  ```bash
+    pip3 install dj_database_url==0.5.0 psycopg2
+  ```
+
+### 2. **Modifying `settings.py`**:
+
+  - Import `dj_database_url` right below the `os` import:
+
+  ```python
+    import os
+    import dj_database_url
+  ```
+
+  - Update the `DATABASES` configuration as follows:
+
+  ```python
+    if 'DEV' in os.environ:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+            }
+        }
+    else:
+        DATABASES = {
+            'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+        }
+  ```
+
+### 3. **Updating Environment Variables**:
+
+  - In the `env.py` file, introduce a new environment variable named `DATABASE_URL` and set its value to the ElephantSQL database URL:
+
+  ```python
+    os.environ['DATABASE_URL'] = "<the PostgreSQL URL here>"
+  ```
+
+  - Comment out the `DEV` environment variable:
+
+  ```python
+     os.environ['DEV'] = '1'
+  ```
+
+### 4. **Database Connection Verification**:
+
+  - Test connection by adding a print statement to the `settings.py` file:
+
+    ```python
+    else:
+        print("Connected to external database!")
+    ```
+
+    - In the terminal, `--dry-run` with `makemigrations` to confirm the connection:
+
+    ```bash
+    python3 manage.py makemigrations --dry-run
+    ```
+
+    If successfully connected, the pring message "Connected to external database!" should be displayed in the terminal.
+
+    - Post-verification, remove the print statement from `settings.py`.
+
+### 5. **Migrating Data and Creating Superuser**:
+
+  - Migrate the database models:
+
+  ```bash
+     python3 manage.py migrate
+  ```
+
+  - Generate a superuser for the new database:
+
+  ```bash
+     python3 manage.py createsuperuser
+  ```
+
+    Follow the subsequent prompts to finalize the superuser's credentials.
+
+### Ensuring Data Integrity in ElephantSQL
+
+### 1. **Navigating to the Database Browser**:
+    - Access the specific database page on ElephantSQL.
+    - From the left navigation pane, choose the "BROWSER" option.
+
+### 2. **Executing Table Queries**:
+    - Click on the "Table queries" button and select `auth_user` from the dropdown.
+
+### 3. **Verifying Superuser Details**:
+    - Click the “Execute” button.
+    - If the migrations were successful, the details of the newly created superuser should be displayed.
+
+### Setting Up for Heroku Deployment
+
+### 1. **Installing Essential Packages**:
+  - From the IDE's terminal, install `gunicorn` and `django-cors-headers`:
+
+  ```bash
+     pip3 install gunicorn django-cors-headers
+  ```
+
+  - Update `requirements.txt` to reflect the new packages:
+
+  ```bash
+     pip freeze --local > requirements.txt
+  ```
+
+### 2. **Setting Up the Procfile**:
+  - Heroku requires a `Procfile` (with no file extension) to understand how to run your project. Create one and ensure the naming is accurate.
+  - Populate the `Procfile` with:
+
+  ```
+    release: python manage.py makemigrations && python manage.py migrate
+    web: gunicorn drf_api.wsgi
+  ```
+
+### 3. **Adjusting `settings.py`**:
+  - Update `ALLOWED_HOSTS` to include Heroku app's domain:
+
+  ```python
+    ALLOWED_HOSTS = ['localhost', '<the_app_name>.herokuapp.com']
+  ```
+
+  - Add `corsheaders` to `INSTALLED_APPS` and its middleware to `MIDDLEWARE`, Ensuring the middleware is placed at the top.
+  - Specify `ALLOWED_ORIGINS` based on the development or production environment.
+  - For cross-origin requests, enable cookie sharing.
+  - Adjust JWT attributes to accommodate different platforms for the frontend and API.
+  - Use an environment variable for the `SECRET_KEY` and modify its value in `env.py`.
+  - Set `DEBUG` to be `True` only during development.
+
+### 4. **Finalizing Deployment Preparations**:
+  - Ensure `requirements.txt` is up-to-date:
+
+  ```bash
+     pip freeze --local > requirements.txt
+  ```
+
+  - Commit and push the updates to the GitHub repository.
+
+### In Heroku:
+
+### 1. **Configuring Heroku Settings**:
+  - Navigate to the app's dashboard on Heroku and select the `Settings` tab.
+
+  - Add two Config Vars:
+      - `SECRET_KEY`: Create a unique one.
+      - `CLOUDINARY_URL`: Copy the value from `env.py` file.
+
+### 2. **Initiating Deployment**:
+  - Switch to the `Deploy` tab.
+
+  - Under `Deployment method`, choose `Connect to GitHub`.
+    
+  - Search for the repository and select `Connect`.
+
+### 3. **Manual Deployment**:
+  - Click on `Deploy Branch` to begin the build.
+  - Once the build concludes, a success message should appear.
+
+### 4. **Verifying Deployment**:
+  - Click the `Open app` button to launch the app.
+  - On the opened app, there should be a JSON success message.
+
+### Unifying the Back-End and the Front-End
+
+### Deployment of Both Applications:
+
+#### **Setting Up WhiteNoise for Static Files**:
+
+**In the Terminal**:
+
+- In the route directory:
+  ```bash
+  cd path_to_root_directory
+  ```
+
+- install **whitenoise**:
+  ```bash
+  pip3 install whitenoise==6.4.0
+  ```
+
+- Update **requirements.txt**:
+  ```bash
+  pip3 freeze > requirements.txt
+  ```
+ 
+- Create an empty folder named **staticfiles** in the root directory:
+
+  ```bash
+  mkdir staticfiles
+  ```
+
+- in **settings.py**:
+
+- In the **INSTALLED_APPS** list, ensure **'cloudinary_storage'** is positioned after **'django.contrib.staticfiles'**.
+
+- Update the **MIDDLEWARE** list, placing WhiteNoise between **SecurityMiddleware** and **SessionMiddleware**:
+  ```python
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+  ```
+- Within the TEMPLATES list at the DIRS key, add the following path, directing Django and WhiteNoise to React's **index.html** during deployment:
+
+  ```python
+  os.path.join(BASE_DIR, 'staticfiles', 'build')
+  ```
+
+  - Define where Django and WhiteNoise should look for the admin and React static files during deployment:
+
+  ```python
+  STATIC_ROOT = BASE_DIR / 'staticfiles'
+  WHITENOISE_ROOT = BASE_DIR / 'staticfiles' / 'build'
+  ```
+
+### **Adjustments for Deployment in Django Rest Framework**:
+
+#### **Modifications in `urls.py`**:
+
+1. **Refactor Imports**:
+    - Exclude `root_route` from `.views` imports. Refer to the modified `settings.py` to see this removal.
+
+    - Incorporate the `TemplateView` from Django's standard views:
+      ```python
+      from django.views.generic import TemplateView
+      ```
+
+2. **Update URL Patterns**:
+    - In the `urlpatterns` list, replace the `root_route` with the `TemplateView` targeting the `index.html` file.
+      ```python
+      path('', TemplateView.as_view(template_name='index.html')),
+      ```
+    
+3. **Handling 404 Errors**:
+    - Append the following 404 handler at the end of the file to delegate 404 errors to React:
+      ```python
+      handler404 = TemplateView.as_view(template_name='index.html')
+      ```
+
+4. **API URL Adjustments**:
+    - Prefix all the API URLs with `api/`, excluding the paths for the main page and admin interface.
+
+#### **Changes in `axiosDefault.js`**:
+
+1. **Base Path Alteration**:
+    - Given the API route's base path adjustment, prepend all React application API requests with `/api`. Navigate to `axiosDefaults.js`, revert the commenting on `axios.defaults.baseURL`, and assign it to `"/api"`.
+
+### **Deployment-Ready Static Files Configuration**:
+
+#### **1. Managing Django Static Files**:
+
+- enter the command in the terminal to accumulate the admin and DRF static files into the previously created `staticfiles` directory:
+    ```bash
+    python3 manage.py collectstatic
+    ```
+
+#### **2. Handling React Static Files**:
+
+- Move into the `frontend` directory using:
+    ```bash
+    cd frontend
+    ```
+
+- For compiling the React app and moving its assets to the `staticfiles` directory, run:
+    ```bash
+    npm run build && mv build ../staticfiles/.
+    ```
+- Verify that the `staticfiles` directory now encompasses all necessary static assets for deployment. Ensure that both `admin` and `build` directories are present.
+
+#### **3. Specifying Python Runtime for Heroku**:
+
+- In the project's root directory, create a new file named `runtime.txt`.
+
+- Add this exact line within `runtime.txt` to signify the Python version Heroku should utilize for deployment:
+    ```plaintext
+    python-3.9.16
+    ```
+
+### **Configuring Heroku for Combined Project Deployment**:
+
+#### **1. Accessing Heroku Dashboard for DRF Application**:
+
+- Sign in to the Heroku account and navigate to the DRF app's dashboard.
+
+#### **2. Configuration Variable Adjustments**:
+
+- Go to `Settings` and open the `Config Vars`.
+
+- The following configurations need to be set:
+    - `ALLOWED_HOST`: Set this to the combined project's URL.
+    - `CLIENT_ORIGIN`: This should point to the combined project's URL, but retain the `https://` prefix while omitting any trailing slashes.
+
+
+#### **3. Pre-Deployment Check & Execution**:
+
+- Trigger deployment by visiting the `Deploy` tab in your Heroku dashboard.
+
+**With these complex proccesses complete, the React app should be running successfuly!**
+
+
 ## Credits
 
 * **Code Institute's Advanced front-end Moments Walkthrough** - Both as inspiration, template, and foundation for this project.
+
+* **Code Institute's Django REST Framework walkthrough** - - Both as inspiration, template, and foundation for the back-end for this project.
 
 * **[React.dev](https://react.dev/blog/2023/03/16/introducing-react-dev)** - Documentation and random problem solutions.
 
@@ -975,4 +1381,37 @@ The following technologies were used in this project:
 
 * **[Balsamiq](https://balsamiq.com)** - For the wireframes.
 
+### Backend Framework & Tools:
+* **[Django](https://www.djangoproject.com/)** - Backend framework.
+* **[Django Rest Framework (DRF)](https://www.django-rest-framework.org/)** - For creating the API.
 
+### Database:
+* **[ElephantSQL](https://www.elephantsql.com/)** - PostgreSQL hosting.
+* **[SQLite](https://www.sqlite.org/index.html)** - Used during development.
+
+### Hosting & Deployment:
+* **[Heroku](https://www.heroku.com/)** - Deployment platform.
+* **[Gitpod](https://www.gitpod.io/)** - Development IDE.
+
+### Other Libraries & Packages:
+* **[WhiteNoise](http://whitenoise.evans.io/en/stable/)** - Serving static files.
+* **[CORS headers](https://pypi.org/project/django-cors-headers/)** - Handling CORS.
+* **[Axios](https://axios-http.com/)** - Making HTTP requests.
+
+### Design & UI:
+* **[FontAwesome](https://fontawesome.com/)** - Icon library.
+* **[Material-UI Icons](https://mui.com/components/material-icons/)** - Icon library.
+
+### Testing Tools:
+* **[Jest](https://jestjs.io/)** - JavaScript testing.
+* **[Postman](https://www.postman.com/)** - API testing.
+
+### Community & Forums:
+* **[Stack Overflow](https://stackoverflow.com/)** - Troubleshooting and solutions.
+* **[GitHub](https://github.com/)** - Repository references and solutions.
+* **[Reddit](https://www.reddit.com/r/webdev/)** - Insights, feedback, and advice.
+
+
+### Thanks:
+
+- Code Institute Sean, Sara, and Holly for their patience and bug fixes.
