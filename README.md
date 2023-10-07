@@ -378,6 +378,30 @@ Following the initial design; feedback was sought to refine and optimize the use
 
 The design blueprints, as outlined in the wireframes and component designs, were closely followed during the development phase. Any deviations were carefully considered to ensure they enhanced, rather than detracted from, the user experience.
 
+### Color Choices in BookHub
+
+Colors play a pivotal role in determining the overall mood of an application and significantly influence user experience. For BookHub, the colors have been carefully selected to create a harmonious, engaging, and intuitive environment for users.
+
+#### **1. Background: #F2E6D3**
+This soft, neutral hue provides a warm and inviting backdrop for the application. The color's lightness helps ensure that all text remains readable, and it offers a calm and non-distracting environment for users to engage with content.
+
+#### **2. Text: #333333**
+A nearly black shade, `#333333`, is used for the primary text. This color offers excellent contrast against the light background, ensuring readability. The choice of a slightly off-black hue softens the appearance and feels less harsh than a stark black.
+
+#### **3. Buttons: #B07D28**
+The golden-brown tone for buttons gives them a distinct appearance, making them easily identifiable as interactive elements. This color choice adds a touch of elegance and warmth, inviting users to interact.
+
+#### **4. Hover Effects: Underline #DACBBB and Color #444444**
+Hover effects provide users with feedback, indicating that an element is interactive. The subtle color shift to `#444444` and the addition of an underline in `#DACBBB` in certain places, signals interactivity.
+
+#### **5. Accents: #15DBDB**
+To highlight specific elements and create points of interest, a bright teal `#15DBDB` is used. This color not only grabs attention but also adds vibrancy and modernity to the design.
+
+Incorporating a well-thought-out color scheme aids in creating a cohesive visual experience. The chosen palette for BookHub aligns with the platform's goal of offering a serene environment for book enthusiasts while ensuring ease of use and intuitive navigation.
+
+![Color palette for the BookHub project](./src/assets/Screenshot%202023-10-07%20at%2016-20-12%20Create%20a%20Palette%20-%20Coolors.png)
+
+
 ### User Experience Flowchart
 
 In the development of the BookHub application, I prioritized clarity and user-centric design. To ensure that every interaction was intuitive and meaningful, I laid out a User Experience (UX) flowchart. This visual representation helped me map out the user's journey through the **ReviewsPage** of the application.
