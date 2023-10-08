@@ -415,15 +415,21 @@ A nearly black shade, `#333333`, is used for the primary text. This color offers
 #### **3. Buttons: #B07D28**
 The golden-brown tone for buttons gives them a distinct appearance, making them easily identifiable as interactive elements. This color choice adds a touch of elegance and warmth, inviting users to interact.
 
-#### **4. Hover Effects: Underline #DACBBB and Color #444444**
-Hover effects provide users with feedback, indicating that an element is interactive. The subtle color shift to `#444444` and the addition of an underline in `#DACBBB` in certain places, signals interactivity.
+#### **4. Hover Effects: Underline ##FFA500 and Color #444444**
+The choice of a vibrant orange #FFA500 for link underlines ensures that links stand out in the content, signaling to users that they are interactive. This bright shade not only grabs attention but also adds an element of excitement to the design.
 
-#### **5. Accents: #15DBDB**
-To highlight specific elements and create points of interest, a bright teal `#15DBDB` is used. This color not only grabs attention but also adds vibrancy and modernity to the design.
 
 Incorporating a well-thought-out color scheme aids in creating a cohesive visual experience. The chosen palette for BookHub aligns with the platform's goal of offering a serene environment for book enthusiasts while ensuring ease of use and intuitive navigation.
 
-![Color palette for the BookHub project](./src/assets/Screenshot%202023-10-07%20at%2016-20-12%20Create%20a%20Palette%20-%20Coolors.png)
+![Color palette for the BookHub project](./src/assets/Screenshot%202023-10-08%20at%2012-35-41%20Create%20a%20Palette%20-%20Coolors.png)
+
+### Contrasts:
+
+Color contrasts and accessibility are paramount in website design, serving a dual purpose of aesthetics and functionality. Proper contrast ensures that text and interactive elements are easily distinguishable, enhancing readability and reducing strain on the eyes. More importantly, it caters to a diverse audience, including those with visual impairments or color blindness, ensuring that everyone has an equal opportunity to access and enjoy the content. 
+
+For me, as a developer or designer, prioritizing accessibility broadens the reach of my website (or app), potentially increasing engagement. By adhering to accessibility standards, I think that we demonstrate a commitment to delivering a user-friendly and universally welcoming digital experience.
+
+![WebAim color contrast check image for a background color of #F2E6D3 and text color of #333333](./src/assets/Screenshot%202023-10-08%20at%2012-42-54%20WebAIM%20Contrast%20Checker.png)
 
 
 ### User Experience Flowchart
@@ -1024,6 +1030,13 @@ Through these automatic tests, I verify the expected behavior of the user interf
 * **Steps:**
   1. Navigate to the root URL `/`.
   2. Verify that the response is as expected (e.g., a welcome page or redirect to another endpoint).
+
+### Validators
+
+#### CSS:
+
+All 26 Css sheets have been checked by the [W3C Validation Service](https://jigsaw.w3.org/css-validator/validator) and received a pass ![verified css badge](./src/assets/vcss-blue.gif).
+
 
 
 

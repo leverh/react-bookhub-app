@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "../../styles/Profile.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { Button } from "react-bootstrap";
+import styles from "../../styles/Profile.module.css";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 
 const Profile = (props) => {
@@ -16,20 +16,19 @@ const Profile = (props) => {
 
   const { handleFollow, handleUnfollow } = useSetProfileData();
 
-  return (
-    <div className="my-3 d-flex align-items-center">
+return (
+  <div className="my-3 d-flex align-items-center justify-content-between">
+    <Link className="align-self-center d-flex align-items-center" to={`/profiles/${id}`}>
+
       {/* Avatar */}
-      <div>
-        <Link className="align-self-center" to={`/profiles/${id}`}>
-          <Avatar src={image} height={imageSize} />
-        </Link>
-      </div>
-      
+      <Avatar src={image} height={imageSize} />
+    
       <div className={`mx-2 ${styles.WordBreak} flex-grow-1`}>
         <strong className={styles.username}>{owner}</strong>
       </div>
-      
-      <div>
+    </Link>
+
+    <div>
         {currentUser && !is_owner && (
           <Button
           className={`${btnStyles.Button} ${
