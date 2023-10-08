@@ -3,6 +3,27 @@ Welcome to **BookHub**, a dedicated platform for bibliophiles to connect, share,
 
 ![Image of the BookHub app on different screen sizes](./src/assets/Screenshot%202023-10-07%20at%2016-37-39%20Am%20I%20Responsive.png)
 
+## Table of Contents
+
+- [Why BookHub?](#why-bookhub)
+- [Connect to the App](#connect-to-the-app)
+- [Project Goals](#project-goals)
+- [Component Architecture and Reuse](#component-architecture-and-reuse)
+- [UX Design Process for BookHub](#ux-design-process-for-bookhub)
+  - [Color Choices in BookHub](#color-choices-in-bookhub)
+  - [User Experience Flowchart](#user-experience-flowchart)
+  - [User Stories](#user-stories)
+- [Front-End Libraries and Their Justifications](#front-end-libraries-and-their-justifications)
+- [Front-End Testing](#front-end-testing)
+  - [Automatic Testing](#automatic-testing)
+- [Back-end Manual Testing](#back-end-manual-testing)
+- [Agile Board ](#key-agile-practices-adopted)
+- [Version Control and GitHub Usage](#version-control-and-github-usage)
+- [Deployment Process](#deployment-process)
+- [Technologies](#technologies)
+- [Credits](#credits)
+
+
 ## Why BookHub?
 
 In the digital age, while there are myriad platforms to discuss movies, music, and other forms of entertainment, dedicated platforms for book enthusiasts are few and far between. BookHub aims to fill this void by offering:
@@ -1062,6 +1083,18 @@ Before introducing a new feature to the main branch, I created a dedicated testi
 
 By adhering to these version control practices, I was able to maintain a clean, organized, and efficient development workflow. It ensured that **BookHub** evolved in a structured manner, with each change meticulously documented and reviewed.
 
+## Agile Methodology in Project Development
+
+For the development of the BookHub application, I used the Agile methodology.
+
+#### Key Agile Practices Adopted:
+
+1. **User Stories:** Every feature was defined in terms of user stories, focusing on the end user's perspective and needs.
+2. **Iterative Development:** The project was developed in iterations, with each cycle focusing on a set of user stories.
+3. **Interactive Board Management:** I used Trello as my project management tool, enabling me to visualize tasks, track progress, and manage priorities in an interactive manner.
+
+My Agile approach facilitated rapid adjustments to changes and ensured that the user was always at the center of my development efforts. Here is the [Trello board](https://trello.com/b/RiuBrAFr/bookhub).
+
 ## Deployment Process
 
 ### Front-End
@@ -1465,7 +1498,7 @@ Before migration can take please, I needed to ensure the project is set up corre
 
 **With these complex proccesses complete, the React app should be running successfuly!**
 
-## Technology
+## Technologies
 
 The following technologies were used in this project:
 
