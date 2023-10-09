@@ -26,11 +26,19 @@ Welcome to **BookHub**, a dedicated platform for bibliophiles to connect, share,
 
 ## Why BookHub?
 
-In the digital age, while there are myriad platforms to discuss movies, music, and other forms of entertainment, dedicated platforms for book enthusiasts are few and far between. BookHub aims to fill this void by offering:
+In the digital age, while there are myriad of platforms to discuss movies, music, and other forms of entertainment, dedicated platforms for book enthusiasts are few and far between. BookHub aims to fill this void by offering:
 
-- **Personalized Recommendations:** Tailored book suggestions based on your reading preferences.
 - **Engaging Reviews:** Dive deep into comprehensive reviews and ratings from fellow readers.
-- **Vibrant Community:** Engage in enriching discussions, join book clubs, or even start your own.
+
+- **Curated Collections:** Discover handpicked book recommendations tailored to your interests, ensuring you always have something great to read. 
+
+- **User-Friendly Interface:** Intuitive design and user-friendly features make your browsing and reading experiences fun.
+
+- **Mobile Responsive:** Whether on desktop or mobile, BookHub provides a consistent and optimized experience across devices.
+
+- **Secure and Privacy-Focused:**  Data and reading preferences are kept private, with no third-party sharing.
+
+- **Regular Updates:** Stay informed about the latest book releases, and trending reads in the literary world.
 
 > "For words alone are certain good: Sing, then." - **W.B. Yeats**
 
@@ -48,7 +56,7 @@ In the digital age, while there are myriad platforms to discuss movies, music, a
 The inception of the **BookHub** application was motivated by a passion for literature and a desire to create a digital sanctuary for book enthusiasts. Here’s a concise overview of what I set out to achieve with this application:
 
 1. **Build a Community of Book Lovers:**
-   - To create a platform where users can come together to discuss, share, and explore books of varying genres, fostering a community of like-minded individuals who share a common love for literature (and hopefully no internet trolls...).
+   - To create a platform where users can come together to discuss, share, and explore books of varying genres, fostering a community of like-minded individuals who share a common love for literature (and hopefully no internet trolls...!!).
 
 2. **Promote Knowledge Sharing:**
    - To enable users to share their thoughts, reviews, and insights about different books, thereby promoting the exchange of knowledge and perspectives within the community.
@@ -80,7 +88,7 @@ In this application, I have embraced React's philosophy of building small, reusa
 
 **Usage:** This component is used in multiple sections such as the main page review loads, user list loads, NYT reviews load, etc. 
 
-2. Avatar.js
+### 2. Avatar.js
 
 **Purpose:** The Avatar component is used to display a user's avatar image along with optional text. It is a reusable component utilized wherever a user’s avatar needs to be showcased within the application.
 
@@ -92,7 +100,7 @@ In this application, I have embraced React's philosophy of building small, reusa
 
 **Usage**: This component is used on the main page in the review component, in the profile component, in the user list component, and so on. 
 
-### 2. BookOfTheWeek.js
+### 3. BookOfTheWeek.js
 
 **Purpose:** 
 
@@ -106,7 +114,7 @@ The **BookOfTheWeek** component is designed to showcase recommended book review 
 
 **Usage:**
 
-This component is used in a prominent location in the application's with the purpose of acquainting the users with reviews posted a while back (if the reviews database grows substantially...).
+This component is used in a prominent location in the application's with the purpose of acquainting the users with reviews posted a while back (if the reviews database grows substantially...). It could also be encouragement for users to engage and have their reviews shown in a prominent place. 
 
 **State and Effects:**
 
@@ -132,7 +140,7 @@ It's important to note that:
 
 **Usage:** 
 
-This component can be used wherever a button with floating footer style is required, and its action can be customized based on the parent component’s requirement.
+This component can be used wherever a button with floating footer style is required, and its action can be customized based on the parent component’s requirement. In my case, I use it to open up a modal imprint window. 
 
 **Example:**
 
@@ -230,11 +238,6 @@ The **AboutUs** component is designed to present detailed information about the 
 
 This component is used in the “About Us” section of the application, serving as a dedicated space where users can learn more about BookHub and its objectives.
 
-**Example:**
-
-```html
-<AboutUs />
-```
 
 ### 8. LiteraryQuote.js
 
@@ -286,15 +289,10 @@ The **NYTReviews** component is developed to display a list of New York Times bo
 
 This component can be used to display book reviews and best sellers from the New York Times, offering users insights and recommendations for their next read.
 
-**Example:**
-
-```html
-<NYTReviews />
-```
 
 It's important to note that:
-* The NYTReviews component makes API calls to fetch reviews and best sellers' data, rendering dynamic content based on the fetched data.
-* It manages various state variables to handle loading, errors, and user inputs efficiently, ensuring a smooth user experience.
+* The NYTReviews component makes API calls to fetch reviews and best sellers' data, rendering dynamic content in the fetched data.
+* It manages various state variables to handle loading, errors, and user inputs efficiently.
 * Users can search for reviews of specific books, and if there are no reviews found, the component informs the users accordingly.
 * It provides links to the full reviews and displays images, titles, authors, plots, and other relevant information about the books, offering a comprehensive overview to the users.
 * The styling for this component is defined in the **NYTReviews.module.css** file, maintaining a consistent and appealing look and feel.
@@ -319,16 +317,11 @@ The **OpenLibrarySearch** component is developed to allow users to search and ex
 
 This component is used to offer users a search functionality to explore and discover books available on OpenLibrary.org, presenting results with book images, titles, authors, and publication years.
 
-**Example:**
-
-```html
-<OpenLibrarySearch />
-```
 It's important to note that:
 * The OpenLibrarySearch component makes API calls to https://openlibrary.org/search.json to fetch book data based on the user's search term, rendering dynamic content based on the fetched data.
 * It manages various state variables to handle user inputs, loading, errors, and pagination efficiently, ensuring a smooth user experience.
 * It provides links to OpenLibrary.org for each book in the search results, allowing users to explore more about the books.
-* The component leverages the InfiniteScroll component to implement the infinite scrolling feature, loading more results as users scroll.
+* The component uses the InfiniteScroll component to implement the infinite scrolling feature, loading more results as users scroll.
 * If there is an error during the data fetching process, the component informs users accordingly.
 * The styling for this component is defined in the **OpenLibrarySearch.module.css** file, maintaining a consistent and appealing look.
 
@@ -348,7 +341,7 @@ The **ScrollToTopButton** is used globally across the application. It is particu
 
 It's important to note that:
 
-Initially, I used the React library component for the "scroll to top" functionality. However, after encountering some compatibility and styling limitations, I decided to build a custom "scroll to top" button. This not only allowed for greater flexibility in terms of design and positioning but also ensured that the component would seamlessly integrate with the rest of the application's architecture and styling. The custom solution also provided an opportunity to tailor the user experience more closely to the app's unique requirements and aesthetics.
+Initially, I used the React library component for the "scroll to top" functionality. However, after encountering some compatibility and styling limitations, I decided to build a custom "scroll to top" button. This not only allowed for greater flexibility in terms of design and positioning but also ensured that the component would easily integrate with the rest of the application's architecture and styling. The custom solution also provided an opportunity to tailor the user experience more closely to the app's unique requirements and aesthetics.
 
 ### 12. NotFoundPage.js
 
@@ -360,16 +353,9 @@ The **NotFoundPage** component serves as a user-friendly error page for users wh
 
 This component is rendered when a user navigates to a non-existent route within the application, providing an intuitive and user-friendly way to handle such errors.
 
-**Example:**
-
-```html
-<NotFoundPage />
-```
-
-
 
 ### There are several other components in this app...
-The application is architected around the React framework, leveraging the power of reusable components to build a coherent, maintainable, and scalable codebase. Components such as **SignInForm**, **SignUpForm**, **Comment**, and **CommentCreateForm**, **ScrollToTopButton**, etc.,  are modular building blocks of the application that encapsulate specific functionalities. These components are reused across different parts of the application, ensuring consistency and reducing redundancy. Each component maintains its own state and lifecycle while possibly receiving data via props, allowing for data flow and clear separation of concerns. By structuring the application in this way, it’s easier to manage, develop, and debug, making the codebase more maintainable and scalable as the application evolves.
+The application is built around the React framework, leveraging the power of reusable components to build a coherent, maintainable, and scalable codebase. Components such as **SignInForm**, **SignUpForm**, **Comment**, and **CommentCreateForm**, **ScrollToTopButton**, etc.,  are modular building blocks of the application that contain specific functionalities. These components are reused across different parts of the application, ensuring consistency and reducing redundancy. Each component maintains its own state and lifecycle while possibly receiving data via props, allowing for data flow and clear separation of concerns. By structuring the application in this way, it’s easier to manage, develop, and debug, making the codebase more maintainable and scalable as the application evolves.
 
 ## UX Design Process for BookHub
 
@@ -425,7 +411,8 @@ The design blueprints, as outlined in the wireframes and component designs, were
 
 ### Color Choices in BookHub
 
-Colors play a pivotal role in determining the overall mood of an application and significantly influence user experience. For BookHub, the colors have been carefully selected to create a harmonious, engaging, and intuitive environment for users.
+Colors play a pivotal role in determining the overall mood of an application and significantly influence user experience. For BookHub, the colors have been carefully selected to create a harmonious, engaging, and intuitive environment for users. When I first started thinking about the colors, I checked out other book websites and saw that most use shades of brown. When researched, I discovered that brown is a very versatile color in web design that's often associated with nature, earthiness, and in my case and most importantly, with reliability. Brown and brown shades are **Reliability and Stability**: Brown is seen as a stable and reliable color, often associated with durability and steadfastness. Brands aiming to showcase their longevity, trustworthiness, or handcrafted quality might lean into brown tones. Books are durable and can survive hundreds of years. 
+Brown also signifies the **Historical and Traditional**: Brown can also evoke a sense of history, tradition, and timelessness, especially when used in designs that want to convey a vintage or historic feel. In other words, the pairing of the brown color and brown shades were perfect for my project.
 
 #### **1. Background: #F2E6D3**
 This soft, neutral hue provides a warm and inviting backdrop for the application. The color's lightness helps ensure that all text remains readable, and it offers a calm and non-distracting environment for users to engage with content.
@@ -504,7 +491,7 @@ User stories provide a simple, informal explanation of a software feature from t
 * As a user, I want to be able to comment and engage with other users regarding book reviews.
 
 3. **Engagement Features**
-* As a user, I want to view the 'Book of the Week' to discover popular and recommended reads.
+* As a user, I want to view the 'Book of the Week' to discover recommended reads.
 * As a user, I want to see a literary quote for daily inspiration and reflection.
 
 4. **Profile Management and Interaction**
@@ -554,7 +541,7 @@ User stories provide a simple, informal explanation of a software feature from t
 
 3. **react-router:**
 * **Usage:** Used for client-side routing in the application, as seen with **useLocation** and **useParams**.
-* **Justification:** React Router provides seamless navigation between components without refreshing the page, enhancing user experience and performance.
+* **Justification:** React Router provides easy navigation between components without refreshing the page, enhancing user experience and performance.
 
 4. **react-infinite-scroll-component:**
 * **Usage:** Implemented for loading more data as the user scrolls.
@@ -574,7 +561,7 @@ User stories provide a simple, informal explanation of a software feature from t
 
 8. **Self-made-scroll-up-button:** 
 * **Usage:** Provides a customizable "Scroll to Top" button for the application.
-* **Justification:** Enhancing user experience is crucial, especially in applications with lengthy content. A "Scroll to Top" button provides users with a quick and convenient way to navigate back to the top of the page, eliminating the need for manual scrolling. The custom-made-scroll-up-button offers an out-of-the-box solution for this with customization options to ensure the button fits seamlessly into the application's design.
+* **Justification:** Enhancing user experience is crucial, especially in applications with lengthy content. A "Scroll to Top" button provides users with a quick and convenient way to navigate back to the top of the page, eliminating the need for manual scrolling. The custom-made-scroll-up-button offers an out-of-the-box solution for this with customization options to ensure the button easily fits into the application's design.
 
 ## Front-End Testing
 
@@ -688,22 +675,8 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
   - Upon unfollowing, users were removed from the "Following" list.
   - The "Followers" list correctly displayed users following you.
 
-### 12. **Notification System:**
-- **Procedure:**
-  - Perform actions that trigger notifications, such as receiving a comment on your review or being followed by another user.
-  - Navigate to the notifications section.
-- **Results:**
-  - Notifications were received in real-time.
-  - The notifications section displayed all recent notifications with appropriate messages.
 
-### 13. **Book Recommendations:**
-- **Procedure:**
-  - Navigate to the recommendations section.
-  - Observe the books recommended based on your previous reviews and ratings.
-- **Results:**
-  - The recommendations seemed relevant and based on user preferences.
-
-### 14. **Error Handling and Messages:**
+### 12. **Error Handling and Messages:**
 - **Procedure:**
   - Intentionally trigger errors, such as trying to access a non-existent page or trying to post invalid data.
   - Observe the error messages and how the application handles them.
@@ -711,7 +684,7 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
   - User-friendly error messages were displayed.
   - The application did not crash and gracefully handled errors, redirecting users or providing solutions when possible.
 
-### 15. **Logout and Session Handling:**
+### 13. **Logout and Session Handling:**
 - **Procedure:**
   - Log out of the application.
   - Try to access user-specific sections without logging in.
@@ -719,7 +692,7 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
   - Successfully logged out and sessions were terminated.
   - Without being logged in, user-specific sections were inaccessible, ensuring user data privacy.
 
-### 16. **Navigation Bar Interactivity:**
+### 14. **Navigation Bar Interactivity:**
 - **Procedure:**
   - Hover over different elements in the navigation bar.
   - Check for any dropdowns or tooltips that should appear.
@@ -728,7 +701,7 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
   - Hovering effects (like dropdowns or tooltips) appeared as expected.
   -  Active section was distinguishable from other navigation links.
 
-### 17. **Pagination and Infinite Scrolling:**
+### 15. **Pagination and Infinite Scrolling:**
 - **Procedure:**
   - Navigate to a section of the application that has multiple pages or uses infinite scrolling.
   - Scroll through the items and observe the loading of additional content.
@@ -736,7 +709,7 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
 - **Results:**
   -  New content loaded seamlessly as the user scrolled down.
   -  Pagination worked correctly, displaying a different set of items for each page.
-### 18. **Form Validations**:
+### 16. **Form Validations**:
 - **Procedure**:
   - Go to any form within the application.
   - Enter data that doesn't meet the validation criteria (e.g., a password that's too short).
@@ -745,30 +718,21 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
   - The form displayed clear validation error messages.
   - The form prevented submission until valid data was entered.
 
-### 19. **Favorites and Bookmarks**:
+### 17. **Dynamic Data Loading**:
 - **Procedure**:
-  - Try adding an item (like a book or a review) to your favorites or bookmarks.
-  - Navigate to your profile or a dedicated section where you can view your favorites/bookmarks.
-  - Remove an item from your favorites/bookmarks.
-- **Results**:
-  - The item was successfully added and reflected in the user's favorites/bookmarks list.
-  - Removing the item from favorites/bookmarks also worked seamlessly.
-
-### 20. **Dynamic Data Loading**:
-- **Procedure**:
-  - Navigate to a section where data is fetched dynamically (e.g., a live search or a dynamic chart).
+  - Navigate to a section where data is fetched dynamically (for example, a live search).
   - Interact with the section and observe the data changes.
 - **Results**:
   - Data was fetched and displayed in real-time based on user interactions.
 
-### 21. **User Feedback on Actions**:
+### 18. **User Feedback on Actions**:
 - **Procedure**:
   - Perform various actions like posting a comment, liking a review, or adding a book.
   - Observe if there's any feedback provided to the user (like a success message or a loading spinner- or a re-direct).
 - **Results**:
   - User received immediate feedback on their actions, ensuring clarity and a good user experience.
 
-### 22. **Accessibility Features**:
+### 19. **Accessibility Features**:
 - **Procedure**:
   - Navigate the website using only a keyboard.
   - Use screen reading tools, if available, to check how the website is read out.
@@ -776,15 +740,15 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
   - The website was navigable using just the keyboard.
   - Screen reading tools provided an accurate and user-friendly reading of the website.
 
-### 23. **Pop-up Modals and Dialogs**:
+### 20. **Pop-up Modals and Dialogs**:
 - **Procedure**:
-  - Trigger any pop-up modals or dialog boxes in the application (e.g., by clicking on a "More Info" button).
+  - Trigger any pop-up modals or dialog boxes in the application (for example, by clicking on a "More Info" button).
   - Interact with the modal (close it, fill it out, etc.).
 - **Results**:
   - Modals and dialogs appeared as expected and were interactive.
   - Closing or submitting the modal/dialog worked correctly.
 
-### 24. **Interactivity of Visual Elements**:
+### 21. **Interactivity of Visual Elements**:
 - **Procedure**:
   - Hover over, click on, or interact with various visual elements like buttons, icons, sliders, etc.
   - Observe any animations, color changes, or other visual feedback.
@@ -792,7 +756,7 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
   - Visual elements provided feedback upon interaction, enhancing the user experience.
 
 
-Each testing procedure was meticulously executed, and any issues identified were addressed immediately to improve the application's reliability and user experience. This hands-on approach to testing ensured that **BookHub** offers a seamless and enjoyable experience for its users.
+Each testing procedure was meticulously executed, and any issues identified were addressed immediately to improve the application's reliability and user experience. This hands-on approach to testing ensured that **BookHub** offers an enjoyable experience for its users.
 
 ### Automatic Testing
 
@@ -1056,17 +1020,17 @@ Through these automatic tests, I verify the expected behavior of the user interf
 
 #### CSS:
 
-All 26 Css sheets have been checked by the [W3C Validation Service](https://jigsaw.w3.org/css-validator/validator) and received a pass ![verified css badge](./src/assets/vcss-blue.gif).
+All 26 CSS sheets have been checked by the [W3C Validation Service](https://jigsaw.w3.org/css-validator/validator) and received a pass ![verified css badge](./src/assets/vcss-blue.gif).
 
 
 
 
 ## Version Control and GitHub Usage
 
-Throughout the development of the **BookHub** application, version control was instrumental in ensuring a seamless and organized workflow. I employed Git, coupled with the collaboration platform GitHub, to maintain the project's codebase efficiently. Here's a breakdown of my version control practices:
+Throughout the development of the **BookHub** application, version control was instrumental in ensuring a streamlined and organized workflow. I employed Git, coupled with the collaboration platform GitHub, to maintain the project's codebase efficiently. Here's a breakdown of my version control practices:
 
 ### **1. Descriptive Commits**:
-Commit messages serve as a brief log or description of changes, making them invaluable for project tracking. I aimed for clarity and precision with each commit, ensuring that the message succinctly conveyed the change's essence. This approach aids in quickly understanding the commit's purpose without diving too deep into the code changes.
+Commit messages serve as a brief log or description of changes, making them invaluable for project tracking. I aimed for clarity and precision with each commit, ensuring that the message conveyed the change's essence. This approach aids in quickly understanding the commit's purpose without diving too deep into the code changes.
 
 ### **2. Utilizing Hard Resets**:
 There were instances during development when I needed to revert to a previous stable state due to unforeseen issues or changes in direction. In such cases, I used the `git reset` command. This command allowed me to undo changes and revert to a previously known stable state, ensuring the project's integrity.
@@ -1078,10 +1042,7 @@ To maintain a stable main branch while simultaneously exploring new features, fi
 
 This branching strategy allowed me to work on multiple features simultaneously without affecting the main codebase's stability.
 
-### **4. Testing Branch**:
-Before introducing a new feature to the main branch, I created a dedicated testing branch. This branch served as a sandbox for rigorous testing, ensuring that new additions wouldn't introduce regressions or break existing functionality. Once tests were successful, changes were merged back into the branch.
-
-By adhering to these version control practices, I was able to maintain a clean, organized, and efficient development workflow. It ensured that **BookHub** evolved in a structured manner, with each change meticulously documented and reviewed.
+By adhering to these version control practices, I was able to maintain a clean, organized, and efficient development workflow. It ensured that **BookHub** evolved in a structured manner, with each change documented.
 
 ## Agile Methodology in Project Development
 
@@ -1091,9 +1052,9 @@ For the development of the BookHub application, I used the Agile methodology.
 
 1. **User Stories:** Every feature was defined in terms of user stories, focusing on the end user's perspective and needs.
 2. **Iterative Development:** The project was developed in iterations, with each cycle focusing on a set of user stories.
-3. **Interactive Board Management:** I used Trello as my project management tool, enabling me to visualize tasks, track progress, and manage priorities in an interactive manner.
+3. **Interactive Board Management:** I used Trello as my project management tool, enabling me to visualize tasks, track progress, and manage priorities in an interactive way.
 
-My Agile approach facilitated rapid adjustments to changes and ensured that the user was always at the center of my development efforts. Here is the [Trello board](https://trello.com/b/RiuBrAFr/bookhub).
+ Here is the [Trello board](https://trello.com/b/RiuBrAFr/bookhub) for the Front-End, and the Trello board for the [Back-End](https://trello.com/b/fkk9s0Dd/drf).
 
 ## Deployment Process
 
@@ -1118,7 +1079,7 @@ With the code on GitHub, it's time to transition to Heroku:
 
 #### Benefits of Early Deployment in Application Development
 
-Embarking on the journey of application development often involves numerous steps, from ideation to final deployment. However, deploying early, even before the app reaches its full potential, can have several advantages. Here are some key benefits of this approach:
+Starting a new application development often involves numerous steps, from ideation to final deployment. However, deploying early, even before the app reaches its full potential, can have several advantages. Here are some key benefits of this approach:
 
 ### 1. Immediate Feedback Loop
 
@@ -1138,7 +1099,7 @@ Embarking on the journey of application development often involves numerous step
 ### 4. Agile Approach Encouragement
 
 - **Description:** Deploying early aligns well with the agile methodology, promoting iterative development and continuous improvement.
-- **Advantage:** Facilitates quicker iterations based on real-world feedback, leading to better built end result.
+- **Advantage:** Facilitates quicker iterations based on real-world feedback- which I constantly gathered from friends and family.
 
 ### 5. Risk Mitigation
 
@@ -1197,7 +1158,7 @@ The next step is:
     - Add a new Config Var named `DATABASE_URL`.
     - For its value, paste the database URL from ElephantSQL.
 
-Before migration can take please, I needed to ensure the project is set up correctly to communicate with the ElephantSQL database. This process includes migrating data, setting environment variables, and validating the setup. Here's a detailed guide:
+Before migration can take place, I needed to ensure the project is set up correctly to communicate with the ElephantSQL database. This process includes migrating data, setting environment variables, and validating the setup. Here's a detailed guide:
 
 ### 1. Installing Required Packages:
 
@@ -1489,12 +1450,12 @@ Before migration can take please, I needed to ensure the project is set up corre
 
 - The following configurations need to be set:
     - `ALLOWED_HOST`: Set this to the combined project's URL.
-    - `CLIENT_ORIGIN`: This should point to the combined project's URL, but retain the `https://` prefix while omitting any trailing slashes.
+    - `CLIENT_ORIGIN`: This should point to the combined project's URL, but retain the `https://` prefix while omitting any trailing slashes(That's important!!).
 
 
 #### **3. Pre-Deployment Check & Execution**:
 
-- Trigger deployment by visiting the `Deploy` tab in your Heroku dashboard.
+- Trigger deployment by visiting the `Deploy` tab in the Heroku dashboard.
 
 **With these complex proccesses complete, the React app should be running successfuly!**
 
@@ -1534,21 +1495,21 @@ The following technologies were used in this project:
 
 ## Credits
 
-* **Code Institute's Advanced front-end Moments Walkthrough** - Both as inspiration, template, and foundation for this project.
+* **Code Institute's Advanced front-end Moments Walkthrough** - Used as inspiration, template, and foundation for this project.
 
-* **Code Institute's Django REST Framework walkthrough** - - Both as inspiration, template, and foundation for the back-end for this project.
+* **Code Institute's Django REST Framework walkthrough** - - Used as inspiration, template, and foundation for the back-end for this project.
 
 * **[React.dev](https://react.dev/blog/2023/03/16/introducing-react-dev)** - Documentation and random problem solutions.
 
 * **[React Tutorial for Beginners - Programming with Mosh](https://www.youtube.com/watch?v=SqcY0GlETPk)** - Inspiration, ideas, and basics.
 
-* **[w3schools](https://www.w3schools.com/REACT/DEFAULT.ASP)** - Random code snippets here and there.
+* **[w3schools](https://www.w3schools.com/REACT/DEFAULT.ASP)** - Random code snippets here and there, as well as explanations for difficult concepts.
 
 * **Book cover images** - All from [Amazon](www.amazon.com) or [Wikipedia](www.wikipedia.com). 
 
 * **[Google Fonts](https://fonts.google.com/)** - For the fonts.
 
-* **[Lucidcharts](https://www.lucidchart.com/pages/)** - for the flowcharts.
+* **[Lucidcharts](https://www.lucidchart.com/pages/)** - for the flowchart.
 
 * **[Balsamiq](https://balsamiq.com)** - For the wireframes.
 
@@ -1558,7 +1519,6 @@ The following technologies were used in this project:
 
 ### Database:
 * **[ElephantSQL](https://www.elephantsql.com/)** - PostgreSQL hosting.
-* **[SQLite](https://www.sqlite.org/index.html)** - Used during development.
 
 ### Hosting & Deployment:
 * **[Heroku](https://www.heroku.com/)** - Deployment platform.
