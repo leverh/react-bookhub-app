@@ -1052,9 +1052,9 @@ For the development of the BookHub application, I used the Agile methodology.
 
 1. **User Stories:** Every feature was defined in terms of user stories, focusing on the end user's perspective and needs.
 2. **Iterative Development:** The project was developed in iterations, with each cycle focusing on a set of user stories.
-3. **Interactive Board Management:** I used Trello as my project management tool, enabling me to visualize tasks, track progress, and manage priorities in an interactive way.
+3. **Interactive Board Management:** I used Trello as my project management tool, enabling me to visualize tasks, track progress, and manage priorities in an interactive way. I then transferred the boards to GitHub Projects.
 
- Here is the [Trello board](https://trello.com/b/RiuBrAFr/bookhub) for the Front-End, and the Trello board for the [Back-End](https://trello.com/b/fkk9s0Dd/drf).
+ Here is the [GitHub Projects link](https://github.com/users/leverh/projects/3) for the Front-End, and for the [Back-End](https://github.com/users/leverh/projects/4).
 
 ## Deployment Process
 
@@ -1063,9 +1063,10 @@ For the development of the BookHub application, I used the Agile methodology.
 ### Initial Setup
 
 1. In the new workspace, Run the command `npx create-react-app . --use-npm`.
-2. Once the setup concludes, fire up the app to confirm its smooth functioning.
-3. Add an H1 element tag with some unique text for testing.
-3. Push to GitHub. 
+2. Once the setup concludes, fire up the app to confirm its smooth functioning by typing **npm start** in the terminal.
+3. Create a Procfile in the root directory and inside type: **web: serve -s build**.
+4. Add an H1 element tag with some unique text for testing.
+5. Push to GitHub. 
 
 ### Deploying on Heroku
 
@@ -1492,6 +1493,12 @@ The following technologies were used in this project:
 - **jwt-decode**: A utility for decoding JSON Web Tokens (JWT) to retrieve payload data.
 - **React Lazy Load Image Component**: Optimizes image loading by lazily loading images that are currently in view.
 - **React Router**: Enables navigation between different components, changing the browser URL, and keeping the UI in sync.
+
+## Future Development and Ideas
+
+* Adding a notification system to alert users when a new review has been posted by a person they follow.
+* Set up personal reading lists on users' profiles. 
+* Reading target meter- how many books a user picks as a target for the whole year, for example. 
 
 ## Credits
 
