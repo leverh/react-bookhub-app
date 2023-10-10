@@ -11,12 +11,14 @@ Welcome to **BookHub**, a dedicated platform for bibliophiles to connect, share,
 - [Component Architecture and Reuse](#component-architecture-and-reuse)
 - [UX Design Process for BookHub](#ux-design-process-for-bookhub)
   - [Color Choices in BookHub](#color-choices-in-bookhub)
+  - [Typography](#typography)
   - [User Experience Flowchart](#user-experience-flowchart)
   - [User Stories](#user-stories)
 - [Front-End Libraries and Their Justifications](#front-end-libraries-and-their-justifications)
 - [Front-End Testing](#front-end-testing)
   - [Automatic Testing](#automatic-testing)
 - [Back-end Manual Testing](#back-end-manual-testing)
+- [Validators](#validators)
 - [Agile Board ](#key-agile-practices-adopted)
 - [Version Control and GitHub Usage](#version-control-and-github-usage)
 - [Deployment Process](#deployment-process)
@@ -439,6 +441,17 @@ For me, as a developer or designer, prioritizing accessibility broadens the reac
 
 ![WebAim color contrast check image for a background color of #F2E6D3 and text color of #333333](./src/assets/Screenshot%202023-10-08%20at%2012-42-54%20WebAIM%20Contrast%20Checker.png)
 
+### Typography
+
+I chose Montserrat as the primary typeface.
+
+#### Why Montserrat?
+
+1. Originating from the old posters and signs, it is contemporary but with traditional type principles. 
+2. Montserrat is a sans-serif typeface, which is known for its clean and uncluttered appearance. This makes it adaptable to a wide range of contexts on othe platform, from headers to body text.
+3. The font's balanced spacing and well-crafted curves make it easy on the eyes, ensuring that the users have a comfortable reading experience.
+4. While Montserrat is minimalist in design, it carries a unique personality with its subtle quirks and nuances. This helps set a distinct, recognizable tone for BookHub.
+5. Montserrat comes in a variety of weights, from thin to black, providing me with the flexibility to use it in diverse settings and ensuring both visual hierarchy and emphasis where needed.
 
 ### User Experience Flowchart
 
@@ -1022,7 +1035,23 @@ Through these automatic tests, I verify the expected behavior of the user interf
 
 All 26 CSS sheets have been checked by the [W3C Validation Service](https://jigsaw.w3.org/css-validator/validator) and received a pass ![verified css badge](./src/assets/vcss-blue.gif).
 
+In addition, All pages have been run through Google's Lighthouse with the following results:
 
+**THE MAIN PAGE**
+
+![image of Google's Lighthouse report results for the main app page](./src/assets/about-page.png)
+
+**OPEN LIBRARY PAGE**
+
+![image of Google's Lighthouse report results for the open library app page](./src/assets/open-library-page.png)
+
+**NYT REVIEWS AND SEARCH PAGE**
+
+![image of Google's Lighthouse report results for the NYT review and search app page](./src/assets/NYT-API-page.png)
+
+**ABOUT PAGE**
+
+![image of Google's Lighthouse report results for the about app page](./src/assets/about-page.png)
 
 
 ## Version Control and GitHub Usage
