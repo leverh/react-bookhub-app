@@ -1,5 +1,5 @@
-import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import React, { useState } from "react";
+import { Modal, Button, Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
@@ -11,13 +11,15 @@ import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+  const [showModal, setShowModal] = useState(false);
 
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
-  const handleSignOut = async () => {
+    const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
+      setShowModal(true);
     } catch (err) {
       // console.log(err);
     }
@@ -77,71 +79,83 @@ const NavBar = () => {
   );
 
   return (
-    <Navbar
-      expanded={expanded}
-      className={styles.NavBar}
-      expand="md" 
-    >
-      <Container>
-        <NavLink to="/" className="nav-link">
-          <Navbar.Brand>
-            <img src={logo} alt="BookHub logo" className="log-img" height="35" />
-          </Navbar.Brand>
-        </NavLink>
-        {currentUser && addReviewIcon}
-        <Navbar.Toggle
-          ref={ref}
-          onClick={() => setExpanded(!expanded)}
-          aria-controls="basic-navbar-nav"
-        />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className={`ml-auto text-left navbar-special ${styles.Nav}`}>
-            <NavLink
-              exact
-              className={styles.NavLink}
-              activeClassName={styles.Active}
-              to="/"
-            >
-              <span className={styles.NavLinkContent}>
-                <i className="fas fa-home"></i>Home
-              </span>
-            </NavLink>
-            <NavLink
-              className={styles.NavLink}
-              activeClassName={styles.Active}
-              to="/openlibrary-search"
-            >
-              <span className={styles.NavLinkContent}>
-                <i className="fas fa-search"></i>OpenLibrary Search
-              </span>
-            </NavLink>
+    <>
+      <Navbar
+        expanded={expanded}
+        className={styles.NavBar}
+        expand="md" 
+      >
+        <Container>
+          <NavLink to="/" className="nav-link">
+            <Navbar.Brand>
+              <img src={logo} alt="BookHub logo" className="log-img" height="35" />
+            </Navbar.Brand>
+          </NavLink>
+          {currentUser && addReviewIcon}
+          <Navbar.Toggle
+            ref={ref}
+            onClick={() => setExpanded(!expanded)}
+            aria-controls="basic-navbar-nav"
+          />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className={`ml-auto text-left navbar-special ${styles.Nav}`}>
+              <NavLink
+                exact
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+                to="/"
+              >
+                <span className={styles.NavLinkContent}>
+                  <i className="fas fa-home"></i>Home
+                </span>
+              </NavLink>
+              <NavLink
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+                to="/openlibrary-search"
+              >
+                <span className={styles.NavLinkContent}>
+                  <i className="fas fa-search"></i>OpenLibrary Search
+                </span>
+              </NavLink>
 
-            <NavLink
-              className={styles.NavLink}
-              activeClassName={styles.Active}
-              to="/nyt-reviews"
-            >
-              <span className={styles.NavLinkContent}>
-                <i className="fas fa-newspaper"></i>NYT Reviews
-              </span>
-            </NavLink>
+              <NavLink
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+                to="/nyt-reviews"
+              >
+                <span className={styles.NavLinkContent}>
+                  <i className="fas fa-newspaper"></i>NYT Reviews
+                </span>
+              </NavLink>
 
-            <NavLink
-              className={styles.NavLink}
-              activeClassName={styles.Active}
-              to="/about-us"
-            >
-              <span className={styles.NavLinkContent}>
-                <i className="fas fa-info-circle"></i>About Us
-              </span>
-            </NavLink>
+              <NavLink
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+                to="/about-us"
+              >
+                <span className={styles.NavLinkContent}>
+                  <i className="fas fa-info-circle"></i>About Us
+                </span>
+              </NavLink>
 
-            {currentUser ? loggedInIcons : loggedOutIcons}
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+              {currentUser ? loggedInIcons : loggedOutIcons}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <Modal show={showModal} onHide={() => setShowModal(false)} className={styles.logoutModal}>
+        <Modal.Header closeButton>
+          <Modal.Title className={styles.Title}>Logged Out</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className={styles.Body}>You have been successfully logged out!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={() => setShowModal(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
-};
-
+  };
 export default NavBar;
