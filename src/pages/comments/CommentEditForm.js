@@ -39,7 +39,7 @@ function CommentEditForm(props) {
   
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className="EditFormStyle">
       <Form.Group className="pr-1">
         <Form.Control
           className={styles.Form}

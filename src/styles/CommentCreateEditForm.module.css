@@ -1,6 +1,7 @@
 .Form {
     border: none;
-    border-bottom: 2px #00d1ff solid;
+    border-bottom: 2px #444444 solid;
+    width: 200%;
   }
 
   .postButton {
