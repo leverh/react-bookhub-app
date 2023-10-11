@@ -2,8 +2,10 @@ import React from 'react';
 import styles from '../styles/AboutUs.module.css'; 
 import ScrollToTopButton from '../components/ScrollToTopButton';
 
+const currentYear = new Date().getFullYear();
 const AboutUs = () => {
   return (
+    <>
     <div className={styles.container}>
       <h2>About BookHub</h2>
       <div className={`${styles['arrow-divider']}`}></div>
@@ -43,6 +45,10 @@ const AboutUs = () => {
         <ScrollToTopButton />
 
     </div>
+    <div className={styles.copyright}>
+    &copy; {currentYear} Error Codes. All rights reserved.
+</div>
+</>
   );
 }
 

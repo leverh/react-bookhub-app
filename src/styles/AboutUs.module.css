@@ -87,6 +87,12 @@ ul li a:hover {
     object-fit: cover;
 }
 
+.copyright {
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
 @media (max-width: 660px) {
     .belief-statement img {
         max-width: 10rem;

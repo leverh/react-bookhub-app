@@ -1,6 +1,6 @@
 .Row {
-  height: calc(100vh - 81px);
-  background-color: #f4f1ea; 
+  /* height: calc(100vh - 81px); */
+  background-color: #F2E6D3; 
 }
 
 .Input {
@@ -9,14 +9,14 @@
   color: #5d5b53; 
   text-align: center;
   padding: 1rem;
+  font-size: 1.5rem;
 }
 
 .Header {
-  font-style: italic; 
   font-weight: bold;
-  font-size: 2.4rem; 
+  font-size: 2.5rem; 
   text-align: center;
-  color: #825343; 
+  color: #444444; 
 }
 
 .Link {
@@ -24,10 +24,12 @@
   text-align: center;
   display: block;
   margin: auto;
+  color: #444444;
+  font-size: 1.5rem;
 }
 
 .Link span {
-  color: #ff9254;
+  color: #FFA500;
 }
 
 .Container {
@@ -40,4 +42,8 @@
 
 .SignUpCol {
   height: 37.5rem;
+}
+
+img {
+  border-radius: 10px;
 }
