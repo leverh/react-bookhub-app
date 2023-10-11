@@ -15,11 +15,11 @@ html {
     color: #333333;
 }
 
-.container {
+/* .container {
     display: flex;  
     flex-direction: column;
     align-items: flex-start;
-}
+} */
 
 .header {
     font-size: 2.5rem;
@@ -57,9 +57,18 @@ html {
     background-color: #444444;
 }
 
+p, h3 {
+    text-align: center;
+}
+
+h3 {
+    font-weight: bold;
+}
+
 .list {
     list-style-type: none;
     padding: 0;
+    margin: 0 auto;
 }
 
 .listItem {
@@ -144,6 +153,10 @@ html {
 @media (max-width: 600px) {
     .searchInput {
         width: 100%;
+    }
+
+    .list {
+        max-width: 100%;
     }
 
 } 
