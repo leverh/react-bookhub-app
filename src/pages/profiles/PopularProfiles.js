@@ -15,7 +15,7 @@ const PopularProfiles = ({ mobile }) => {
 >
       {popularProfiles.results.length ? (
         <>
-          <p>Our Users:</p>
+          <h4 className={styles.popularUserHeader}>Our Users:</h4>
           {mobile ? (
             <div className={`${styles.profileContainer} ${mobile && styles.mobileProfileContainer}`}>
               {popularProfiles.results.slice(0, 4).map((profile) => (
@@ -24,7 +24,7 @@ const PopularProfiles = ({ mobile }) => {
             </div>
           ) : (
             popularProfiles.results.map((profile) => (
-              <Profile key={profile.id} profile={profile} />
+              <Profile className={styles.profileStyle} key={profile.id} profile={profile} />
             ))
           )}
         </>

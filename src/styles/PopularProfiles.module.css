@@ -1,3 +1,22 @@
+.popularProfilesContainer {
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5)),
+        url('../assets/pexels-alexander-grey-1148399.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.popularUserHeader {
+    font-weight: 600;
+    margin: 0 auto;
+    padding-top: 1.5rem;
+}
+
+
 @media (max-width: 938px) {
     .profileContainer {
         margin: 1rem 0;

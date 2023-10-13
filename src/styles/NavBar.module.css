@@ -59,3 +59,14 @@
   .Body {
     font-size: 1.5rem;
   }
+
+  .NavLink {
+    padding: 0 .5rem;
+  }
+
+  @media (max-width: 990px) {
+    .NavBar {
+      white-space: nowrap;
+      font-size: 1rem;
+    } 
+  }
