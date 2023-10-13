@@ -1543,6 +1543,8 @@ The following technologies were used in this project:
 
 * **Book cover images** - All from [Amazon](www.amazon.com) or [Wikipedia](www.wikipedia.com). 
 
+* **Other images** - All other images are from [Pexels](https://www.pexels.com).
+
 * **[Google Fonts](https://fonts.google.com/)** - For the fonts.
 
 * **[Lucidcharts](https://www.lucidchart.com/pages/)** - for the flowchart.

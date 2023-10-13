@@ -17,8 +17,7 @@ const FooterModal = ({ show, handleClose }) => {
             Our mission is to create a vibrant community where individuals can share, discover, 
             and discuss their favorite books.</p>
           <p>Founded in 2023, BookHub began as a small project aimed at bridging the gap between
-             avid readers and the vast world of literature. Since then, we have grown into a global
-             platform, boasting a diverse community of book lovers from all corners of the world.</p>
+             avid readers and the vast world of literature.</p>
         </section>
 
         <section>
