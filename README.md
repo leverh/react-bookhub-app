@@ -357,7 +357,7 @@ This component is rendered when a user navigates to a non-existent route within 
 
 
 ### There are several other components in this app...
-The application is built around the React framework, leveraging the power of reusable components to build a coherent, maintainable, and scalable codebase. Components such as **SignInForm**, **SignUpForm**, **Comment**, and **CommentCreateForm**, **ScrollToTopButton**, etc.,  are modular building blocks of the application that contain specific functionalities. These components are reused across different parts of the application, ensuring consistency and reducing redundancy. Each component maintains its own state and lifecycle while possibly receiving data via props, allowing for data flow and clear separation of concerns. By structuring the application in this way, it’s easier to manage, develop, and debug, making the codebase more maintainable and scalable as the application evolves.
+The application is built around the React framework, leveraging the power of reusable components to build a coherent, maintainable, and scalable codebase. Components such as **SignInForm**, **SignUpForm**, **Comment**, and **CommentCreateForm**, etc.,  are modular building blocks of the application that contain specific functionalities. These components are re-used across different parts of the application, ensuring consistency and reducing redundancy. Each component maintains its own state and lifecycle while receiving data via props, allowing for data flow and clear separation of concerns. By structuring the application in this way, it’s easier to manage, develop, and debug, making the codebase more maintainable and scalable as the application evolves.
 
 ## UX Design Process for BookHub
 
@@ -397,11 +397,11 @@ The application was designed with component reusability in mind. Components like
 
 **4. Integration with External Resources:**
 
-Special emphasis was given to integrating external resources seamlessly. For instance, the OpenLibrary search functionality was embedded within the platform, providing users the ability to search for books without leaving the BookHub environment.
+Special emphasis was given to integrating external resources. For instance, the OpenLibrary search functionality was embedded within the platform, providing users the ability to search for books without leaving the BookHub environment.
 
 **5. Responsive Design:**
 
-Given the diverse range of devices users might access BookHub from, responsiveness was a key design consideration. Bootstrap's grid system was employed to ensure the application looked and functioned optimally across various device sizes in some parts, while flexbox was used in others. To further ensure ease of access for all screen sizes, REM units were used instead of pixels. 
+Given the diverse range of devices users might access BookHub from, responsiveness was a key design consideration. Bootstrap's grid system was employed to ensure the application looked and functioned optimally across various device sizes in some parts, while flexbox was used in others. To further ensure ease of access for all screen sizes, REM units were used instead of pixels where appropriate.
 
 **6. Feedback and Iteration:**
 
@@ -413,8 +413,8 @@ The design blueprints, as outlined in the wireframes and component designs, were
 
 ### Color Choices in BookHub
 
-Colors play a pivotal role in determining the overall mood of an application and significantly influence user experience. For BookHub, the colors have been carefully selected to create a harmonious, engaging, and intuitive environment for users. When I first started thinking about the colors, I checked out other book websites and saw that most use shades of brown. When researched, I discovered that brown is a very versatile color in web design that's often associated with nature, earthiness, and in my case and most importantly, with reliability. Brown and brown shades are **Reliability and Stability**: Brown is seen as a stable and reliable color, often associated with durability and steadfastness. Brands aiming to showcase their longevity, trustworthiness, or handcrafted quality might lean into brown tones. Books are durable and can survive hundreds of years. 
-Brown also signifies the **Historical and Traditional**: Brown can also evoke a sense of history, tradition, and timelessness, especially when used in designs that want to convey a vintage or historic feel. In other words, the pairing of the brown color and brown shades were perfect for my project.
+Colors play a pivotal role in determining the overall mood of an application and significantly influence user experience. For BookHub, the colors have been carefully selected to create a harmonious, engaging, and intuitive environment for users. When I first started thinking about the colors, I checked out other book websites and saw that most use shades of brown. When researched, I discovered that brown (and generally, earthy colors) is a very versatile color in web design that's often associated with nature, earthiness, and in my case and most importantly, with reliability. Brown and earth colors are **Reliability and Stability**- often associated with durability and steadfastness. Brands aiming to showcase their longevity, trustworthiness, or handcrafted quality might lean into brown tones. Books are durable and can survive hundreds of years. 
+Browns also signify the **Historical and Traditional**- timelessness, especially when used in designs that want to convey a vintage or historic feel. In other words, the pairing of the brown color and brown shades were perfect fit for my subject matter- books.
 
 #### **1. Background: #F2E6D3**
 This soft, neutral hue provides a warm and inviting backdrop for the application. The color's lightness helps ensure that all text remains readable, and it offers a calm and non-distracting environment for users to engage with content.
@@ -534,7 +534,7 @@ User stories provide a simple, informal explanation of a software feature from t
 #### Mapping User Stories to Project Goals
 * **Build a Community of Book Lovers:** The ability to view reviews, follow users, and explore popular profiles directly contributes to community building.
 * **Promote Knowledge Sharing:** User reviews, comments, and the integration with external libraries like OpenLibrary facilitate knowledge sharing.
-* **Enhance User Engagement:** Features like 'Book of the Week', literary quotes, and the search functionality keep users engaged and encourage regular visits.
+* **Enhance User Engagement:** Features like 'A Review We Really Liked', literary quotes, and the search functionality keep users engaged and encourage regular visits.
 * **Ensure Intuitive User Experience:** The clear layout of reviews, profiles, and the seamless interaction between different components ensures a user-friendly experience.
 * **Ease of Access:** The addition of accessibility features ensures a wider range of users can navigate and utilize the platform with ease.
 * **Integration with External Libraries:** The search functionality, which extends to sources like OpenLibrary, NYT Reviews, ensure this goal is met.
@@ -550,7 +550,7 @@ User stories provide a simple, informal explanation of a software feature from t
 
 2. **react-bootstrap:**
 * **Usage:** This library provides responsive design components like **Col**, **Row**, **Container**, **Button**, and **Image**.
-* **Justification:** React-bootstrap allows for rapid development with a consistent design. It's based on Bootstrap, a widely recognized and adaptable front-end framework, ensuring a responsive and modern UI.Though personally, I prefer using 'vanilla' CSS as I find its flexibility exciting and creative.
+* **Justification:** React-bootstrap allows for rapid development with a consistent design. It's based on Bootstrap, a widely recognized and adaptable front-end framework, ensuring a responsive and modern UI. Though personally, I prefer using 'vanilla' CSS as I find its flexibility and quirks exciting and creative.
 
 3. **react-router:**
 * **Usage:** Used for client-side routing in the application, as seen with **useLocation** and **useParams**.
@@ -574,7 +574,8 @@ User stories provide a simple, informal explanation of a software feature from t
 
 8. **Self-made-scroll-up-button:** 
 * **Usage:** Provides a customizable "Scroll to Top" button for the application.
-* **Justification:** Enhancing user experience is crucial, especially in applications with lengthy content. A "Scroll to Top" button provides users with a quick and convenient way to navigate back to the top of the page, eliminating the need for manual scrolling. The custom-made-scroll-up-button offers an out-of-the-box solution for this with customization options to ensure the button easily fits into the application's design.
+* **Justification:** Initially, I used the React built-in scroll-to-top button code. However, because of compatibility issues with the React version i use in this project, i switched to a self made button code instead. 
+Enhancing user experience is crucial, especially in applications with lengthy content. A **"Scroll to Top"** button provides users with a quick and convenient way to navigate back to the top of the page, eliminating the need for manual scrolling. The custom-made-scroll-up-button offers an out-of-the-box solution for this with customization options to ensure the button easily fits into the application's design.
 
 ## Front-End Testing
 
@@ -1053,6 +1054,10 @@ In addition, All pages have been run through Google's Lighthouse with the follow
 
 ![image of Google's Lighthouse report results for the about app page](./src/assets/about-page.png)
 
+All back-end files have been run through [CI's Python Linter](https://pep8ci.herokuapp.com/) and passed. Below is an example for one:
+
+![Image of CI's linter page result for one of the code files](./src/assets/Screenshot%202023-10-16%20at%2010-50-16%20CI%20Python%20Linter.png)
+
 
 ## Version Control and GitHub Usage
 
@@ -1138,7 +1143,7 @@ Starting a new application development often involves numerous steps, from ideat
 
 ### Back-End
 
-After App was coded, the first step in the deployment process is to set up a PostgreSQL database instance using ElephantSQL:
+After App was coded, the first step in the deployment process was to set up a PostgreSQL database instance using ElephantSQL:
 
 ### Setting Up a Database on ElephantSQL
 
@@ -1522,12 +1527,14 @@ The following technologies were used in this project:
 - **jwt-decode**: A utility for decoding JSON Web Tokens (JWT) to retrieve payload data.
 - **React Lazy Load Image Component**: Optimizes image loading by lazily loading images that are currently in view.
 - **React Router**: Enables navigation between different components, changing the browser URL, and keeping the UI in sync.
-
+- **CORS(Cross-Origin Resource Sharing)**: A security feature implemented on the server-side to control which origins (i.e., domains) are allowed to access resources on a web page. It helps prevent unauthorized access and ensures that requests made from different origins are handled securely. CORS headers specify who can access a resource, which HTTP methods are allowed, and which headers can be exposed or modified during cross-origin requests.
+- **PostgreSQL:** An open-source relational database management system (RDBMS) known for its reliability, advanced SQL support, and extensibility. It offers data integrity, security features, and scalability, making it a popular choice for a wide range of applications.
+- **Pillow:** Pillow is a popular Python library for image processing and manipulation. It provides tools for opening, manipulating, and saving various image file formats. Pillow is widely used in Python applications for tasks like resizing, cropping, filtering, and adding text or graphics to images.
 ## Future Development and Ideas
 
 * Adding a notification system to alert users when a new review has been posted by a person they follow.
 * Set up personal reading lists on users' profiles. 
-* Reading target meter- how many books a user picks as a target for the whole year, for example. 
+* Reading target meter- number of books a user picks as a target for the whole year, for example. 
 
 ## Credits
 
@@ -1550,6 +1557,8 @@ The following technologies were used in this project:
 * **[Lucidcharts](https://www.lucidchart.com/pages/)** - for the flowchart.
 
 * **[Balsamiq](https://balsamiq.com)** - For the wireframes.
+
+* **[favicon.io](https://favicon.io/)** - For the Favicon.
 
 ### Backend Framework & Tools:
 * **[Django](https://www.djangoproject.com/)** - Backend framework.
@@ -1583,4 +1592,4 @@ The following technologies were used in this project:
 
 ### Thanks:
 
-- Code Institute Sean, Sara, and Holly for their patience and bug fixes.
+- Code Institute tutors: Sean, Sara, and Holly for their patience and bug fixes.
