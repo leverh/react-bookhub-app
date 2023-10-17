@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Card, Media, OverlayTrigger, Tooltip, Modal, Button } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -29,6 +29,7 @@ const Review = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const history = useHistory();
 
   const [likesCount, setLikesCount] = useState(initialLikesCount);
@@ -41,10 +42,15 @@ const Review = (props) => {
   const handleDelete = async () => {
     try {
       await axiosReq.delete(`/posts/${id}/`);
-      history.goBack();
+      setShowDeleteModal(true); // modal after successful deletion
     } catch (err) {
       // console.log(err);
     }
+  };
+
+  const closeDeleteModal = () => {
+    setShowDeleteModal(false);
+    history.goBack();
   };
 
   const handleLike = async () => {
@@ -64,6 +70,7 @@ const Review = (props) => {
   };
 
   return (
+    <>
     <Card className={styles.Review}>
       <Card.Body>
         <Media className="align-items-center justify-content-between d-flex align-items-center cardy-top">
@@ -125,6 +132,18 @@ const Review = (props) => {
         </div>
       </Card.Body>
     </Card>
+    <Modal show={showDeleteModal} onHide={closeDeleteModal} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Review Deleted</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Your review has been successfully deleted.</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={closeDeleteModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 };
 
