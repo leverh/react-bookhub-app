@@ -47,3 +47,11 @@
 img {
   border-radius: 10px;
 }
+
+.modal-title {
+  font-size: 1.5rem;  
+}
+
+.modal-body {
+  font-size: 1.2rem;
+}

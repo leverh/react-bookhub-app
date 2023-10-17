@@ -14,6 +14,7 @@ import {
   Row,
   Container,
   Alert,
+  Modal,
 } from "react-bootstrap";
 import axios from "axios";
 
@@ -25,6 +26,8 @@ const SignUpForm = () => {
     password2: "",
   });
   const { username, password1, password2 } = signUpData;
+
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const [errors, setErrors] = useState({});
 
@@ -41,11 +44,15 @@ const SignUpForm = () => {
     event.preventDefault();
     try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
-      history.push("/signin");
+      setShowSuccessModal(true);  
+      setTimeout(() => {
+        history.push("/signin");
+      }, 2000);
     } catch (err) {
       setErrors(err.response?.data);
     }
   };
+  
 
   return (
     <Row className={styles.Row}>
@@ -134,6 +141,12 @@ const SignUpForm = () => {
           src={"https://res.cloudinary.com/dybqzflbo/image/upload/v1693318480/maarten-van-den-heuvel-0SYJS6nfR10-unsplash_wyunqy.jpg"}
         />
       </Col>
+      <Modal show={showSuccessModal} onHide={() => setShowSuccessModal(false)}>
+        <Modal.Header>
+          <Modal.Title>Sign Up Successful</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>You have successfully registered! Redirecting to the sign-in page...</Modal.Body>
+      </Modal>
     </Row>
   );
 };
