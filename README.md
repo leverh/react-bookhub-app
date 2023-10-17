@@ -681,13 +681,13 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
 ### 11. **Following and Followers List:**
 - **Procedure:**
   - Follow several users.
-  - Navigate to your profile and click on "Following" to see the list of users you're following.
+  - Navigate to the profile page and click on "Following" to see the list of users you're following.
   - Unfollow a user and check the list again.
   - Click on "Followers" to see the list of users following you.
 - **Results:**
   - The "Following" list correctly displayed the users being followed.
   - Upon unfollowing, users were removed from the "Following" list.
-  - The "Followers" list correctly displayed users following you.
+  - The "Followers" list correctly displayed users following user.
 
 
 ### 12. **Error Handling and Messages:**
@@ -719,10 +719,8 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
 - **Procedure:**
   - Navigate to a section of the application that has multiple pages or uses infinite scrolling.
   - Scroll through the items and observe the loading of additional content.
-  - If pagination is used, click through different page numbers.
 - **Results:**
   -  New content loaded seamlessly as the user scrolled down.
-  -  Pagination worked correctly, displaying a different set of items for each page.
 ### 16. **Form Validations**:
 - **Procedure**:
   - Go to any form within the application.
@@ -741,15 +739,15 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
 
 ### 18. **User Feedback on Actions**:
 - **Procedure**:
-  - Perform various actions like posting a comment, liking a review, or adding a book.
+  - Perform various actions like posting a comment, liking a review, adding a book, deleting reviews, upon successful signups, etc.
   - Observe if there's any feedback provided to the user (like a success message or a loading spinner- or a re-direct).
 - **Results**:
-  - User received immediate feedback on their actions, ensuring clarity and a good user experience.
+  - User received immediate feedback on their actions, ensuring clarity and a good user experience through redirects, modals, changing graphics, and loading spinners.
 
 ### 19. **Accessibility Features**:
 - **Procedure**:
   - Navigate the website using only a keyboard.
-  - Use screen reading tools, if available, to check how the website is read out.
+  - Use screen reading tools to check how the website is read out.
 - **Results**:
   - The website was navigable using just the keyboard.
   - Screen reading tools provided an accurate and user-friendly reading of the website.
@@ -757,7 +755,7 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
 ### 20. **Pop-up Modals and Dialogs**:
 - **Procedure**:
   - Trigger any pop-up modals or dialog boxes in the application (for example, by clicking on a "More Info" button).
-  - Interact with the modal (close it, fill it out, etc.).
+  - Interact with the modal (close it, etc.).
 - **Results**:
   - Modals and dialogs appeared as expected and were interactive.
   - Closing or submitting the modal/dialog worked correctly.
@@ -769,6 +767,22 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
 - **Results**:
   - Visual elements provided feedback upon interaction, enhancing the user experience.
 
+### 22. **Profile Edits**
+- **Procedure**:
+  - Try to change profile name, bio text, or image.
+  - Try to change password.
+- **Results**:
+  - Able to change profile name, bio text, image, and passwords.
+
+### 23. **Review Edits and Deletes**
+- **Procedure**:
+  - Try to edit a review by changing all form fields.
+  - Try to add a different book cover image.
+  - Check the delete modal / edit redirect are happening as expected.
+- **Results**:
+  - About to edit reviews (text, image, isbn, etc.).
+  - Deletion modal appearing as expected.
+  - Edit submission redirects happening as expected.
 
 Each testing procedure was meticulously executed, and any issues identified were addressed immediately to improve the application's reliability and user experience. This hands-on approach to testing ensured that **BookHub** offers an enjoyable experience for its users.
 
@@ -1534,7 +1548,8 @@ The following technologies were used in this project:
 
 * Adding a notification system to alert users when a new review has been posted by a person they follow.
 * Set up personal reading lists on users' profiles. 
-* Reading target meter- number of books a user picks as a target for the whole year, for example. 
+* Reading target meter- number of books a user picks as a target for the whole year/month/week, for example. 
+* Book genre tag - and then searching a book by tag genre.
 
 ## Credits
 
@@ -1546,15 +1561,20 @@ The following technologies were used in this project:
 
 * **[React Tutorial for Beginners - Programming with Mosh](https://www.youtube.com/watch?v=SqcY0GlETPk)** - Inspiration, ideas, and basics.
 
+* **freeCodeCamp:** 
+  - **[React Lifecycle Methods and Hooks – a Beginner's Guide](https://www.freecodecamp.org/news/react-lifecycle-methods-and-hooks-for-beginners/)** - Inspiration, ideas, and basics.
+  - **[How to Improve Your ReactJS Code – Tips for Code Readability and Performance](https://www.freecodecamp.org/news/improve-reactjs-code/)** - Inspiration, ideas, and basics.
+
+
 * **[w3schools](https://www.w3schools.com/REACT/DEFAULT.ASP)** - Random code snippets here and there, as well as explanations for difficult concepts.
 
 * **Book cover images** - All from [Amazon](www.amazon.com) or [Wikipedia](www.wikipedia.com). 
 
-* **Other images** - All other images are from [Pexels](https://www.pexels.com).
+* **Other images** - All other images are from [Pexels](https://www.pexels.com) and [Wikipedia](www.wikipedia.com).
 
 * **[Google Fonts](https://fonts.google.com/)** - For the fonts.
 
-* **[Lucidcharts](https://www.lucidchart.com/pages/)** - for the flowchart.
+* **[Lucidcharts](https://www.lucidchart.com/pages/)** - For the flowchart.
 
 * **[Balsamiq](https://balsamiq.com)** - For the wireframes.
 
