@@ -135,14 +135,14 @@ It's important to note that:
 
 ### 3. FloatingFooterButton.js
 
-**Purpose:** The **FloatingFooterButton** component is utilized to create a button with a floating footer style. This button, when clicked, triggers an action defined by the parent component, making it a versatile and reusable button component throughout the application.
+**Purpose:** The **FloatingFooterButton** component is utilized to create a button with a floating footer style. This button, when clicked, triggers an action defined by the parent component, making it a versatile and reusable button component throughout the application. I needed this functionality because of the infinite scrolling- you never actually get to the bottom of a page.
 
 **Props:**
 * **onClick** (function): A function that is triggered when the button is clicked. It is used to define what action should be performed on button click.
 
 **Usage:** 
 
-This component can be used wherever a button with floating footer style is required, and its action can be customized based on the parent component’s requirement. In my case, I use it to open up a modal imprint window. 
+This component can be used wherever a button with floating footer style is required, and its action can be customized based on the parent component’s requirement. In my case, I use it to open up a modal imprint window. This appears in every one of the app pages and replaces a footer.
 
 **Example:**
 
