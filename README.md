@@ -1064,7 +1064,7 @@ In addition, All pages have been run through Google's Lighthouse with the follow
 
 **THE MAIN PAGE**
 
-![image of Google's Lighthouse report results for the main app page](./src/assets/about-page.png)
+![image of Google's Lighthouse report results for the main app page](./src/assets/2023-10-10.png)
 
 **OPEN LIBRARY PAGE**
 
