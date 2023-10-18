@@ -73,8 +73,8 @@ function App() {
           <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />}/>
           <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />}/>
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />}/>
-          <Route exact path="/test-logged-out" render={() => <p>Test: Logged Out</p>} />
-          <Route exact path="/test-logged-in" render={() => <p>Test: Logged In</p>} />
+          {/* <Route exact path="/test-logged-out" render={() => <p>Test: Logged Out</p>} />
+          <Route exact path="/test-logged-in" render={() => <p>Test: Logged In</p>} /> */}
           <Route exact path="/openlibrary-search" component={OpenLibrarySearch} />
           <Route exact path="/nyt-reviews" component={NYTReviews} />
           <Route exact path="/about-us" component={AboutUs} />

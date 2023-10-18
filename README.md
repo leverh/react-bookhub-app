@@ -767,14 +767,14 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
 - **Results**:
   - Visual elements provided feedback upon interaction, enhancing the user experience.
 
-### 22. **Profile Edits**
+### 22. **Profile Edits**:
 - **Procedure**:
   - Try to change profile name, bio text, or image.
   - Try to change password.
 - **Results**:
   - Able to change profile name, bio text, image, and passwords.
 
-### 23. **Review Edits and Deletes**
+### 23. **Review Edits and Deletes**:
 - **Procedure**:
   - Try to edit a review by changing all form fields.
   - Try to add a different book cover image.
@@ -783,6 +783,16 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
   - About to edit reviews (text, image, isbn, etc.).
   - Deletion modal appearing as expected.
   - Edit submission redirects happening as expected.
+
+### 24. **Authentication Routes Test**:
+- **Procedure**:
+  - Implement two test routes: **/test-logged-out** and **/test-logged-in**.
+  - Access these routes while being logged in and logged out.
+  - Observe the displayed message to determine the user's authentication status.
+- **Results**:
+  - The **/test-logged-out** route displayed the "Test: Logged Out" message when the user was not authenticated.
+  - The **/test-logged-in** route displayed the "Test: Logged In" message when the user was authenticated.
+  - These routes successfully helped in diagnosing and verifying user authentication mechanisms and behaviors within the app.
 
 Each testing procedure was meticulously executed, and any issues identified were addressed immediately to improve the application's reliability and user experience. This hands-on approach to testing ensured that **BookHub** offers an enjoyable experience for its users.
 
