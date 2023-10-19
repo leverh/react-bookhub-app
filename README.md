@@ -1,7 +1,7 @@
 # BookHub: A Haven for Book Lovers
 Welcome to **BookHub**, a dedicated platform for bibliophiles to connect, share, and indulge in their love for literature. Whether you're an avid reader looking for your next read, or simply someone seeking recommendations and reviews, BookHub is your one-stop destination.
 
-![Image of the BookHub app on different screen sizes](./src/assets/Screenshot%202023-10-07%20at%2016-37-39%20Am%20I%20Responsive.png)
+![Image of the BookHub app on different screen sizes](./src/assets/Screenshot%202023-10-19%20at%2009-56-52%20Am%20I%20Responsive.png)
 
 ## Table of Contents
 
@@ -30,7 +30,7 @@ Welcome to **BookHub**, a dedicated platform for bibliophiles to connect, share,
 
 In the digital age, while there are myriad of platforms to discuss movies, music, and other forms of entertainment, dedicated platforms for book enthusiasts are few and far between. BookHub aims to fill this void by offering:
 
-- **Engaging Reviews:** Dive deep into comprehensive reviews and ratings from fellow readers.
+- **Engaging Reviews:** Dive deep into comprehensive reviews from fellow readers.
 
 - **Curated Collections:** Discover handpicked book recommendations tailored to your interests, ensuring you always have something great to read. 
 
@@ -64,7 +64,7 @@ The inception of the **BookHub** application was motivated by a passion for lite
    - To enable users to share their thoughts, reviews, and insights about different books, thereby promoting the exchange of knowledge and perspectives within the community.
 
 3. **Ease of Access:**
-   - To provide a user-friendly interface that allows users to seamlessly navigate through the application, explore various books, read reviews, and interact with other community members.
+   - To provide a user-friendly interface that allows users to navigate through the application, explore various books, read reviews, and interact with other community members.
 
 4. **Integration with External Libraries:**
    - To integrate functionalities that allow users to search and explore books from external libraries like OpenLibrary, thus expanding the range of accessible literature.
@@ -82,7 +82,7 @@ Through the realization of these goals, **BookHub** aims to be a meeting place i
 
 ## Component Architecture and Reuse
 
-In this application, I have embraced React's philosophy of building small, reusable, and independent components. Below are the components developed along with their purposes and usages.
+In this application, I have embraced React's philosophy of building small, reusable, and independent components. Below are some of the components developed, along with their purposes and usages.
 
 ### 1. Asset.js  
 
@@ -98,7 +98,6 @@ In this application, I have embraced React's philosophy of building small, reusa
 
 * **src** (string): The source URL of the avatar image.
 * **height** (number) : The height of the avatar image in pixels. Defaults to 45 if not provided.
-* **text** (string): Optional text to be displayed alongside the avatar image.
 
 **Usage**: This component is used on the main page in the review component, in the profile component, in the user list component, and so on. 
 
@@ -437,7 +436,7 @@ Incorporating a well-thought-out color scheme aids in creating a cohesive visual
 
 Color contrasts and accessibility are paramount in website design, serving a dual purpose of aesthetics and functionality. Proper contrast ensures that text and interactive elements are easily distinguishable, enhancing readability and reducing strain on the eyes. More importantly, it caters to a diverse audience, including those with visual impairments or color blindness, ensuring that everyone has an equal opportunity to access and enjoy the content. 
 
-For me, as a developer or designer, prioritizing accessibility broadens the reach of my website (or app), potentially increasing engagement. By adhering to accessibility standards, I think that we demonstrate a commitment to delivering a user-friendly and universally welcoming digital experience.
+For me, as a developer or designer, prioritizing accessibility broadens the reach of my website (or app), potentially increasing engagement. By adhering to accessibility standards, I think that we can demonstrate a commitment to delivering a user-friendly and universally welcoming digital experience.
 
 ![WebAim color contrast check image for a background color of #F2E6D3 and text color of #333333](./src/assets/Screenshot%202023-10-08%20at%2012-42-54%20WebAIM%20Contrast%20Checker.png)
 
@@ -469,7 +468,7 @@ In the development of the BookHub application, I prioritized clarity and user-ce
 
 #### Flowchart Key Features
 
-* **Data Fetching:**  The flowchart showcases how the application fetches reviews and the 'Book of the Week' upon loading the **ReviewsPage**.
+* **Data Fetching:**  The flowchart displays how the application fetches reviews and the 'Book of the Week' upon loading the **ReviewsPage**.
 
 * **User Interaction:** It highlights the user's ability to search for specific reviews and how the system responds to these queries.
 
@@ -500,7 +499,7 @@ User stories provide a simple, informal explanation of a software feature from t
 
 2. **Community Building**
 * As a user, I want to view popular profiles so that I can follow active members and enhance my community experience.
-* As a user, I want to follow/unfollow other members to personalize my feed and interactions.
+* As a user, I want to follow/unfollow other members to personalize my interactions. 
 * As a user, I want to be able to comment and engage with other users regarding book reviews.
 
 3. **Engagement Features**
@@ -550,7 +549,7 @@ User stories provide a simple, informal explanation of a software feature from t
 
 2. **react-bootstrap:**
 * **Usage:** This library provides responsive design components like **Col**, **Row**, **Container**, **Button**, and **Image**.
-* **Justification:** React-bootstrap allows for rapid development with a consistent design. It's based on Bootstrap, a widely recognized and adaptable front-end framework, ensuring a responsive and modern UI. Though personally, I prefer using 'vanilla' CSS as I find its flexibility and quirks exciting and creative.
+* **Justification:** React-bootstrap allows for rapid development with a consistent design. It's based on Bootstrap, a widely recognized and adaptable front-end framework, ensuring a responsive and modern UI. Though personally, I prefer using 'vanilla' CSS as I find its flexibility and quirks are more exciting, creative and versatile.
 
 3. **react-router:**
 * **Usage:** Used for client-side routing in the application, as seen with **useLocation** and **useParams**.
@@ -575,7 +574,8 @@ User stories provide a simple, informal explanation of a software feature from t
 8. **Self-made-scroll-up-button:** 
 * **Usage:** Provides a customizable "Scroll to Top" button for the application.
 * **Justification:** Initially, I used the React built-in scroll-to-top button code. However, because of compatibility issues with the React version i use in this project, i switched to a self made button code instead. 
-Enhancing user experience is crucial, especially in applications with lengthy content. A **"Scroll to Top"** button provides users with a quick and convenient way to navigate back to the top of the page, eliminating the need for manual scrolling. The custom-made-scroll-up-button offers an out-of-the-box solution for this with customization options to ensure the button easily fits into the application's design.
+
+  Enhancing user experience is crucial, especially in applications with lengthy content. A **"Scroll to Top"** button provides users with a quick and convenient way to navigate back to the top of the page, eliminating the need for manual scrolling. The custom-made-scroll-up-button offers an out-of-the-box solution for this with customization options to ensure the button easily fits into the application's design.
 
 ## Front-End Testing
 
@@ -628,9 +628,13 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
 - **Procedure:**
   - Search for a book using the integrated OpenLibrary search.
   - Check the results for relevancy.
+  - Check the NYT page displays NYT's top ten bestseller.
+  - Search for reviews using the NYT review search- Check for result when no book is found, and check for result when a book is found.
 - **Results:**
   - The search returned relevant results from OpenLibrary.
   - Book details from external libraries were displayed correctly.
+  - The ten bestsellers from the current NYT list are displayed correctly.
+  - NYT review search functionality works as expected.
 
 ### 6. **User Profile and Interactions:**
 - **Procedure:**
@@ -702,9 +706,11 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
 - **Procedure:**
   - Log out of the application.
   - Try to access user-specific sections without logging in.
+  - Check to see a logout confirmation.
 - **Results:**
   - Successfully logged out and sessions were terminated.
   - Without being logged in, user-specific sections were inaccessible, ensuring user data privacy.
+  - Logout confirmation functions as expected.
 
 ### 14. **Navigation Bar Interactivity:**
 - **Procedure:**
@@ -754,7 +760,7 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
 
 ### 20. **Pop-up Modals and Dialogs**:
 - **Procedure**:
-  - Trigger any pop-up modals or dialog boxes in the application (for example, by clicking on a "More Info" button).
+  - Trigger any pop-up modals or dialog boxes in the application (for example, by clicking on a "Info" button).
   - Interact with the modal (close it, etc.).
 - **Results**:
   - Modals and dialogs appeared as expected and were interactive.
@@ -780,7 +786,7 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
   - Try to add a different book cover image.
   - Check the delete modal / edit redirect are happening as expected.
 - **Results**:
-  - About to edit reviews (text, image, isbn, etc.).
+  - Able to edit reviews (text, image, isbn, etc.).
   - Deletion modal appearing as expected.
   - Edit submission redirects happening as expected.
 
@@ -1078,7 +1084,7 @@ In addition, All pages have been run through Google's Lighthouse with the follow
 
 ![image of Google's Lighthouse report results for the about app page](./src/assets/about-page.png)
 
-All back-end files have been run through [CI's Python Linter](https://pep8ci.herokuapp.com/) and passed. Below is an example for one:
+All back-end files have run through [CI's Python Linter](https://pep8ci.herokuapp.com/) and passed. Below is an example for one:
 
 ![Image of CI's linter page result for one of the code files](./src/assets/Screenshot%202023-10-16%20at%2010-50-16%20CI%20Python%20Linter.png)
 
@@ -1167,7 +1173,7 @@ Starting a new application development often involves numerous steps, from ideat
 
 ### Back-End
 
-After App was coded, the first step in the deployment process was to set up a PostgreSQL database instance using ElephantSQL:
+After the app was coded, the first step in the deployment process was to set up a PostgreSQL database instance using ElephantSQL:
 
 ### Setting Up a Database on ElephantSQL
 
@@ -1219,7 +1225,7 @@ The next step is:
 
 Before migration can take place, I needed to ensure the project is set up correctly to communicate with the ElephantSQL database. This process includes migrating data, setting environment variables, and validating the setup. Here's a detailed guide:
 
-### 1. Installing Required Packages:
+### 1. **Installing Required Packages**:
 
   In the IDE terminal, install **dj_database_url** and **psycopg2**:
   ```bash
@@ -1329,7 +1335,7 @@ Before migration can take place, I needed to ensure the project is set up correc
   ```
 
 ### 2. **Setting Up the Procfile**:
-  - Heroku requires a `Procfile` (with no file extension) to understand how to run your project. Create one and ensure the naming is accurate.
+  - Heroku requires a `Procfile` (with no file extension) to understand how to run the project. Create one and ensure the naming is accurate.
   - Populate the `Procfile` with:
 
   ```
@@ -1560,6 +1566,7 @@ The following technologies were used in this project:
 * Set up personal reading lists on users' profiles. 
 * Reading target meter- number of books a user picks as a target for the whole year/month/week, for example. 
 * Book genre tag - and then searching a book by tag genre.
+* Creating a forum where people can engage in deeper discussions about books.
 
 ## Credits
 
@@ -1610,6 +1617,10 @@ The following technologies were used in this project:
 * **[FontAwesome](https://fontawesome.com/)** - Icon library.
 * **[Material-UI Icons](https://mui.com/components/material-icons/)** - Icon library.
 
+### Version Control:
+* **Git**
+* **[GitHub](https://github.com/)**
+
 ### Testing Tools:
 * **[Jest](https://jestjs.io/)** - JavaScript testing.
 * **[Postman](https://www.postman.com/)** - API testing.
@@ -1617,7 +1628,7 @@ The following technologies were used in this project:
 ### Community & Forums:
 * **[Stack Overflow](https://stackoverflow.com/)** - Troubleshooting and solutions.
 * **[GitHub](https://github.com/)** - Repository references and solutions.
-* **[Reddit](https://www.reddit.com/r/webdev/)** - Insights, feedback, and advice.
+* **[Reddit](https://www.reddit.com/r/webdev/)** - Insights and advice.
 
 
 ### Thanks:
