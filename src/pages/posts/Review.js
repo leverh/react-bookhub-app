@@ -26,7 +26,6 @@ const Review = (props) => {
     reviewPage,
     setReviews,
   } = props;
-  console.log(`Initial likes_count for review ${id}:`, likes_count);
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
@@ -98,7 +97,6 @@ const Review = (props) => {
     } catch (err) {
       console.log(err.response);
     }
-    console.log(`Updated likesCount for review ${id} after unliking:`, likesCount);
   };
   
   
