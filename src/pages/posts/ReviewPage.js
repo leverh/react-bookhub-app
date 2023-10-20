@@ -16,7 +16,7 @@ import PopularProfiles from "../profiles/PopularProfiles";
 
 function ReviewPage() {
   const { id } = useParams();
-  const [review, setReview] = useState({ results: [] });
+  const [review, setReview] = useState(null);
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
@@ -28,6 +28,7 @@ function ReviewPage() {
           axiosReq.get(`/posts/${id}`),
           axiosReq.get(`/comments/?post=${id}`),
         ]);
+        console.log(review)
         setReview({ results: [review] });
         setComments(comments);
       } catch (err) {
@@ -42,7 +43,7 @@ function ReviewPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-        <Review {...review.results[0]} setReview={setReview} reviewPage />
+        {review && <Review {...review.results[0]} setReview={setReview} reviewPage />}
         <Container className={appStyles.Content}>
           {currentUser ? (
             <CommentCreateForm

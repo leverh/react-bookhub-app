@@ -15,8 +15,8 @@ const Review = (props) => {
     profile_id,
     profile_image,
     comments_count,
-    likes_count: initialLikesCount,
-    like_id: initialLikeId,
+    likes_count,
+    like_id,
     title,
     author_name,
     isbn,
@@ -26,14 +26,15 @@ const Review = (props) => {
     reviewPage,
     setReviews,
   } = props;
+  console.log(`Initial likes_count for review ${id}:`, likes_count);
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const history = useHistory();
 
-  const [likesCount, setLikesCount] = useState(initialLikesCount);
-  const [likeId, setLikeId] = useState(initialLikeId);
+  const [likesCount, setLikesCount] = useState(likes_count || 0);
+  const [likeId, setLikeId] = useState(like_id);
 
   const handleEdit = () => {
     history.push(`/reviews/edit/${id}`);
@@ -55,19 +56,53 @@ const Review = (props) => {
 
   const handleLike = async () => {
     try {
-      if (likeId) {
-        await axiosRes.delete(`/likes/${likeId}/`);
-        setLikesCount((prev) => prev - 1);
-        setLikeId(null);
-      } else {
-        const { data } = await axiosRes.post("/likes/", { post: id });
-        setLikesCount((prev) => prev + 1);
-        setLikeId(data.id);
+      const { data } = await axiosRes.post("/likes/", { post: id });
+  
+      setLikesCount(prevLikesCount => (prevLikesCount || 0) + 1);
+      setLikeId(data.id);
+  
+      if (setReviews) {
+        setReviews(prevReviews => ({
+          ...prevReviews,
+          results: prevReviews.results.map(review => {
+            return review.id === id
+              ? { ...review, likes_count: review.likes_count + 1, like_id: data.id }
+              : review;
+          }),
+        }));
       }
     } catch (err) {
-      // console.log(err);
+      console.log(err.response);
     }
+    console.log(`Updated likesCount for review ${id} after liking:`, likesCount);
   };
+  
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/likes/${likeId}/`);
+  
+      setLikesCount(prevLikesCount => Math.max((prevLikesCount || 0) - 1, 0));
+      setLikeId(null);
+  
+      
+      if (setReviews) {
+        setReviews(prevReviews => ({
+          ...prevReviews,
+          results: prevReviews.results.map(review => {
+            return review.id === id
+              ? { ...review, likes_count: review.likes_count - 1, like_id: null }
+              : review;
+          }),
+        }));
+      }
+    } catch (err) {
+      console.log(err.response);
+    }
+    console.log(`Updated likesCount for review ${id} after unliking:`, likesCount);
+  };
+  
+  
+  
 
   return (
     <>
@@ -108,7 +143,7 @@ const Review = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           ) : likeId ? (
-            <span onClick={handleLike}>
+            <span onClick={handleUnlike}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
@@ -124,7 +159,7 @@ const Review = (props) => {
             </OverlayTrigger>
           )}
 
-          <span className={styles.iconCount}>{likesCount}</span>
+          <span className={styles.iconCount}>{isNaN(likesCount) ? 0 : likesCount}</span>
           <Link to={`/reviews/${id}`}>
             <i className="far fa-comments" />
           </Link>

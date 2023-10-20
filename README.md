@@ -1631,6 +1631,6 @@ The following technologies were used in this project:
 * **[Reddit](https://www.reddit.com/r/webdev/)** - Insights and advice.
 
 
-### Thanks:
+### Thank you's to:
 
-- Code Institute tutors: Sean, Sara, and Holly for their patience and bug fixes.
+- Code Institute tutors: Sean, Sara, Holly, and Jason for their patience and bug fixes.
