@@ -28,7 +28,7 @@ function App() {
 
   const [showModal, setShowModal] = useState(false);
 
-  const toggleModal = () => {  // <-- Function to toggle modal visibility
+  const toggleModal = () => {  // toggle modal visibility
     setShowModal(!showModal);
   };
 

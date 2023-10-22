@@ -73,7 +73,6 @@ const Review = (props) => {
     } catch (err) {
       console.log(err.response);
     }
-    console.log(`Updated likesCount for review ${id} after liking:`, likesCount);
   };
   
   const handleUnlike = async () => {
