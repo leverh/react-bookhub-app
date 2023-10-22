@@ -1,4 +1,4 @@
-const NYT_API_KEY = 'rSGhhI8F45E4JgI8myNemmjWx7YXu43h';
+const NYT_API_KEY = process.env.REACT_APP_NYT_API_KEY;
 const NYT_ENDPOINT = 'https://api.nytimes.com/svc/books/v3/reviews.json';
 
 export const fetchNYTReviews = async (title = "The Seven Moons of Maali Almeida") => {
