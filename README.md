@@ -18,6 +18,7 @@ Welcome to **BookHub**, a dedicated platform for bibliophiles to connect, share,
 - [Front-End Testing](#front-end-testing)
   - [Automatic Testing](#automatic-testing)
 - [Back-end Manual Testing](#back-end-manual-testing)
+- [Bugs](#bugs)
 - [Validators](#validators)
 - [Agile Board ](#key-agile-practices-adopted)
 - [Version Control and GitHub Usage](#version-control-and-github-usage)
@@ -1060,7 +1061,34 @@ Through these automatic tests, I verify the expected behavior of the user interf
   1. Navigate to the root URL `/`.
   2. Verify that the response is as expected (e.g., a welcome page or redirect to another endpoint).
 
-### Validators
+## Bugs (And how I dealt with one...)
+
+I have encountered several bugs during the development stage- here is an example of how I dealt with the one of the bugs:
+
+### Problem Description:
+
+When a user posted a comment to a book review, the comment was added immediately to the review. However, the comment counter didn't update automatically and required a page refresh.
+
+### Solution:
+
+1. **Identify the Components Involved:**
+* Identifying that the **CommentCreateForm.js** component was responsible for adding new comments.
+* The **Review.js** component displayed the comment count.
+* The **ReviewPage.js** component managed the state of the review, including the comment count.
+
+2. Update Comment Count in **CommentCreateForm.js:**
+* After successfully adding a new comment in the **CommentCreateForm.js** component, I called a new callback function named updateCommentCount to signal that the comment count should be incremented.
+
+3. Handle Comment Count Update in **ReviewPage.js:**
+* I defined the **updateCommentCount** function in the **ReviewPage.js** component. This function incremented the comments_count in the review.results[0] object of the component's state.
+* I passed this **updateCommentCount** function as a prop to the **CommentCreateForm.js** component, enabling it to call the function after adding a comment.
+
+4. Display the Updated Comment Count:
+* No changes were required in the **Review.js** component since it was already displaying the **comments_count** prop. With the updates made in the previous steps, this prop now received the updated count, and it was reflected in the UI automatically.
+
+After implementing the changes, the comment count updated automatically in the UI when a new comment was added, eliminating the need for a page refresh and providing a better user experience.
+
+## Validators
 
 #### CSS:
 

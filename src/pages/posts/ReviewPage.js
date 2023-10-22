@@ -39,6 +39,20 @@ function ReviewPage() {
     handleMount();
   }, [id]);
 
+  const updateCommentCount = () => {
+    setReview((prevReview) => ({
+      ...prevReview,
+      results: [
+        {
+          ...prevReview.results[0],
+          comments_count: prevReview.results[0].comments_count + 1,
+        },
+        ...prevReview.results.slice(1),
+      ],
+    }));
+  };
+  
+
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
@@ -47,12 +61,14 @@ function ReviewPage() {
         <Container className={appStyles.Content}>
           {currentUser ? (
             <CommentCreateForm
-              profile_id={currentUser.profile_id}
-              profileImage={profile_image}
-              post={id}
-              setPost={setReview}
-              setComments={setComments}
-            />
+            profile_id={currentUser.profile_id}
+            profileImage={profile_image}
+            post={id}
+            setPost={setReview}
+            setComments={setComments}
+            updateCommentCount={updateCommentCount}
+          />
+          
           ) : comments.results.length ? (
             "Comments"
           ) : null}

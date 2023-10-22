@@ -26,6 +26,7 @@ function CommentCreateForm(props) {
         ...prevComments,
         results: [data, ...prevComments.results],
       }));
+      props.updateCommentCount();
       setPost((prevPost) => ({
         ...prevPost,
         comments_count: prevPost.comments_count + 1,
