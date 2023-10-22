@@ -51,6 +51,20 @@ function ReviewPage() {
       ],
     }));
   };
+
+  const decrementCommentCount = () => {
+    setReview((prevReview) => ({
+        ...prevReview,
+        results: [
+            {
+                ...prevReview.results[0],
+                comments_count: prevReview.results[0].comments_count - 1,
+            },
+            ...prevReview.results.slice(1),
+        ],
+    }));
+};
+
   
 
   return (
@@ -80,6 +94,7 @@ function ReviewPage() {
                   {...comment}
                   setPost={setReview}
                   setComments={setComments}
+                  decrementCommentCount={decrementCommentCount}
                 />
               ))}
               dataLength={comments.results.length}

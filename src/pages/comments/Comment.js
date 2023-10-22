@@ -22,6 +22,7 @@ const Comment = (props) => {
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
+      props.decrementCommentCount();
     } catch (err) {
       console.log(err);
     }
