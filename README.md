@@ -459,7 +459,7 @@ In the development of the BookHub application, I prioritized clarity and user-ce
 
 #### Purpose of the Flowchart:
 
-1. **Visualization:** Before diving into the code, the flowchart provided a clear picture of how the different components and functionalities of the **ReviewsPage** interact with each other.
+1. **Visualization:** The flowchart provided a clear picture of how the different components and functionalities of the **ReviewsPage** interact with each other.
 
 2. **User-Centered Design:** It assisted in ensuring that user interactions were smooth, logical, and minimized unnecessary steps.
 
@@ -686,13 +686,12 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
 ### 11. **Following and Followers List:**
 - **Procedure:**
   - Follow several users.
-  - Navigate to the profile page and click on "Following" to see the list of users you're following.
   - Unfollow a user and check the list again.
-  - Click on "Followers" to see the list of users following you.
+  - Test follow/unfollow lists in the back-end.
 - **Results:**
-  - The "Following" list correctly displayed the users being followed.
   - Upon unfollowing, users were removed from the "Following" list.
-  - The "Followers" list correctly displayed users following user.
+  - Correctly able to follow users.
+  - Checked back-end to see if following and unfollowing functions were working as expected.
 
 
 ### 12. **Error Handling and Messages:**
@@ -800,6 +799,19 @@ To ensure the reliability of the **BookHub** application, extensive manual testi
   - The **/test-logged-out** route displayed the "Test: Logged Out" message when the user was not authenticated.
   - The **/test-logged-in** route displayed the "Test: Logged In" message when the user was authenticated.
   - These routes successfully helped in diagnosing and verifying user authentication mechanisms and behaviors within the app.
+
+### 25. **Review Interactions**:
+  **Procedure**:
+  - Test comment functionality.
+  - Test like functionality.
+  - Check couters change accordingly.
+  - Check with the corresponding back-end database that the functionality was indeed properly recorded. 
+
+  **Results**:
+  - Able to post, edit, delete comments.
+  - Able to like and unlike reviews.
+  - Counters change accordinly- incrementing and decrementing.
+  - Back-end worked as expected.
 
 Each testing procedure was meticulously executed, and any issues identified were addressed immediately to improve the application's reliability and user experience. This hands-on approach to testing ensured that **BookHub** offers an enjoyable experience for its users.
 
@@ -1615,7 +1627,7 @@ The following technologies were used in this project:
 
 * **Book cover images** - All from [Amazon](www.amazon.com) or [Wikipedia](www.wikipedia.com). 
 
-* **Other images** - All other images are from [Pexels](https://www.pexels.com) and [Wikipedia](www.wikipedia.com).
+* **Other images** - All other images are from [Pexels](https://www.pexels.com) or [Wikipedia](www.wikipedia.com).
 
 * **[Google Fonts](https://fonts.google.com/)** - For the fonts.
 
