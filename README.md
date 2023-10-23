@@ -20,8 +20,9 @@ Welcome to **BookHub**, a dedicated platform for bibliophiles to connect, share,
 - [Back-end Manual Testing](#back-end-manual-testing)
 - [Bugs](#bugs)
 - [Validators](#validators)
-- [Agile Board ](#key-agile-practices-adopted)
 - [Version Control and GitHub Usage](#version-control-and-github-usage)
+- [Agile Board ](#key-agile-practices-adopted)
+- [Crud Functionality](#crud-functionality-in-bookhub)
 - [Deployment Process](#deployment-process)
 - [Technologies](#technologies)
 - [Credits](#credits)
@@ -1159,6 +1160,26 @@ For the development of the BookHub application, I used the Agile methodology.
 3. **Interactive Board Management:** I used Trello as my project management tool, enabling me to visualize tasks, track progress, and manage priorities in an interactive way. I then transferred the boards to GitHub Projects.
 
  Here is the [GitHub Projects link](https://github.com/users/leverh/projects/3) for the Front-End, and for the [Back-End](https://github.com/users/leverh/projects/4).
+
+## CRUD Functionality in BookHub
+
+BookHub provides CRUD (Create, Read, Update, Delete) functionalities to ensure users have a good experience managing their book reviews and comments. Here's a breakdown of the CRUD operations:
+
+### Create
+1. **Post a Review**: Users can add new book reviews, sharing their insights and ratings. Simply by navigating to the "Add Review" page, filling in the book details, their thoughts, and then submitting. 
+2. **Add Comments**: Users are able to engage with the community by adding comments to any review. Whether they agree, disagree, or just want to share more insights, their voice is welcome.
+
+### Read
+1. **Browse Reviews**: The main page displays a curated list of reviews. Users can dive deep into each review to see detailed insights, user ratings (judging by the likes counters), and community comments.
+2. **User Profiles**: Users can visit user profiles to see their posted reviews and their favorite books. It's a great way to discover new reads and get users to engage.
+
+### Update
+1. **Edit a Review**: A user can navigate to their review and click the "Edit" button, updating their thoughts, ideas, or any other details.
+2. **Modify Comments**: A user can change a comment they made by simply finding their comments, clicking the "Edit" button, and making their changes.
+
+### Delete
+1. **Remove a Review**: If a user decides to remove their review, they can go to the specific review and click the "Delete" button, confirm their decision, and the review will be removed from BookHub.
+2. **Delete Comments**: Users can also remove any comment they've made by finding the comment, clicking the "Delete" button, and the comment will be removed immediately.
 
 ## Deployment Process
 
