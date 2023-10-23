@@ -103,5 +103,19 @@ ul li a:hover {
     .belief-statement {
         flex-direction: column;
     }
+    ul {
+        max-width: 100%;
+    }
+
+    ul li {
+        text-align: center;
+    }
+
+    ol, ul {
+        padding-left: 0;
+    }
+    h4, h5 {
+        max-width: 100%;
+    }
 }
 
