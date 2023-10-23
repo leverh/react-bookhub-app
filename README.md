@@ -51,9 +51,9 @@ In the digital age, while there are myriad of platforms to discuss movies, music
 **BookHub** can be found [here.](https://bookhub-react-app-e2e5d4f08f69.herokuapp.com/)
 
 **GitHub**:
-- Front-End code link can be found [here.](https://github.com/leverh/react-bookhub-app/tree/secondary)
+- Front-End code link can be found [here.](https://github.com/leverh/react-bookhub-app)
 
-- Back-End code link is [here.](https://github.com/leverh/drf_api/tree/secondary)
+- Back-End code link is [here.](https://github.com/leverh/drf_api)
 
 ## Project Goals:
 
